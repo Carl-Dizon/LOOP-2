@@ -1,0 +1,81 @@
+.cardtop {
+
+    border:0 ! important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125) ! important;
+    
+}
+.card-body {
+    flex: 1 1 auto;
+    padding-left: 0;
+    padding-top:1rem;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border:none;
+    border-radius: 0.25rem;
+}
+#samplepic
+{
+        max-width: 100%;  
+  
+}
+.progress
+{
+   margin-left: 1rem ! important;
+   
+    
+}
+.progress-bar-danger
+{
+    background-color: grey;
+}
+
+.card-body-head {
+    flex: 1 1 auto;
+    //padding: 1.25rem;
+    border-bottom: 1px solid gray;
+    border-top: 0;
+    
+    
+}
+.col-xl-6 text-xs-center
+{
+    padding-right:0 ! important; 
+   
+}
+#combo1
+{
+    float: right;
+}
+#header
+{
+border:1px solid black;
+
+}
+.col-xl-6 text-xs-center
+{
+    border-right: 1px solid gray ! important;
+  
+
+   
+}
+
+.text-xs-center-left
+{
+    border-left: 1px solid gray ! important;
+    -webkit-box-shadow: -7px 0 5px -5px #888;
+  //  box-shadow: 0px 0px 20px black; 
+}
+
+.col-xl-6 text-xs-center-right
+{
+    border:1px solid red;
+    
+}
