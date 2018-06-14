@@ -177,6 +177,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Companies\" />
+    <Folder Include="Controllers\Permissions\" />
+    <Folder Include="Controllers\Projects\" />
+    <Folder Include="Controllers\Roles\" />
+    <Folder Include="Controllers\Tasks\" />
+    <Folder Include="Controllers\Users\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +259,12 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Providers\MSD.Loop.Providers.csproj">
+      <Project>{62270ed3-92c3-460a-88c1-e81fe797dc1c}</Project>
+      <Name>MSD.Loop.Providers</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

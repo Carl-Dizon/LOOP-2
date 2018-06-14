@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Engine", "MSD.Loop.Engine\MSD.Loop.Engine.csproj", "{809278E4-4BBE-42F9-8E61-73C3F87C57CF}"
 EndProject
@@ -10,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Infrastructure", "MSD.Loop.Infrastructure\MSD.Loop.Infrastructure.csproj", "{343601DE-F09C-42C6-B936-A3B1DE7C7909}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.API", "MSD.Loop.API\MSD.Loop.API.csproj", "{8FF5203C-83BE-4C16-B248-BAA629EAABF8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Providers", "MSD.Loop.Providers\MSD.Loop.Providers.csproj", "{62270ED3-92C3-460A-88C1-E81FE797DC1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Modules", "MSD.Loop.Modules\MSD.Loop.Modules.csproj", "{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Tests", "MSD.Loop.Tests\MSD.Loop.Tests.csproj", "{EA419E13-E075-4F9D-89FE-0E1F24FF94D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{8FF5203C-83BE-4C16-B248-BAA629EAABF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF5203C-83BE-4C16-B248-BAA629EAABF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF5203C-83BE-4C16-B248-BAA629EAABF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62270ED3-92C3-460A-88C1-E81FE797DC1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62270ED3-92C3-460A-88C1-E81FE797DC1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62270ED3-92C3-460A-88C1-E81FE797DC1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62270ED3-92C3-460A-88C1-E81FE797DC1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA419E13-E075-4F9D-89FE-0E1F24FF94D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA419E13-E075-4F9D-89FE-0E1F24FF94D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA419E13-E075-4F9D-89FE-0E1F24FF94D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA419E13-E075-4F9D-89FE-0E1F24FF94D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

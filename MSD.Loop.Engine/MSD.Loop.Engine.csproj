@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,16 +41,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\Configuration.cs" />
+    <Compile Include="Configurations\ConfigurationFactory.cs" />
+    <Compile Include="Interfaces\ICompanyRepository.cs" />
     <Compile Include="Interfaces\ICompanyService.cs" />
+    <Compile Include="Interfaces\IConfigurationFactory.cs" />
+    <Compile Include="Interfaces\IConnectionFactory.cs" />
+    <Compile Include="Interfaces\IMaterialRepository.cs" />
     <Compile Include="Interfaces\IMaterialService.cs" />
+    <Compile Include="Interfaces\IProjectRepository.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
+    <Compile Include="Interfaces\ITaskRepository.cs" />
     <Compile Include="Interfaces\ITaskService.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\CompanyMaterialStock.cs" />
+    <Compile Include="Models\CompanyRole.cs" />
+    <Compile Include="Models\CompanyUser.cs" />
+    <Compile Include="Models\CostEstimate.cs" />
+    <Compile Include="Models\ProjectAssignedUserTask.cs" />
+    <Compile Include="Models\ProjectTaskMaterial.cs" />
+    <Compile Include="Models\Permission.cs" />
+    <Compile Include="Models\CompanyProject.cs" />
+    <Compile Include="Models\ProjectEstimate.cs" />
+    <Compile Include="Models\ProjectAssignedUserRole.cs" />
+    <Compile Include="Models\ProjectTaskWorkHour.cs" />
+    <Compile Include="Models\ProjectTaskWorkHourEstimates.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\ProjectTask.cs" />
+    <Compile Include="Models\ProjectTaskMaterialEstimates.cs" />
+    <Compile Include="Models\RolePermission.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Modules\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
+      <Project>{312e1c8f-ae31-4310-a1e4-eb93291c4a01}</Project>
+      <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</ProjectGuid>
+    <ProjectGuid>{CC647E07-EDC6-4997-BA7C-B3BECDFE101E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MSD.Loop.Common</RootNamespace>
-    <AssemblyName>MSD.Loop.Common</AssemblyName>
+    <RootNamespace>MSD.Loop.Modules</RootNamespace>
+    <AssemblyName>MSD.Loop.Modules</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Interfaces\ILoopModule.cs" />
-    <Compile Include="Interfaces\IMailer.cs" />
-    <Compile Include="Interfaces\IRoleProvider.cs" />
-    <Compile Include="Modules\LoopEngineEvent.cs" />
-    <Compile Include="Pipelines\LoopApplicationContext.cs" />
+    <Compile Include="Projects\ProjectMngtModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
+      <Project>{312e1c8f-ae31-4310-a1e4-eb93291c4a01}</Project>
+      <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Companies\" />
+    <Folder Include="Permissions\" />
+    <Folder Include="Roles\" />
+    <Folder Include="Tasks\" />
+    <Folder Include="Users\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
