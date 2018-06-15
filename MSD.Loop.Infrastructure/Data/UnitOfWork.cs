@@ -17,7 +17,7 @@ namespace MSD.Loop.Infrastructure.Data
 
         private readonly ICompanyProjectUserRepository _projectUserRepo;
         private readonly ICompanyUserRoleRepository _companyUserRoleRepo;
-        private readonly ICompanyProjectUserTaskRepository _projectUserTaskRepo;
+        private readonly ICompanyProjectTaskUserRepository _projectUserTaskRepo;
         private readonly IProjectRepository _projectRepo;
 
         private readonly IProjectTaskRepository _projectTaskRepo;
@@ -60,9 +60,9 @@ namespace MSD.Loop.Infrastructure.Data
             get { return _companyUserRoleRepo ?? (new CompanyUserRoleRepository(_transaction)); }
         }
 
-        public ICompanyProjectUserTaskRepository ProjectUserTaskRepository
+        public ICompanyProjectTaskUserRepository ProjectUserTaskRepository
         {
-            get { return _projectUserTaskRepo ?? (new ProjectUserTaskRepository(_transaction)); }
+            get { return _projectUserTaskRepo ?? (new ProjectTaskUserRepository(_transaction)); }
         }
 
         public IProjectRepository ProjectRepository

@@ -1,6 +1,6 @@
 ﻿namespace MSD.Loop.Engine.Interfaces
 {
-    public interface ICompanyProjectUserTaskRepository
+    public interface ICompanyProjectTaskUserRepository
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MSD.Loop.Engine.Models
 {
-    public class Role
+    public class ProjectTaskWorkHourEstimate
     {
     }
 }

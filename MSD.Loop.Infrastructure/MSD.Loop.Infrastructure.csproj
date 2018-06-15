@@ -55,7 +55,7 @@
     <Compile Include="Data\ProjectMaterialRepository.cs" />
     <Compile Include="Data\ProjectTaskRepository.cs" />
     <Compile Include="Data\ProjectUserRepository.cs" />
-    <Compile Include="Data\ProjectUserTaskRepository.cs" />
+    <Compile Include="Data\ProjectTaskUserRepository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

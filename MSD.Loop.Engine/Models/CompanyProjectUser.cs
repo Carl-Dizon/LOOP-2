@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace MSD.Loop.Engine.Models
 {
-    public class ProjectTask
+    public class CompanyProjectUser
     {
         public int Id { get; set; }
+        public CompanyUser CompanyUser { get; set; }
         public CompanyProject Project { get; set; }
+        public DateTime AssignedOn { get; set; }
 
-        //timestamp
+        //timestamps
         public DateTime CreatedOn { get; set; }
-        public DateTime LastModifiedOn { get; set; }
+        public DateTime LastModified { get; set; }
     }
 }
