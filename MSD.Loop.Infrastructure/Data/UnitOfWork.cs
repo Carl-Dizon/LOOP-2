@@ -1,7 +1,6 @@
-﻿using MSD.Loop.Infrastructure.Interfaces;
+﻿using MSD.Loop.Engine.Interfaces;
 using System;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace MSD.Loop.Infrastructure.Data
 {
@@ -15,10 +14,12 @@ namespace MSD.Loop.Infrastructure.Data
         private readonly IUserRepository _userRepo;
         private readonly CompanyRoleRepository _companyRoleRepo;
         private readonly ICompanyUserRepository _companyUserRepo;
+
         private readonly ICompanyProjectUserRepository _projectUserRepo;
         private readonly ICompanyUserRoleRepository _companyUserRoleRepo;
         private readonly ICompanyProjectUserTaskRepository _projectUserTaskRepo;
         private readonly IProjectRepository _projectRepo;
+
         private readonly IProjectTaskRepository _projectTaskRepo;
         private readonly ICompanyMaterialStockRepository _materialStockRepo;
         private readonly ProjectMaterialRepository _projectMaterialRepo;
