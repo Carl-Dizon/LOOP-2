@@ -2,20 +2,16 @@
 using MSD.Loop.Common.Modules;
 using MSD.Loop.Engine.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSD.Loop.Engine.Configurations
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
-        IMailer _mailer;
-        ILogger _logger;
-        IRoleProvider _roleProvider;
-        LoopEngineEvent _loopEvents;
+        private IMailer _mailer;
+        private ILogger _logger;
+        private IRoleProvider _roleProvider;
+        private ApplicationEvents _events;
 
         public ConfigurationFactory()
         {
@@ -27,6 +23,14 @@ namespace MSD.Loop.Engine.Configurations
                 _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
                 
                 _roleProvider = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as IRoleProvider;
+            }
+
+            //handle modules
+            _events = new ApplicationEvents();
+            foreach(ModuleElement moduleElement in config.Modules)
+            {
+                IApplicationModule module = Activator.CreateInstance(Type.GetType(moduleElement.Name)) as IApplicationModule;
+                module.Initialize(_events);
             }
             
         }
@@ -42,9 +46,10 @@ namespace MSD.Loop.Engine.Configurations
             return _logger;
         }
 
-        public LoopEngineEvent GetEvents()
+        public ApplicationEvents GetEvents()
         {
-            return _loopEvents;
+            return _events;
         }
+
     }
 }

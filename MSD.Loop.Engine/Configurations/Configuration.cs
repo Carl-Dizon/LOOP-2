@@ -5,13 +5,32 @@ namespace MSD.Loop.Engine.Configurations
     public class LoopEngineConfigurationSection : ConfigurationSection
     {
         [ConfigurationProperty("mailer", IsRequired = true)]
-        public MailerElement Mailer { get; set; }
+        public MailerElement Mailer
+        { 
+            get { return (MailerElement)base["mailer"]; }
+            set { base["mailer"] = value; }
+        }
 
         [ConfigurationProperty("logger", IsRequired = true)]
-        public LoggerElement Logger { get; set; }
+        public LoggerElement Logger
+        {
+            get { return (LoggerElement)base["logger"]; }
+            set { base["logger"] = value; }
+        }
 
-        [ConfigurationProperty("roleProvider", IsRequired = true)]
-        public RoleProviderElement RoleProvider { get; set; }
+        [ConfigurationProperty("roleProvider", IsRequired = false)]
+        public RoleProviderElement RoleProvider
+        {
+            get { return (RoleProviderElement)base["roleProvider"]; }
+            set { base["roleProvider"] = value; }
+        }
+
+        [ConfigurationProperty("modules", IsRequired = false)]
+        public ModuleElementCollection Modules
+        {
+            get { return (ModuleElementCollection)base["modules"]; }
+            set { base["modules"] = value; }
+        }
     }
 
     public class ProviderBaseElement : ConfigurationElement

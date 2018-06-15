@@ -44,7 +44,8 @@
     <Compile Include="Interfaces\ILoopModule.cs" />
     <Compile Include="Interfaces\IMailer.cs" />
     <Compile Include="Interfaces\IRoleProvider.cs" />
-    <Compile Include="Modules\LoopEngineEvent.cs" />
+    <Compile Include="Modules\ApplicationEventArgs.cs" />
+    <Compile Include="Modules\ApplicationEvents.cs" />
     <Compile Include="Pipelines\LoopApplicationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
