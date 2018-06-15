@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Interfaces\ILoopModule.cs" />
+    <Compile Include="Interfaces\IAppModule.cs" />
     <Compile Include="Interfaces\IMailer.cs" />
     <Compile Include="Interfaces\IRoleProvider.cs" />
     <Compile Include="Modules\ApplicationEventArgs.cs" />
