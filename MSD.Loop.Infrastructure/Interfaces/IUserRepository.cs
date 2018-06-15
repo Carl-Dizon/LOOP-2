@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSD.Loop.Engine.Interfaces
+namespace MSD.Loop.Infrastructure.Interfaces
 {
-    public interface ITaskRepository
+    public interface IUserRepository
     {
+
     }
 }

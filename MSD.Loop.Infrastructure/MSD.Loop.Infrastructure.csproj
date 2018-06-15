@@ -45,11 +45,36 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\ConnectionFactory.cs" />
+    <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\CompanyMaterialStockRepository.cs" />
+    <Compile Include="Data\CompanyProjectRepository.cs" />
+    <Compile Include="Data\CompanyRepository.cs" />
+    <Compile Include="Data\CompanyRoleRepository.cs" />
+    <Compile Include="Data\CompanyUserRepository.cs" />
+    <Compile Include="Data\CompanyUserRoleRepository.cs" />
+    <Compile Include="Data\ProjectMaterialRepository.cs" />
+    <Compile Include="Data\ProjectTaskRepository.cs" />
+    <Compile Include="Data\ProjectUserRepository.cs" />
+    <Compile Include="Data\ProjectUserTaskRepository.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectUserRoleRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectUserTaskRepository.cs" />
+    <Compile Include="Interfaces\ICompanyRepository.cs" />
+    <Compile Include="Interfaces\ICompanyUserRepository.cs" />
+    <Compile Include="Interfaces\ICompanyUserRoleRepository.cs" />
+    <Compile Include="Interfaces\IConnectionFactory.cs" />
+    <Compile Include="Interfaces\IProjectRepository.cs" />
+    <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
+    <Compile Include="Interfaces\IProjectTaskRepository.cs" />
+    <Compile Include="Interfaces\ICompanyRoleRepository.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

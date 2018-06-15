@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MSD.Loop.Infrastructure.Interfaces
+{
+    public interface IUnitOfWork : IDisposable
+    {
+        ICompanyRepository CompanyRepository { get; }
+        IUserRepository UserRepository { get; }
+        ICompanyRoleRepository CompanyRoleRepository { get; }
+
+        ICompanyUserRepository CompanyUserRepository { get; }
+        ICompanyProjectUserRepository ProjectUserRepository { get; }
+        ICompanyUserRoleRepository CompanyUserRoleRepository { get; }
+        ICompanyProjectUserTaskRepository ProjectUserTaskRepository { get; }
+
+        IProjectRepository ProjectRepository { get; }
+        IProjectTaskRepository ProjectTaskRepository { get; }
+        ICompanyMaterialStockRepository MaterialStockRepository { get; }
+        IProjectTaskMaterialRepository ProjectMaterialRepository { get; }
+
+        void Commit();
+    }
+}
