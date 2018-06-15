@@ -1,4 +1,4 @@
-﻿namespace MSD.Loop.Infrastructure.Interfaces
+﻿namespace MSD.Loop.Engine.Interfaces
 {
     public interface ICompanyMaterialStockRepository
     {
