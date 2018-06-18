@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "meganJune";
+    src: url("../assets/fonts/megan_june.otf");
+}
+
+.header-background {
+    background-color: rgb(7, 179, 202);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+}
+
+.bar-button {
+    left: -6px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+    background-color: rgb(0, 145, 145);
+    border-radius: 0px;
+    height: 60px;
+    width: 60px;
+}
+
+.square-percentage {
+    background-color: rgb(10, 117, 131);
+    height: 320px;
+    position: relative;
+}
+
+.square-lowpercentage {
+    background-color: rgb(179, 153, 6);
+    height: 320px;
+    position: relative;
+}
+
+.project-select {
+    position: absolute;
+    background-color: rgb(173, 173, 173);
+    top: 18px;
+    left: 210px;
+}
+
+.button-project-select {
+    position: absolute;
+    top: 18px;
+    left: 320px;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(7, 179, 202);
+}
+
+.label-ios {
+    margin: 11px 8px 11px 0;
+    font-family: Verdana;
+    font-style: italic;
+    font-size: initial;
+}
+
+.percentage {
+    width: 100%;
+    top: 32vw;
+    left: 1vw;
+    text-align: center;
+    position: absolute;
+    font-size: 28vw;
+    color: white;
+    font-family: meganJune;
+
+}
+
+.project-name {
+    text-align: center;
+    top: 13vw;
+    width: 100%;
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    font-family: meganJune;
+}
+
+.background-building {
+    opacity: 0.25;
+    height: 100%;
+    width: 100%;
+}
+
+.svg-container {
+    left: 24.5vw;
+    width: 46%;
+    text-align: center;
+    top: 23vw;
+    position: absolute;
+    color: white;
+}
+
+ion-list-header {
+    height: 50px;
+}
+
+ion-icon {
+    color: white;
+}
+
+ion-navbar button {
+    width: 60px;
+}
+
+ion-navbar {
+    height: 60px;
+}
+

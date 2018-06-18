@@ -1,0 +1,8 @@
+{
+  "name": "MSD.Loop.Mobile",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
