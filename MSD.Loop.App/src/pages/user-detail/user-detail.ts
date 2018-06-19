@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { User } from '../../models/user';
+import { UpdateUserModalPage } from '../update-user-modal/update-user-modal';
 
 /**
  * Generated class for the UserDetailPage page.
@@ -21,13 +22,25 @@ export class UserDetailPage {
 
   constructor(
     public navCtrl: NavController,
-    public navParams: NavParams
+    public navParams: NavParams,
+    private modalCtrl: ModalController
   ) {
     this.user = navParams.get('user');
   }
 
   ionViewDidLoad() {
     console.log('user', this.user);
+  }
+
+  openUpdateUserModal(user: User){
+    let updateUserModal = this.modalCtrl.create(UpdateUserModalPage, { user: user });
+    updateUserModal.onDidDismiss(data => {
+      if (data) {
+        // console.log('update data', data);
+      }
+    });
+
+    updateUserModal.present();
   }
 
 }

@@ -8,7 +8,7 @@
   <ion-navbar color="primary">
     <ion-title>{{ user.firstName }}'s Profile</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="openUpdateUserModal(user)">
         Update
       </button>
     </ion-buttons>

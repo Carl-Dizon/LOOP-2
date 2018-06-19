@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsersPageModule } from '../pages/users/users.module';
 import { CreateUserModalPageModule } from '../pages/create-user-modal/create-user-modal.module';
 import { UserDetailPageModule } from '../pages/user-detail/user-detail.module';
+import { UpdateUserModalPageModule } from '../pages/update-user-modal/update-user-modal.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserDetailPageModule } from '../pages/user-detail/user-detail.module';
     IonicModule.forRoot(MyApp),
     UsersPageModule,
     CreateUserModalPageModule,
-    UserDetailPageModule
+    UserDetailPageModule,
+    UpdateUserModalPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
