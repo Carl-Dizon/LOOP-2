@@ -1,0 +1,42 @@
+page-project-add {
+    @font-face {
+        font-family: "meganJune";
+        src: url("../assets/fonts/megan_june.otf");
+    }
+    .header-background {
+        width: 100%;
+        height: 100%;
+        background-color:  rgb(7, 179, 202);
+    }
+
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 18px;
+        font-style: normal;
+        color: white;
+        font-weight: 400;
+    }
+
+    .loop-button-add {
+        position: absolute;
+        color: white;
+        background-color: transparent;
+        font-weight: 400;
+        font-size: 120%;
+        text-align: right;
+        width: 20vw;
+        right: 12px;
+    }
+
+    .loop-button-cancel {
+        position: absolute;
+        color: white;
+        background-color: transparent;
+        font-weight: 100;
+        font-size: 120%;
+        text-align: left;
+        width: 20vw;
+        left: 12px;
+    }
+
+}

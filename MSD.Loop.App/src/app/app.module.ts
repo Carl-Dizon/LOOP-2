@@ -3,8 +3,11 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { ProjectPage } from '../pages/project/project';
+import { ProjectAddPage } from '../pages/project-add/project-add';
 import { ListPage } from '../pages/list/list';
+
+import { StringService } from '../services/string.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -12,7 +15,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    ProjectPage,
+    ProjectAddPage,
     ListPage
   ],
   imports: [
@@ -22,12 +26,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    ProjectPage,
+    ProjectAddPage,
     ListPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    StringService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

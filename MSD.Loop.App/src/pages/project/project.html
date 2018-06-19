@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <div class="header-background">&nbsp;
+      <div class="profile-img">
+        <img class="user-img" src="../assets/imgs/nancy.jpg" alt=""/>
+      </div>
+    </div>
+    <button ion-button menuToggle>
+      <ion-icon name="ios-menu"></ion-icon>
+    </button>
+    <ion-title>
+      <ion-icon name="logo-buffer"> Loop</ion-icon>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+      <div class="project-top-menu">
+        <span class="project-label">
+          Projekt
+        </span>
+        <button class="button-add" (click)="presentProjectModal()">
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+        <ion-select class="project-sort" [(ngModel)]="gaming" interface="popover">
+            <ion-option value="any1">Project name</ion-option>
+            <ion-option value="any2">Percentage</ion-option>
+        </ion-select>
+      </div><br/>
+
+    <ion-list *ngFor="let project of projects">
+        <div [class]="project.cssClass">
+            <img class="background-building" [src]="project.src" alt="" />
+            <span class="project-name">{{project.name}}</span>
+            <span class="svg-container">
+                <img src="../assets/svg/hex.svg" alt=""/>
+            </span>
+            <span class="project-percentage">{{project.percent}}</span>
+        </div>
+    </ion-list>
+</ion-content>
