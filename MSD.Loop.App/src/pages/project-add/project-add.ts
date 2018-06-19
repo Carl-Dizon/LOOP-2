@@ -12,6 +12,16 @@ export class ProjectAddPage {
   projectCompany: number;
   addButtonDisabled: boolean = true;
 
+  materials = [
+    {name: 'Pipe', count: 200},
+    {name: 'Tiles', count: 36}
+  ]
+
+  users = [
+    {name: 'Justine', count: 200},
+    {name: 'Weggie', count: 36}
+  ]
+
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               public viewCtrl: ViewController) {

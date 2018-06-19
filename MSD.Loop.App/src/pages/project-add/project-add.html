@@ -5,26 +5,54 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <div class="header-background">&nbsp;</div>
+  <ion-navbar color="primary">
     <ion-title>New Project</ion-title>
-    <button class="loop-button-cancel" (click)="dismissModal()">Cancel</button>&nbsp;
-    <button class="loop-button-add" (click)="addProject()" [disabled]="addButtonDisabled">Add</button>
+    <ion-buttons>
+        <button ion-button (click)="dismissModal()" start>Cancel</button>
+    </ion-buttons>
+    <ion-buttons end>
+        <button ion-button class="ion-button-add" (click)="addProject()" [disabled]="addButtonDisabled" end>Add</button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-      <ion-item>
-          <ion-label style="color: rgb(7, 179, 202);" floating>Project Name</ion-label>
-          <ion-input [(ngModel)]="projectName" (ionChange)="textOnChange()"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label style="color: rgb(7, 179, 202);" floating>Company</ion-label>
-          <ion-input [(ngModel)]="projectCompany"></ion-input>
-      </ion-item>
-  </ion-list>
+<ion-content padding-right padding-left>
+  <ion-item>
+    <ion-label floating>Project Name</ion-label>
+    <ion-input [(ngModel)]="projectName" (ionChange)="textOnChange()"></ion-input>
+  </ion-item><br/><br/>
+  <div class="material-section">
+    <span class="material-title">Materials</span>
+    <ion-buttons end>
+        <button ion-button icon-only>
+          <ion-icon name="md-add"></ion-icon>
+        </button>
+    </ion-buttons>
+  </div>
+  <div class="material-list">
+    <ion-list>
+        <ion-item *ngFor="let material of materials">
+            <ion-icon name="ios-cube-outline" item-start color="secondary"></ion-icon>
+            <ion-label>{{material.name}}</ion-label>
+            <ion-note item-end>{{material.count}}</ion-note>
+        </ion-item>
+    </ion-list>
+  </div>
+  <div class="material-section">
+      <span class="material-title">User</span>
+      <ion-buttons end>
+          <button ion-button icon-only>
+            <ion-icon name="ios-person-add-outline"></ion-icon>
+          </button>
+      </ion-buttons>
+    </div>
+    <div class="material-list">
+      <ion-list>
+          <ion-item *ngFor="let user of users">
+              <ion-icon name="ios-person-outline" item-start color="secondary"></ion-icon>
+              <ion-label>{{user.name}}</ion-label>
+          </ion-item>
+      </ion-list>
+    </div>
 </ion-content>

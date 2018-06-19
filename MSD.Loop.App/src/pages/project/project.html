@@ -1,9 +1,7 @@
 <ion-header>
-  <ion-navbar>
-    <div class="header-background">&nbsp;
-      <div class="profile-img">
-        <img class="user-img" src="../assets/imgs/nancy.jpg" alt=""/>
-      </div>
+  <ion-navbar color="primary">
+    <div class="profile-img">
+      <img class="user-img" src="../assets/imgs/nancy.jpg" alt=""/>
     </div>
     <button ion-button menuToggle>
       <ion-icon name="ios-menu"></ion-icon>
@@ -19,12 +17,12 @@
         <span class="project-label">
           Projekt
         </span>
-        <button class="button-add" (click)="presentProjectModal()">
+        <button class="button-add" (click)="presentProjectAddModal()" color="primary" ion-button>
           <ion-icon name="md-add"></ion-icon>
         </button>
-        <ion-select class="project-sort" [(ngModel)]="gaming" interface="popover">
-            <ion-option value="any1">Project name</ion-option>
-            <ion-option value="any2">Percentage</ion-option>
+        <ion-select class="project-sort" [(ngModel)]="projectSort" interface="popover" (ionChange)="sort()">
+            <ion-option value="prjName">Project name</ion-option>
+            <ion-option value="percent">Percentage</ion-option>
         </ion-select>
       </div><br/>
 
@@ -36,6 +34,7 @@
                 <img src="../assets/svg/hex.svg" alt=""/>
             </span>
             <span class="project-percentage">{{project.percent}}</span>
+            <ion-badge class="project-badge" *ngIf="project.badge" color="badge">{{project.badgeValue}}</ion-badge>
         </div>
     </ion-list>
 </ion-content>
