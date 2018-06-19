@@ -1,38 +1,227 @@
-$topnav-background-color: #222;
-:host {
-    .navbar {
-        background-color: $topnav-background-color;
-        .navbar-brand {
+$topnav-background-color: #03758f;
+#combo1
+{
+    float: right;
+}
+#combo2
+{
+    float: right;
+}
+.user-logo
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+
+.row
+{
+    height:50px;
+    //border:1px solid red;
+    padding-left:10rem;
+}
+
+
+.card-body
+{
+    padding-top:1px;
+    border:none;
+    border-bottom: 2px solid gray;
+    width:95%;
+    height:45px;
+}
+.mcard-body
+{
+    border:1px solid red;
+    height:105px;
+}
+
+.sidebar {
+   
+    border-radius: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    //left: 130px;
+    width: 100%;
+    padding-top:2rem;
+    max-width: 100%;
+
+    //margin-left: -235px;
+    //border-bottom: 1px solid gray;
+    height:95px;
+    border-radius: 0;
+    overflow-y: auto;
+    background-color: white;
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    // border-top: 1px solid rgba(255,255,255,0.3);
+    .list-group {
+        a.list-group-item {
+            background: $topnav-background-color;
+            border: 0;
+            border-radius: 0;
+            color: #999;
+            text-decoration: none;
+            .fa {
+                margin-right: 10px;
+            }
+        }
+        a:hover {
+            background: darken($topnav-background-color, 5%);
             color: #fff;
         }
-        .nav-item > a {
-            color: #999;
-            &:hover {
-                color: #fff;
+        a.router-link-active {
+            background: darken($topnav-background-color, 5%);
+            color: #fff;
+        }
+        .header-fields {
+            padding-top: 10px;
+        
+            > .list-group-item:first-child {
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
             }
         }
     }
-    .messages {
-        width: 300px;
-        .media {
-            border-bottom: 1px solid #ddd;
-            padding: 5px 10px;
-            &:last-child {
-                border-bottom: none;
+    select
+    {
+        background-color:rgb(160, 159, 159);
+         color: white; 
+         height:3rem;
+         width:20rem;
+         padding-left:12px;
+    }
+
+    .sidebar-dropdown {
+        *:focus {
+            border-radius: none;
+            border: none;
+        }
+        .panel-title {
+            font-size: 1rem;
+            height: 50px;
+            margin-bottom: 0;
+            a {
+                color: #999;
+                text-decoration: none;
+                font-weight: 400;
+                background: $topnav-background-color;
+                span {
+                    position: relative;
+                    display: block;
+                    padding: 0.75rem 1.5rem;
+                    padding-top: 1rem;
+                }
+            }
+            a:hover,
+            a:focus {
+                color: #fff;
+                outline: none;
+                outline-offset: -2px;
             }
         }
-        .media-body {
-            h5 {
-                font-size: 13px;
-                font-weight: 600;
-            }
-            .small {
-                margin: 0;
-            }
-            .last {
-                font-size: 12px;
-                margin: 0;
+        .panel-title:hover {
+            background: darken($topnav-background-color, 5%);
+        }
+        .panel-collapse {
+            border-radious: 0;
+            border: none;
+            .panel-body {
+                .list-group-item {
+                    border-radius: 0;
+                    background-color: $topnav-background-color;
+                    border: 0 solid transparent;
+                    a {
+                        color: #999;
+                    }
+                    a:hover {
+                        color: #fff;
+                    }
+                }
+                .list-group-item:hover {
+                    background: darken($topnav-background-color, 5%);
+                }
             }
         }
     }
 }
+.nested-menu {
+    .list-group-item {
+        cursor: pointer;
+    }
+    .nested {
+        list-style-type: none;
+    }
+    ul.submenu {
+        display: none;
+        height: 0;
+    }
+    & .expand {
+        ul.submenu {
+            display: block;
+            list-style-type: none;
+            height: auto;
+            li {
+                a {
+                    color: #fff;
+                    padding: 10px;
+                    display: block;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .sidebar {
+        top: 54px;
+        left: 0px;
+        
+    }
+}
+@media print {
+    .sidebar {
+        display: none !important;
+    }
+}
+@media (min-width: 992px) {
+    .header-fields {
+        display: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(255, 255, 255, 1);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 3px rgba(255, 255, 255, 1);
+}
+.card {
+   border:none !important;
+   //border-bottom:1px solid gray !important;
+}
+.btn
+{
+  height:35px !important;
+  width: 40px !important;
+  background-color:  #009999;
+  color:white;
+  float:right;
+  margin-left:5px;
+}
+
+
+

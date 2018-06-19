@@ -1,25 +1,32 @@
-<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}" tabindex="0"  id="side">
     <div class="list-group">
-        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
-            <img src="../../../../assets/images/dashboardicon.png">
-           
-        </a>
-        <a [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+        <div class="nested-menu">            
+                <a class="list-group-item" (click)="addExpandClass('pages')">
+                        <img src="../../../../assets/images/dashboardicon.png">
+                </a>
+                <li class="nested" [class.expand]="showMenu === 'pages'">
+                    <ul class="submenu">
+                        <li *ngFor="let row of companies">
+                            <a href="javascript:void(0)"><span>{{ row.companyName | translate }}</span></a>
+                        </li>                       
+                    </ul>
+                </li>
+            </div>
+        <a class="list-group-item">  <!--[routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item" -->
             <img src="../../../../assets/images/cube.png">
         </a>
         <div class="user-logo">
             <a [routerLink]="['/profile']" [routerLinkActive]="['router-link-active']" class="list-group-item">
                 <img src="../../../../assets/images/man.png">
             </a>
-        </div>
-        
+        </div>        
         <div class="header-fields">
             <a (click)="rltAndLtr()" class="list-group-item">
                 <span><i class="fa fa-arrows-h"></i>&nbsp; RTL/LTR</span>
             </a>
             <div class="nested-menu">
                 <a class="list-group-item" (click)="addExpandClass('languages')">
-                    <span><i class="fa fa-language"></i>&nbsp; {{ 'Language' | translate }} <b class="caret"></b></span>
+                        <span><i class="fa fa-plus"></i>&nbsp; {{ 'Menu' | translate }}</span>
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'languages'">
                     <ul class="submenu">

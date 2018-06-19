@@ -7,10 +7,12 @@ $topnav-background-color: #03758f;
     left: 0;
 
 }
+
 .sidebar {
-    
+   
+    //z-index: 1;
     border-radius: 0;
-    position: fixed;
+    position:fixed;
     z-index: 1000;
     top: 0;
     left: 235px;
@@ -29,6 +31,7 @@ $topnav-background-color: #03758f;
     -o-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
     // border-top: 1px solid rgba(255,255,255,0.3);
+
     .list-group {
         a.list-group-item {
             background: $topnav-background-color;
@@ -56,12 +59,15 @@ $topnav-background-color: #03758f;
             }
         }
     }
+  
     .sidebar-dropdown {
         *:focus {
             border-radius: none;
             border: none;
+         
         }
         .panel-title {
+          
             font-size: 1rem;
             height: 50px;
             margin-bottom: 0;
@@ -70,6 +76,7 @@ $topnav-background-color: #03758f;
                 text-decoration: none;
                 font-weight: 400;
                 background: $topnav-background-color;
+                
                 span {
                     position: relative;
                     display: block;
@@ -82,25 +89,30 @@ $topnav-background-color: #03758f;
                 color: #fff;
                 outline: none;
                 outline-offset: -2px;
+               
             }
         }
         .panel-title:hover {
             background: darken($topnav-background-color, 5%);
         }
         .panel-collapse {
-            border-radious: 0;
+            border-radius: 0;
             border: none;
+           
             .panel-body {
                 .list-group-item {
                     border-radius: 0;
                     background-color: $topnav-background-color;
                     border: 0 solid transparent;
+                    width:60px;
                     a {
                         color: #999;
                     }
                     a:hover {
                         color: #fff;
                     }
+                   
+                  
                 }
                 .list-group-item:hover {
                     background: darken($topnav-background-color, 5%);
@@ -108,8 +120,14 @@ $topnav-background-color: #03758f;
             }
         }
     }
+    
 }
+
+
+
+
 .nested-menu {
+    
     .list-group-item {
         cursor: pointer;
     }
@@ -118,13 +136,17 @@ $topnav-background-color: #03758f;
     }
     ul.submenu {
         display: none;
-        height: 0;
+        height: 0;   
     }
     & .expand {
+       
         ul.submenu {
+            
+            overflow: hidden;
             display: block;
             list-style-type: none;
-            height: auto;
+            height: 100%;
+           
             li {
                 a {
                     color: #fff;
@@ -134,7 +156,10 @@ $topnav-background-color: #03758f;
             }
         }
     }
+  
+    
 }
+
 @media screen and (max-width: 992px) {
     .sidebar {
         top: 54px;

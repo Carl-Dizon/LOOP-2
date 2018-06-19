@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { CompanyService } from '../../../services/companies/company.service' 
 
 @Component({
     selector: 'app-sidebar',
@@ -11,19 +12,20 @@ export class SidebarComponent {
     isActive: boolean = false;
     showMenu: string = '';
     pushRightClass: string = 'push-right';
-
-    constructor(private translate: TranslateService, public router: Router) {
+    companies:any[];
+    constructor(private translate: TranslateService, public router: Router,private companylist: CompanyService) {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de/) ? browserLang : 'en');
-
+        this.companylist.currentList.subscribe(companylist => this.companies = companylist);
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&
                 window.innerWidth <= 992 &&
-                this.isToggled()
+                this.isToggled()               
             ) {
+              
                 this.toggleSidebar();
             }
         });
@@ -34,10 +36,14 @@ export class SidebarComponent {
     }
 
     addExpandClass(element: any) {
-        if (element === this.showMenu) {
+       
+        
+        if (element === this.showMenu) {     
+            document.getElementById("side").style.width = "60px";  
             this.showMenu = '0';
         } else {
-            this.showMenu = element;
+            document.getElementById("side").style.width = "200px";
+            this.showMenu = element;            
         }
     }
 
@@ -47,6 +53,7 @@ export class SidebarComponent {
     }
 
     toggleSidebar() {
+        
         const dom: any = document.querySelector('body');
         dom.classList.toggle(this.pushRightClass);
     }

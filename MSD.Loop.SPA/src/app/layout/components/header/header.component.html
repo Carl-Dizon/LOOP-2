@@ -1,0 +1,69 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+  <div class="row">
+    <div class="col-xl-6 text-xs-center">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 style='float: left; color:gray; '>
+            <i>Projekt</i>
+          </h4>
+          <div id="combo1">
+            <select id="mySelect" (change)="onViewClick()">
+              <option value="grid" selected>Visa som rutnat</option>
+              <option value="list">Visa som lista</option>
+              <option value="listfull">Visa som fasschema</option>
+            </select>
+            &nbsp;
+            <select >
+              <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Inkludera prospekt</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 text-xs-center">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 style='float: left; color:gray;'>
+            <i>Uppgifter</i>
+          </h4>
+          <div class="container">
+            <div id="combo2">
+
+              <select style='background-color:rgb(160, 159, 159); color: white; height:3.5rem' id="mySelect" (change)="onViewClick()">
+                <option value="grid" selected>Visa även avslutade</option>
+                <option value="list">Visa som lista</option>
+                <option value="listfull">Visa som fasschema</option>
+
+              </select>
+              &nbsp;
+              <select style='background-color:rgb(160, 159, 159); color: white; height:3.5rem'>
+                <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sortera efter förfallodatum</option>
+              </select>
+              <!-- Trigger the modal with a button -->
+              <button class="btn btn-primary" (click)="open(content)">+</button>
+              <!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">+</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    </div>
+</ng-template>
+
+
+
+</nav>

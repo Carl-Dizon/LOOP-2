@@ -1,8 +1,42 @@
+
+.col-xl-4  text-xs-center-head
+{
+    border:none ! important;
+
+}
+.tble p
+{
+   float:left; 
+   padding-top:2.5rem;;
+}
+.table th
+{
+    border:none;
+}
+.tble tr td
+{
+    border:1px solid rgb(192, 190, 190);
+    border-left:none;
+   
+}
+
+
 .cardtop {
 
     border:0 ! important;
     border-bottom: 1px solid rgba(0, 0, 0, 0.125) ! important;
     
+}
+.card-body {
+    flex: 1 1 auto;
+    padding-left: 0;
+    
+}
+
+.dashboard-container
+{
+   
+    padding-top:100px;
 }
 .image {
     opacity: 1;
@@ -13,7 +47,6 @@
  .image:hover {
     opacity: 0.3;
   }
-
 .card {
     position: relative;
     display: flex;
@@ -30,39 +63,18 @@
         max-width: 100%;  
   
 }
+
 .progress
 {
-   margin-left: 1rem ! important;
-   
+   margin-left: 2rem ! important;
     
 }
-.dashboard-container
-{
-    
-    padding-top:100px;
-}
-.progress-bar-danger
-{
-    background-color: grey;
-}
-
 .card-body-head {
     flex: 1 1 auto;
     //padding: 1.25rem;
     border-bottom: 1px solid gray;
-    border-top: 0;
+    margin-left:-25px;
     
-    
-}
-
-#profile
-{
-    height:30px; 
-    width:150px; 
-    background-color:gray; 
-    color:white;
-    text-align: center;
-
 }
 .col-xl-6 text-xs-center
 {
@@ -78,30 +90,6 @@
 border:1px solid black;
 
 }
-.btn
-{
-  height:35px !important;
-  width: 40px !important;
-  background-color:  #009999;
-  color:white;
-  margin-left:5px;
-}
-.btn2
-{
-  height:35px !important;
-  width: 40px !important;
-  background-color:  gray;
-  color:white;
-  margin-left:5px;
-}
-#hashtag
-{
-    background-color: gray;
-}
-
-
-
-
 .col-xl-6 text-xs-center
 {
     border-right: 1px solid gray ! important;
@@ -121,21 +109,4 @@ border:1px solid black;
 {
     border:1px solid red;
     
-}
-
-
-.table th
-{
- 
-    border-top:0px;
- 
-
-}
-.table td
-{
-
- border-top:1px solid silver;
- border-right:1px solid silver;
- border-bottom:1px solid silver;
-
 }

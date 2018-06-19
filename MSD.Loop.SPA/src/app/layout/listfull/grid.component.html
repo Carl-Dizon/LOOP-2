@@ -1,0 +1,50 @@
+<div [@routerTransition]>
+    <div class="dashboard-container" ng-app="myApp" ng-controller="myCtrl">
+        <div class="row">
+            <div class="col-xl-12 text-xs-center-right">
+                <div class="card mb-33">
+                    <div class="card-body">
+                        <table class="table table-hover table-striped" style="border-top:0px;">
+                            <thead>
+                                <tr>
+                                    <th style="color:silver" *ngFor="let cell of headerData">{{cell}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let row of companies; let i = index">
+                                    <td>
+                                        <img src="{{row.profPic}}" (click)="requirementsClick(i)" alt="Profile Picture" style="height:100px; width:100px" class="image">
+                                        <p style="float:right; text-align:right">{{row.companyName}}</p>
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Prospektfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Säljfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Anbudsfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Uppstartsfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Byggfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Avslutsfas
+                                    </td>
+                                    <td style="background-color: #e6ffff;  padding-top:50px; ">
+                                        Garantifas
+                                    </td>
+                                    <td style="background-color: #d9f2d9;  padding-top:50px; border-right:0px;">
+                                        Totalt
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

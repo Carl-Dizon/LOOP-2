@@ -1,0 +1,135 @@
+<div [@routerTransition]>
+    <!-- <app-page-header [heading]="'Bootstrap Grid'" [icon]="'fa-wrench'"></app-page-header> -->
+    <div class="dashboard-container" ng-app="myApp" ng-controller="myCtrl">
+        <div class="row">
+            <div class="col-xl-12 text-xs-center">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 text-xs-center">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <h3>
+                                            <i style=' color:gray;'>Project / </i>
+                                            <i style=' color:#0099cc;'>{{company.companyName}}</i>
+                                        </h3>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-xl-12 text-xs-center">
+                                                <div class="card mb-3">
+                                                    <div class="card-body">
+                                                        <img src="{{company.profPic}}" style="height:500px;width:775px;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 text-xs-center">
+                                                <div class="card mb-3">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-xl-6 text-xs-center">
+                                                                <div class="card mb-3">
+                                                                    <div class="card-body">
+                                                                        <img src="../../../../assets/images/progressmeter.PNG" style='height:200px; width:250px; padding-left:70px;'>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xl-6 text-xs-center">
+                                                                <div class="card mb-3">
+                                                                    <div class="card-body">
+                                                                        .col-xl-6
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 text-xs-center">
+                                <div class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-xl-12 text-xs-center">
+                                                <div class="card mb-3">
+                                                    <div class="card-body">
+
+                                                    </div>
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th style="color:silver" *ngFor="let cell of Uppgifter">{{cell}}</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let row of tasks; let i = index; ">
+                                                                <td style="color:silver">{{row.companyName}}</td>
+                                                                <td>
+                                                                    <b>{{row.task}}</b>
+                                                                </td>
+                                                                <td>+-</td>
+                                                                <td>17.01.22</td>
+                                                                <td>
+                                                                    <div style="height:30px; width:150px; background-color:gray; color:white">{{row.asignee}}&nbsp;&nbsp;&nbsp;
+                                                                        <img src="{{row.profPic}}"
+                                                                            style="height:30px;width:30px; float:right">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 text-xs-center">
+                                                <div class="card mb-3">
+                                                    <div class="card-body">
+                                                        <h3 style='float: left; color:gray;'>
+                                                            <i>Händelser</i>
+                                                        </h3>
+                                                        <div id="combo1">
+                                                            &nbsp;
+                                                            <select style='background-color:rgb(160, 159, 159); color: white; height:2rem'>
+                                                                <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sortera efter relevans</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="card-body table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th style="color:silver" *ngFor="let cell of Handelser">{{cell}}</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr *ngFor="let row2 of events">
+                                                                        <td style="color:silver">{{row2.companyName}}</td>
+                                                                        <td>
+                                                                            <b>{{row2.event}}</b>
+                                                                        </td>
+                                                                        <td>+-</td>
+                                                                        <td>17.01.22</td>
+                                                                        <td>
+                                                                            <div style="height:30px; width:150px; background-color:gray; color:white">{{row2.asignee}}&nbsp;&nbsp;&nbsp;
+                                                                                <img src="{{row2.profPic}}"
+                                                                                    style="height:30px;width:30px; float:right">
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

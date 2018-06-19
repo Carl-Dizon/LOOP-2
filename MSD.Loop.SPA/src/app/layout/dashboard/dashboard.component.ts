@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
+import { Router, NavigationEnd } from '@angular/router';
+import { TaskService } from '../../services/tasks/task.service'
+import { EventService } from '../../services/events/event.service'
+import { UserService } from '../../services/users/user.service'
+import { PhotosService } from '../../services/temporarydashboardphotos/photos.service'
 
+declare var angular: any;
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -10,52 +16,48 @@ import { routerTransition } from '../../router.animations';
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
+    pushRightClass: string = 'push-right';
+    tasks: any[];
+    events: any[];
+    users: any[];
+    Uppgifter: string[];
+    Handelser: string[];
+    photo : any[];
+   
 
-    constructor() {
-        this.sliders.push(
-            {
-                imagePath: 'assets/images/slider1.jpg',
-                label: 'First slide label',
-                text:
-                    'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-            },
-            {
-                imagePath: 'assets/images/slider2.jpg',
-                label: 'Second slide label',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-            },
-            {
-                imagePath: 'assets/images/slider3.jpg',
-                label: 'Third slide label',
-                text:
-                    'Praesent commodo cursus magna, vel scelerisque nisl consectetur.'
-            }
-        );
-
-        this.alerts.push(
-            {
-                id: 1,
-                type: 'success',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-            },
-            {
-                id: 2,
-                type: 'warning',
-                message: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Voluptates est animi quibusdam praesentium quam, et perspiciatis,
-                consectetur velit culpa molestias dignissimos
-                voluptatum veritatis quod aliquam! Rerum placeat necessitatibus, vitae dolorum`
-            }
-        );
+    constructor(public router: Router,private tasklist: TaskService, private eventlist: EventService,private userlist: UserService,private photolist: PhotosService) {
+        this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
+        this.eventlist.currentList.subscribe(eventlist => this.events = eventlist);
+        this.userlist.currentList.subscribe(userlist => this.users = userlist);
+        this.photolist.currentList.subscribe(photolist => this.photo = photolist);
+      
+    }
+    isToggled(): boolean {
+        const dom: Element = document.querySelector('body');
+        return dom.classList.contains(this.pushRightClass);
     }
 
-    ngOnInit() {}
+    toggleSidebar() {
+        const dom: any = document.querySelector('body');
+        dom.classList.toggle(this.pushRightClass);
+    }
+    ngOnInit() {  
+        this.Uppgifter = ['Projekt','Uppgift'];
+
+        this.Handelser = ['Projekt','Händelser'];
+  
+        }
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);
         this.alerts.splice(index, 1);
+
+      
     }
+
+    requirementsClick(id: number){
+        this.router.navigate(['/tables', id]);
+      }
+
+    
 }
