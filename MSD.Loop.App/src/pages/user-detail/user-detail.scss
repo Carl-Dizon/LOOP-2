@@ -1,0 +1,34 @@
+page-user-detail {
+  .profile-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .profile-picture {
+      width: 50%;
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .profile-details {
+      margin-top: 20px;
+      .name {
+        display: block;
+        text-align: center;
+        padding: 5px;
+      }
+      .company {
+        display: block;
+        text-align: center;
+        font-weight: 700;
+      }
+      .role {
+        display: block;
+        text-align: center;
+        font-style: italic;
+        font-size: 12px;
+      }
+    }
+  }
+}

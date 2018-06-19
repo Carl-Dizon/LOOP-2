@@ -11,6 +11,9 @@ import { StringService } from '../services/string.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { UsersPageModule } from '../pages/users/users.module';
+import { CreateUserModalPageModule } from '../pages/create-user-modal/create-user-modal.module';
+import { UserDetailPageModule } from '../pages/user-detail/user-detail.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    UsersPageModule,
+    CreateUserModalPageModule,
+    UserDetailPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
