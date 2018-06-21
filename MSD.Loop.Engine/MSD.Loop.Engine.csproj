@@ -51,7 +51,7 @@
     <Compile Include="Interfaces\ICompanyProjectUserRoleRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectTaskUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyRepository.cs" />
-    <Compile Include="Interfaces\ICompanyRoleRepository.cs" />
+    <Compile Include="Interfaces\ICompanyAccessRoleRepository.cs" />
     <Compile Include="Interfaces\ICompanyService.cs" />
     <Compile Include="Interfaces\ICompanyUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyUserRoleRepository.cs" />
@@ -79,9 +79,7 @@
     <Compile Include="Models\CompanyUser.cs" />
     <Compile Include="Models\CompanyProjectTaskUser.cs" />
     <Compile Include="Models\CompanyUserRole.cs" />
-    <Compile Include="Models\ProjectTaskMaterial.cs" />
     <Compile Include="Models\CompanyProject.cs" />
-    <Compile Include="Models\ProjectTaskWorkHour.cs" />
     <Compile Include="Models\ProjectTaskWorkHourEstimate.cs" />
     <Compile Include="Models\ProjectTask.cs" />
     <Compile Include="Models\ProjectTaskMaterialEstimate.cs" />

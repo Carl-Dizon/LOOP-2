@@ -10,7 +10,7 @@ namespace MSD.Loop.Engine.Models
     {
         public int Id { get; set; }
         public ProjectTask Task { get; set; }
-        public CompanyProjectTaskUser Assignee { get; set; }
+        public CompanyProjectTaskUser EstimatedBy { get; set; }
 
         public float Estimate { get; set; }
         public float RemainingEstimate { get; set; }

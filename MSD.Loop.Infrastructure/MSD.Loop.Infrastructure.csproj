@@ -49,7 +49,7 @@
     <Compile Include="Data\CompanyMaterialStockRepository.cs" />
     <Compile Include="Data\CompanyProjectRepository.cs" />
     <Compile Include="Data\CompanyRepository.cs" />
-    <Compile Include="Data\CompanyRoleRepository.cs" />
+    <Compile Include="Data\CompanyAccessRoleRepository.cs" />
     <Compile Include="Data\CompanyUserRepository.cs" />
     <Compile Include="Data\CompanyUserRoleRepository.cs" />
     <Compile Include="Data\DatabaseInitializer.cs" />
@@ -62,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Data\Scripts\" />
     <Folder Include="Data\StoredProcs\" />
     <Folder Include="Data\Tables\" />
   </ItemGroup>

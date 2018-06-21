@@ -12,7 +12,7 @@ namespace MSD.Loop.Infrastructure.Data
 
         private readonly ICompanyRepository _companyRepo;
         private readonly IUserRepository _userRepo;
-        private readonly CompanyRoleRepository _companyRoleRepo;
+        private readonly ICompanyAccessRoleRepository _companyRoleRepo;
         private readonly ICompanyUserRepository _companyUserRepo;
 
         private readonly ICompanyProjectUserRepository _projectUserRepo;
@@ -40,9 +40,9 @@ namespace MSD.Loop.Infrastructure.Data
             get { return _userRepo ?? (new UserRepository(_transaction)); }
         }
 
-        public ICompanyRoleRepository CompanyRoleRepo
+        public ICompanyAccessRoleRepository CompanyRoleRepo
         {
-            get { return _companyRoleRepo ?? (new CompanyRoleRepository(_transaction)); }
+            get { return _companyRoleRepo ?? (new CompanyAccessRoleRepository(_transaction)); }
         }
 
         public ICompanyUserRepository CompanyUserRepository
@@ -85,9 +85,9 @@ namespace MSD.Loop.Infrastructure.Data
             get { return _projectMaterialRepo ?? (new ProjectMaterialRepository(_transaction)); }
         }
 
-        public ICompanyRoleRepository CompanyRoleRepository
+        public ICompanyAccessRoleRepository CompanyRoleRepository
         {
-            get { return _companyRoleRepo ?? (new CompanyRoleRepository(_transaction)); }
+            get { return _companyRoleRepo ?? (new CompanyAccessRoleRepository(_transaction)); }
         }
         //TODO: more to be added here as we go along
         //ADD them here as needed
