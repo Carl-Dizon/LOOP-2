@@ -2,11 +2,16 @@
 
 namespace MSD.Loop.Engine.Models
 {
+    /// <summary>
+    /// Represents the Assigned user to a task
+    /// </summary>
     public class CompanyProjectTaskUser
     {
         public int Id { get; set; }
-        public CompanyUser Assignee { get; set; }
-        public ProjectTask Task{ get; set; }
+        public CompanyProjectUser Assignee { get; set; }
+        public ProjectTask ProjectTask{ get; set; }
+        public User AssignedBy { get; set; }
+        
         public DateTime AssignedOn { get; set; }
 
         //timestamps

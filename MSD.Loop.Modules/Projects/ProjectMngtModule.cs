@@ -1,26 +1,21 @@
-﻿using MSD.Loop.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSD.Loop.Common.Modules;
+﻿using MSD.Loop.Common.Modules;
+using MSD.Loop.Engine.Interfaces;
 
 namespace MSD.Loop.Modules.Projects
 {
-    public class ProjectMngtModule : ILoopModule
+    public class ProjectMngtModule : IApplicationModule
     {
         public ProjectMngtModule()
         {
 
         }
 
-        public void Initialize(LoopEngineEvent events)
+        public void Initialize(ApplicationEvents events)
         {
-            events.ProjectProcessing += OnProjectProcessing;
+            //events.ProjectProcessing += OnProjectProcessing;
         }
 
-        public void OnProjectProcessing(ProjectEventArgs e)
+        public void OnProjectProcessing(ApplicationEvents e)
         {
             //TODO: handle it here
         }

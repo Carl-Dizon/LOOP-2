@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace MSD.Loop.Engine.Models
 {
-    class ProjectTaskWorkHour
+    public class AccessLevel
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        
+        public bool IsArchived { get; set; }
     }
 }

@@ -319,3 +319,4 @@ ASALocalRun/
 /.vs
 bin
 /packages
+/PipelineFramework

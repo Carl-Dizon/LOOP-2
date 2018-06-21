@@ -48,6 +48,10 @@
       <Project>{312e1c8f-ae31-4310-a1e4-eb93291c4a01}</Project>
       <Name>MSD.Loop.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
+      <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
+      <Name>MSD.Loop.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Companies\" />

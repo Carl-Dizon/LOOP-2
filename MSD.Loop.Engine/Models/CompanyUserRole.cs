@@ -1,19 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MSD.Loop.Engine.Models
 {
     /// <summary>
-    /// Application User
+    /// The role assigned to a user in a company or account
     /// </summary>
-    public class User
+    public class CompanyUserRole
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-
-        public bool IsVerified { get; set; }
-        public string Password { get; set; }
-
-        //public virtual List<Company> Companies { get; set; }
+        public CompanyUser User { get; set; }
+        public CompanyAccessRole Role { get; set; }
 
         //timestamps
         public DateTime CreatedOn { get; set; }

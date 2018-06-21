@@ -13,6 +13,7 @@ namespace MSD.Loop.API
     {
         protected void Application_Start()
         {
+            //database.Initilize();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

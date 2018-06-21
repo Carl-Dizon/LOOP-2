@@ -52,6 +52,7 @@
     <Compile Include="Data\CompanyRoleRepository.cs" />
     <Compile Include="Data\CompanyUserRepository.cs" />
     <Compile Include="Data\CompanyUserRoleRepository.cs" />
+    <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\ProjectMaterialRepository.cs" />
     <Compile Include="Data\ProjectTaskRepository.cs" />
     <Compile Include="Data\ProjectUserRepository.cs" />

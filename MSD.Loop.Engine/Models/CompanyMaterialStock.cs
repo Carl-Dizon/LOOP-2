@@ -10,8 +10,12 @@ namespace MSD.Loop.Engine.Models
         public string Description { get; set; }
         public Company Company { get; set; }
 
+        public User CreatedByUser { get; set; }
+
         //timestamp
         public DateTime CreatedOn { get; set; }
         public DateTime LastModified { get; set; }
+
+        public bool IsArchived { get; set; }
     }
 }
