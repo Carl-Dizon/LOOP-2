@@ -6,56 +6,56 @@ import { BehaviorSubject } from 'rxjs';
 export class TaskService {
   private listSource = new BehaviorSubject<any[]>([
     {
-      companyName:"Kopparhusen",
+        projectName:"Kopparhusen",
       asignee:"FRANSISCO N",
       task:"Skicka bygglovsansökan",
       profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Struten",
+        projectName:"Struten",
         asignee:"ÅSA M",
         task:"Publicera pressmeddelande",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Kyrkbacken",
+        projectName:"Kyrkbacken",
         asignee:"JONATHAN H",
         task:"Stämma av bygglov med förvaltaren",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Kyrkbacken",
+        projectName:"Kyrkbacken",
         asignee:"CHRISTIAN N",
         task:"Säga upp tidigare VVS-avtal",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Kyrkbacken",
+        projectName:"Kyrkbacken",
         asignee:"ELEONORA P",
         task:"Rapportera timmar för projektering",
         profPic:"/assets/images/employeeavatar.png",
         
     },
     {
-        companyName:"Stadsrosen",
+        projectName:"Stadsrosen",
         asignee:"ROBERT F",
         task:"Rapportera timmar för projektering",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Brobergsgymnasiet",
+        projectName:"Brobergsgymnasiet",
         asignee:"ÅKLARA N",
         task:"Skicka bygglovsansökan",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Stadsrosen",
+        projectName:"Stadsrosen",
         asignee:"ROBERT F.",
         task:"Rapportera timmar för projektering",
         profPic:"/assets/images/employeeavatar.png",
     },
     {
-        companyName:"Stadsrosen",
+        projectName:"Stadsrosen",
         asignee:"ÅSA M",
         task:"Rapportera timmar för projektering",
         profPic:"/assets/images/employeeavatar.png",

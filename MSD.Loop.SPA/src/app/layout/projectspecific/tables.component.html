@@ -11,17 +11,17 @@
                                     <div class="card-body">
                                         <h3>
                                             <i style=' color:gray;'>Project / </i>
-                                            <i style=' color:#0099cc;'>{{company.companyName}}</i>
+                                            <i style=' color:#0099cc;'>{{project.projectName}}</i>
                                         </h3>
                                         <br>
                                         <div class="row">
                                             <div class="col-xl-12 text-xs-center">
                                                 <div class="card mb-3">
                                                     <div class="card-body">
-                                                        <img src="{{company.profPic}}" style="height:500px;width:775px;">
-                                                    </div>
+                                                        <img src="{{project.profPic}}" style="height:500px;width:775px;">
                                                 </div>
                                             </div>
+                                        </div>
                                             <div class="col-xl-12 text-xs-center">
                                                 <div class="card mb-3">
                                                     <div class="card-body">
@@ -57,7 +57,7 @@
                                                     <div class="card-body">
 
                                                     </div>
-                                                    <table class="table">
+                                                    <table class="table" style="font-size:1.5rem">
                                                         <thead>
                                                             <tr>
                                                                 <th style="color:silver" *ngFor="let cell of Uppgifter">{{cell}}</th>
@@ -65,7 +65,7 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr *ngFor="let row of tasks; let i = index; ">
-                                                                <td style="color:silver">{{row.companyName}}</td>
+                                                                <td style="color:silver">{{row.projectName}}</td>
                                                                 <td>
                                                                     <b>{{row.task}}</b>
                                                                 </td>
@@ -95,7 +95,7 @@
                                                             </select>
                                                         </div>
                                                         <div class="card-body table-responsive">
-                                                            <table class="table">
+                                                            <table class="table" style="font-size:1.5rem">
                                                                 <thead>
                                                                     <tr>
                                                                         <th style="color:silver" *ngFor="let cell of Handelser">{{cell}}</th>
@@ -103,7 +103,7 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr *ngFor="let row2 of events">
-                                                                        <td style="color:silver">{{row2.companyName}}</td>
+                                                                        <td style="color:silver">{{row2.projectName}}</td>
                                                                         <td>
                                                                             <b>{{row2.event}}</b>
                                                                         </td>

@@ -8,20 +8,23 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="color:silver" *ngFor="let cell of Projekt">{{cell}}</th>
+                                        <th style="color:silver" *ngFor="let cell of Projekt">
+                                            <h3>
+                                                <i>{{cell}}</i>
+                                            </h3></th>
                                     </tr>
                                 </thead>
-                                <tbody class="tble">
-                                    <tr *ngFor="let row of companies; let i = index;">
-                                        <td style="width:450px">
+                                <tbody class="tble" style="font-size:1.5rem">
+                                    <tr *ngFor="let row of project; let i = index;">
+                                        <td style="width:452px">
                                             <img src="{{row.profPic}}" (click)="requirementsClick(i)" alt="Profile Picture" class="image">
-                                            <span style="padding-left:100px;">{{row.companyName}}</span>
+                                            <span style="padding-left:100px;">{{row.projectName}}</span>
                                         </td>
                                         <td style=" width:450px">
-                                            <p>progress </p>
+                                            <p style="padding-top:58px;">progress </p>
                                         </td>
                                         <td style="border-right:none; width:100px">
-                                            <p>number </p>
+                                            <p style="padding-top:58px;">number </p>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -37,18 +40,25 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="color:silver" *ngFor="let cell of Uppgifter">{{cell}}</th>
+                                        <th style="color:silver" *ngFor="let cell of Uppgifter">
+                                            <h3>
+                                                <i>{{cell}}</i>
+                                            </h3>
+                                        </th>
                                     </tr>
                                 </thead>
-                                <tbody width="70%" class="tble">
+                                <tbody width="70%" class="tble" style="font-size:1.5rem">
                                     <tr *ngFor="let row of tasks; let i = index;">
-                                        <td style="color:silver; border-right:1px solid rgb(187, 185, 185);">{{row.companyName}}</td>
+                                        <td style="color:silver; border-right:1px solid rgb(187, 185, 185);">{{row.projectName}}</td>
                                         <td>
                                             <b>{{row.task}}</b>
                                         </td>
-                                        <td>+-</td>
+                                        <td>
+                                                <button class="btn btn-outline-primary mb-2 mr-2">+</button>
+                                                <button class="btn btn-outline-primary mb-2 mr-2" id="hashtag">#</button>
+                                        </td>
                                         <td>17.01.22</td>
-                                        <td style="border-right:none;">
+                                        <td style="border-right:none;" >
                                             <div style="height:30px; width:150px; background-color:gray; color:white">{{row.asignee}}&nbsp;&nbsp;&nbsp;
                                                 <img src="{{row.profPic}}" style="height:30px;width:30px; float:right">
                                             </div>
@@ -57,54 +67,51 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-xl-12 text-xs-center">
+                        <div class="col-xl-12 text-xs-center" style="margin-top:10rem">
                             <div class="card mb-33">
-                                <div class="card-body">
-                                    <div class="col-xl-12 text-xs-center">
-                                        <div class="card mb-33">
-                                            <div class="card-body-head">
-                                                <h3 style='float: left; color:gray;'>
-                                                    <i>Händelser</i>
-                                                </h3>
-                                                <div id="combo1">
-                                                    &nbsp;
-                                                    <select style='background-color:rgb(160, 159, 159); color: white; height:2rem'>
-                                                        <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sortera efter relevans</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-3">
-                                            <div class="card-body">
-                                                <div class="card-body table-responsive">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th style="color:silver" *ngFor="let cell of Handelser">{{cell}}</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody width="70%" class="tble">
-                                                            <tr *ngFor="let row2 of events">
-                                                                <td style="color:silver; border-right:1px solid rgb(173, 173, 173); ">{{row2.companyName}}</td>
-                                                                <td>
-                                                                    <b>{{row2.event}}</b>
-                                                                </td>
-                                                                <td>+-</td>
-                                                                <td>17.01.22</td>
-                                                                <td style="border-right:none;">
-                                                                    <div style="height:30px; width:150px; background-color:gray; color:white">{{row2.asignee}}&nbsp;&nbsp;&nbsp;
-                                                                        <img src="{{row2.profPic}}" style="height:30px;width:30px; float:right">
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="card-body-head">
+                                    <h3 style='float: left; color:gray;'>
+                                        <i>Händelser</i>
+                                    </h3>
+                                    <div id="combo1">
+                                        &nbsp;
+                                        <select style='background-color:rgb(160, 159, 159); color: white; height:3.5rem; margin-bottom:2rem;'>
+                                            <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sortera efter relevans</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="color:silver" *ngFor="let cell of Handelser">
+                                            <h3>
+                                                <i>{{cell}}</i>
+                                            </h3>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody width="70%" class="tble" style="font-size:1.5rem">
+                                    <tr *ngFor="let row2 of events">
+                                        <td style="color:silver; border-right:1px solid rgb(173, 173, 173); ">{{row2.projectName}}</td>
+                                        <td>
+                                            <b>{{row2.event}}</b>
+                                        </td>
+                                        <td>
+                                                <button class="btn btn-outline-primary mb-2 mr-2">+</button>
+                                                <button class="btn btn-outline-primary mb-2 mr-2" id="hashtag">#</button>
+                                        </td>
+                                        <td>17.01.22</td>
+                                        <td style="border-right:none; padding-right:1px;">
+                                            <div style="height:30px; width:150px; background-color:gray; color:white">{{row2.asignee}}&nbsp;&nbsp;&nbsp;
+                                                <img src="{{row2.profPic}}" style="height:30px;width:30px; float:right">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

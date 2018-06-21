@@ -8,7 +8,10 @@ import { routerTransition } from '../../router.animations';
     animations: [routerTransition()]
 })
 export class BsElementComponent implements OnInit {
+
     constructor() {}
 
-    ngOnInit() {}
+    ngOnInit() {
+     
+    }
 }

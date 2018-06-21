@@ -2,17 +2,18 @@ $topnav-background-color: #03758f;
 #combo1
 {
     float: right;
+    font-size: 1.5rem;
 }
 #combo2
 {
     float: right;
+    font-size: 1.5rem;
 }
 .user-logo
 {
     position: absolute;
     bottom: 0;
     left: 0;
-
 }
 
 .row
@@ -45,12 +46,12 @@ $topnav-background-color: #03758f;
     top: 0;
     //left: 130px;
     width: 100%;
-    padding-top:2rem;
+    padding-top:1.5rem;
     max-width: 100%;
 
     //margin-left: -235px;
     //border-bottom: 1px solid gray;
-    height:95px;
+    height:105px;
     border-radius: 0;
     overflow-y: auto;
     background-color: white;
@@ -222,6 +223,61 @@ $topnav-background-color: #03758f;
   float:right;
   margin-left:5px;
 }
+.btnadd
+{
+  height:35px !important;
+  width: 100px !important;
+  background-color:  #009999;
+  color:white;
+  float:right;
+  margin-left:5px;
+}
 
 
 
+.modal
+{
+  
+    border:1px solid green;
+    padding-top:300px;
+    width: 100% !important;
+   
+}
+.modal-dialog
+{
+    position: absolute;
+ 
+    margin-left:30%;
+    max-width: none;
+  
+}
+
+.rowform
+{
+    border:1px solid blue;
+    height:500px;
+    width: 100%;
+    th, td {
+        padding: 15px;
+    }
+}
+#fname{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#projectNameList{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 40px;
+}

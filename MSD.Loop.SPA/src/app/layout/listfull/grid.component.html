@@ -7,14 +7,14 @@
                         <table class="table table-hover table-striped" style="border-top:0px;">
                             <thead>
                                 <tr>
-                                    <th style="color:silver" *ngFor="let cell of headerData">{{cell}}</th>
+                                    <th style="color:silver;font-size:1.5rem" *ngFor="let cell of headerData"><i>{{cell}}</i></th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr *ngFor="let row of companies; let i = index">
+                            <tbody style="font-size:1.5rem">
+                                <tr *ngFor="let row of projectName; let i = index">
                                     <td>
                                         <img src="{{row.profPic}}" (click)="requirementsClick(i)" alt="Profile Picture" style="height:100px; width:100px" class="image">
-                                        <p style="float:right; text-align:right">{{row.companyName}}</p>
+                                        <p style="float:right; text-align:right; padding-top:4.1rem">{{row.projectName}}</p>
                                     </td>
                                     <td style="background-color: #e6ffff;  padding-top:50px; ">
                                         Prospektfas

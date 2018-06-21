@@ -6,12 +6,12 @@
                 </a>
                 <li class="nested" [class.expand]="showMenu === 'pages'">
                     <ul class="submenu">
-                        <li *ngFor="let row of companies">
-                            <a href="javascript:void(0)"><span>{{ row.companyName | translate }}</span></a>
+                        <li *ngFor="let row of projects">
+                            <a href="javascript:void(0)"><span>{{ row.projectName }}</span></a>
                         </li>                       
                     </ul>
                 </li>
-            </div>
+            </div>            
         <a class="list-group-item">  <!--[routerLink]="['/charts']" [routerLinkActive]="['router-link-active']" class="list-group-item" -->
             <img src="../../../../assets/images/cube.png">
         </a>

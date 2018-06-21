@@ -9,19 +9,19 @@ export class PhotosService {
   constructor() { }
   private listSource = new BehaviorSubject<any[]>([
     {
-      companyName:"Kopparhusen",    
+      projectName:"Kopparhusen",    
       profPic:"/assets/images/Capture.PNG",
     },
     {
-      companyName:"Brf. Stadsrosen",    
+      projectName:"Brf. Stadsrosen",    
       profPic:"/assets/images/Capture2.PNG",
     },
     {
-      companyName:"Strutens Forskola",    
+      projectName:"Strutens Forskola",    
       profPic:"/assets/images/Capture3.PNG",
     },
     {
-      companyName:"Kyrkbacken",    
+      projectName:"Kyrkbacken",    
       profPic:"/assets/images/Capture4.PNG",
     },
     

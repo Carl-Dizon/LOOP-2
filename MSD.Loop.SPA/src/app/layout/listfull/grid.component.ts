@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { Router, NavigationEnd } from '@angular/router';
-import { CompanyService } from '../../services/companies/company.service'
+import { ProjectService } from '../../services/projects/project.service'
 
 @Component({
     selector: 'app-grid',
@@ -10,15 +10,15 @@ import { CompanyService } from '../../services/companies/company.service'
     animations: [routerTransition()]
 })
 export class GridComponent implements OnInit {
-    constructor(public router: Router,private list: CompanyService) {}
+    constructor(public router: Router,private list: ProjectService) {}
     headerData: string[];
-    companies: any[];
+    projectName: any[];
     Uppgifter: string[];
   
     ngOnInit() {
 
         this.headerData = ['Projekt','Prospektfas','Säljfas','Anbudsfas','Uppstartsfas','Byggfas','Avslutsfas','Garantifas','Totalt'];
-        this.list.currentList.subscribe(list => this.companies = list);
+        this.list.currentList.subscribe(list => this.projectName = list);
         
         
     }

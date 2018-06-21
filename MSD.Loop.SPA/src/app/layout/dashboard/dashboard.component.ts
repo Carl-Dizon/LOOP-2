@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
     ngOnInit() {  
         this.Uppgifter = ['Projekt','Uppgift'];
 
-        this.Handelser = ['Projekt','Händelser'];
+        this.Handelser = ['Projekt','Händelse'];
   
         }
 

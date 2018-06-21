@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { Router, NavigationEnd } from '@angular/router';
-import { CompanyService } from '../../services/companies/company.service';
+import { ProjectService } from '../../services/projects/project.service';
 import { Route, ActivatedRoute } from '@angular/router';
 import { TaskService } from '../../services/tasks/task.service'
 import { EventService } from '../../services/events/event.service'
@@ -13,14 +13,14 @@ import { EventService } from '../../services/events/event.service'
     animations: [routerTransition()]
 })
 export class TablesComponent implements OnInit {
-  constructor(public router: Router, private tasklist: TaskService,private eventlist: EventService,public route: ActivatedRoute,private list: CompanyService) {}
+  constructor(public router: Router, private tasklist: TaskService,private eventlist: EventService,public route: ActivatedRoute,private list: ProjectService) {}
     private sub: any;
     companies: any[];
-    companyName:string;
+    projectName:any[];
     profPic:string;
     task:string;
     id: number;
-    company:any[];
+    project:any[];
     Uppgifter: string[];
     tasks: any[];
     Handelser: string[];
@@ -30,9 +30,9 @@ export class TablesComponent implements OnInit {
             this.id = params['id'];
           })
           this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
-          this.list.currentList.subscribe(list => this.companies = list);
+          this.list.currentList.subscribe(list => this.projectName = list);
           this.eventlist.currentList.subscribe(eventlist => this.events = eventlist);
-          this.company = this.companies[this.id];
+          this.project = this.projectName[this.id];
           this.Uppgifter = ['Projekt','Uppgift'];
           this.Handelser = ['Projekt','Händelser'];
     }

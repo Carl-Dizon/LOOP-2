@@ -12,10 +12,10 @@ const routes: Routes = [
             { path: 'list', loadChildren: './list/charts.module#ChartsModule' },
             { path: 'tables/:id', loadChildren: './projectspecific/tables.module#TablesModule' },
             { path: 'forms', loadChildren: './form/form.module#FormModule' },
-            { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
+            { path: 'addtask', loadChildren: './bs-element/bs-element.module#BsElementModule' },
             { path: 'listfull', loadChildren: './listfull/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'addtask', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
+            { path: 'bs-element', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
         ]
     }
 ];

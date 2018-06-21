@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-
+import { ProjectService } from '../../../services/projects/project.service' 
+// import {AlertsComponent} from '../alerts/alerts.component';
 
 @Component({
     selector: 'app-header',
@@ -11,10 +10,17 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    // @ViewChild (AlertsComponent) alert: AlertsComponent;
     pushRightClass: string = 'push-right';
-    closeResult: string;
-    private modalService: NgbModal;
-    constructor(private translate: TranslateService, public router: Router) {
+    public isCollapsed = false;
+    reason: string;
+    modalDisplay = "none";
+    modalDisplayAddProject = "none";
+    
+    projects:any[];
+    alertMessage:string; 
+
+    constructor(private translate: TranslateService, public router: Router,private projectlist: ProjectService) {
        
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
@@ -31,25 +37,41 @@ export class HeaderComponent implements OnInit {
             }
         });
     }
-    open(content) {
-        this.modalService.open(content).result.then((result) => {
-            this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
-    }
-    private getDismissReason(reason: any): string {
-        if (reason === ModalDismissReasons.ESC) {
-            return 'by pressing ESC';
-        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
-        } else {
-            return  `with: ${reason}`;
-        }
-    }
+
     ngOnInit() {
+        this.projectlist.currentList.subscribe(projectlist => this.projects = projectlist);
+        this.projectlist.changeList(this.projects);
        
     }
+
+    save(form: IProjectApplication) {
+        form.profPic = "/assets/images/Stadsrosen.PNG";
+        console.log(this.projects);  
+        //adds leave Data to temorary leave storage/array ---------------------------
+        this.projects.push(form);
+        this.projectlist.changeList(this.projects);
+        console.log("Submitted");
+        //---------------------------------------------------------------------------------
+        // this.alertMessage = "Leave Form Submitted";
+        // this.alert.showError(this.alertMessage);
+       
+      }
+
+    showModal(){
+        console.log("clicked text-area");
+        this.modalDisplay = "block";
+      }
+      closeModal(){
+        this.modalDisplay = "none";
+      } 
+      showModalProject(){
+        console.log("clicked text-area");
+        this.modalDisplayAddProject = "block";
+      }
+      closeModalProject(){
+        console.log("closed text-area");
+        this.modalDisplayAddProject = "none";
+      } 
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -94,10 +116,20 @@ export class HeaderComponent implements OnInit {
         //this.router.navigate(['/charts']);
         
     }
-
-    addTask()
+    onBtnClick()
     {
         this.router.navigate(['/addtask']);
-
     }
+    
+
 }
+export interface IProjectApplication {
+    ProjectName: string;
+    profPic:"/assets/images/Stadsrosen.PNG";
+    
+  }
+  
+//   export interface ILeaveType {
+//     Name: string;
+//     Checked: boolean;
+//   }

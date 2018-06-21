@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CompanyService } from '../../../services/companies/company.service' 
+import { ProjectService } from '../../../services/projects/project.service' 
 
 @Component({
     selector: 'app-sidebar',
@@ -12,13 +12,13 @@ export class SidebarComponent {
     isActive: boolean = false;
     showMenu: string = '';
     pushRightClass: string = 'push-right';
-    companies:any[];
-    constructor(private translate: TranslateService, public router: Router,private companylist: CompanyService) {
+    projects:any[];
+    constructor(private translate: TranslateService, public router: Router,private projectlist: ProjectService) {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
         this.translate.use(browserLang.match(/en|fr|ur|es|it|fa|de/) ? browserLang : 'en');
-        this.companylist.currentList.subscribe(companylist => this.companies = companylist);
+        this.projectlist.currentList.subscribe(companylist => this.projects = companylist);
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&

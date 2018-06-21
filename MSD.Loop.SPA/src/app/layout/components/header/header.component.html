@@ -4,16 +4,17 @@
       <div class="card mb-3">
         <div class="card-body">
           <h4 style='float: left; color:gray; '>
-            <i>Projekt</i>
+            <h2><i>Projekt</i></h2>
           </h4>
           <div id="combo1">
+              
             <select id="mySelect" (change)="onViewClick()">
               <option value="grid" selected>Visa som rutnat</option>
               <option value="list">Visa som lista</option>
               <option value="listfull">Visa som fasschema</option>
             </select>
             &nbsp;
-            <select >
+            <select>
               <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Inkludera prospekt</option>
             </select>
           </div>
@@ -24,46 +25,189 @@
       <div class="card mb-3">
         <div class="card-body">
           <h4 style='float: left; color:gray;'>
-            <i>Uppgifter</i>
+            <h2><i>Uppgifter</i></h2>
           </h4>
           <div class="container">
+            
             <div id="combo2">
-
+                
               <select style='background-color:rgb(160, 159, 159); color: white; height:3.5rem' id="mySelect" (change)="onViewClick()">
                 <option value="grid" selected>Visa även avslutade</option>
                 <option value="list">Visa som lista</option>
                 <option value="listfull">Visa som fasschema</option>
-
               </select>
               &nbsp;
               <select style='background-color:rgb(160, 159, 159); color: white; height:3.5rem'>
                 <option value="volvo" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">Sortera efter förfallodatum</option>
               </select>
-              <!-- Trigger the modal with a button -->
-              <button class="btn btn-primary" (click)="open(content)">+</button>
-              <!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="openVerticallyCentered(content)">+</button> -->
+              <!-- <button type="button" class="btn" (click)="onBtnClick()">+</button>  -->
+              <button type="button" class="btn" (click)="showModal()">+</button>
+              <button type="button" class="btnadd" (click)="showModalProject()">Add Project</button>
+              <!-- Modal -->
+              <div class="modal" id="myModal" role="dialog" [ngStyle]="{'display':modalDisplay}">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <!-- <div class="modal-header">
+                                <h2>Lägg till uppgift</h2>
+                                <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
+                               
+                            </div> -->
+                    <form #form="ngForm" (ngSubmit)="save(form.value)" novalidate>
+                      <div class="modal-body">
+                        <table class="table table-hover" class="table table-bordered" style="margin-bottom: 0;">
+                          <thead>
+                            <tr>
+                              <th colspan="8" rowspan="6" class="text-left">
+                                <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
+                                <h2>Lägg till uppgift</h2>
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                            <tr>
+                              <!-- Employee Name -->
+                              <td class="text-center">
+                                Rubrik:
+                                <span style="color: red">*</span>
+                              </td>
+                              <td colspan="5">
+                                <input type="text" id="fname" name="projectName" [(ngModel)]="projectName">
+                              </td>
+                              <td>
+                                <select name="projectNames" id="projectNameList" class="form-control">
+                                  <option *ngFor="let project of projects; let i = index" [value]="project.projectName">
+                                    {{project.projectName}}
+                                  </option>
+                                </select>
+                              </td>
+                            </tr>
+                            <tr>
+                              <!-- Employee Name -->
+                              <td class="text-center">
+                                Beskrivning:
+                                <span style="color: red">*</span>
+                              </td>
+                              <td colspan="6">
+                                <textarea rows="10" cols="20" id="reason" class="form-control select-textarea" name="Reason" [(ngModel)]="reason"></textarea>
+                              </td>
+
+                            </tr>
+                            <tr>
+                              <!-- Employee Name -->
+                              <td class="text-center" colspan="2">
+                                Projekt:
+                              </td>
+                              <td class="text-center" colspan="2">
+                                Typ:
+                              </td>
+                              <td class="text-center" colspan="2">
+                                Utförare:
+                              </td>
+                              <td class="text-center" colspan="2">
+                                Förfallodatum:
+                              </td>
+
+                            </tr>
+                            <tr>
+                              <!-- Employee Name -->
+                              <td class="text-center" colspan="2">
+                                <select>
+                                  <option>
+
+                                  </option>
+                                </select>
+                              </td>
+                              <td class="text-center" colspan="2">
+                                <select>
+                                  <option>
+
+                                  </option>
+                                </select>
+                              </td>
+                              <td class="text-center" colspan="2">
+                                <select>
+                                  <option>
+
+                                  </option>
+                                </select>
+                              </td>
+                              <td class="text-center" colspan="2">
+                                <select>
+                                  <option>
+
+                                  </option>
+                                </select>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-default" data-dismiss="modal" (click)="closeModal()">Submit</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+<!-- Add Project -->
+<!-- Modal -->
+<div class="modal" id="myModalAdd" role="dialog" [ngStyle]="{'display':modalDisplayAddProject}">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <!-- <div class="modal-header">
+                    <h2>Lägg till uppgift</h2>
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
+                   
+                </div> -->
+        <form #form="ngForm" (ngSubmit)="save(form.value)" novalidate>
+          <div class="modal-body">
+            <table class="table table-hover" class="table table-bordered" style="margin-bottom: 0;">
+              <thead>
+                <tr>
+                  <th colspan="8" rowspan="6" class="text-left">
+                    <button type="button" class="close" data-dismiss="modal" (click)="closeModalProject()">&times;</button>
+                    <h2>Add Project</h2>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr>
+                  <!-- Employee Name -->
+                  <td class="text-center" style="padding-top:3rem">
+                    Project Name:
+                    <span style="color: red">*</span>
+                  </td>
+                  <td colspan="5">
+                    <input type="text" id="fname" name="projectName" [(ngModel)]="projectName">
+                    <input type="hidden" id="profPic" name="profPic" [(ngModel)]="profPic" >
+                  </td>                  
+                </tr>                
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-default" data-dismiss="modal" (click)="closeModalProject()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <ng-template #content let-c="close" let-d="dismiss">
-    <div class="modal-header">
-        <h4 class="modal-title">Modal title</h4>
-        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <p>One fine body&hellip;</p>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-    </div>
-</ng-template>
-
-
-
 </nav>

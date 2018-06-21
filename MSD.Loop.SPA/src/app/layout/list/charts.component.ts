@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { TaskService } from '../../services/tasks/task.service'
 import { EventService } from '../../services/events/event.service'
 import { UserService } from '../../services/users/user.service'
-import { CompanyService } from '../../services/companies/company.service' 
+import { ProjectService } from '../../services/projects/project.service' 
 @Component({
     selector: 'app-charts',
     templateUrl: './charts.component.html',
@@ -18,25 +18,26 @@ export class ChartsComponent implements OnInit {
     Projekt: string[];
     Handelser: string[];
     users: any[];
-    companies:any[];
+    project:any[];
     // bar chart
     colours : object[];
     
 
-    constructor(public router: Router,private tasklist: TaskService, private eventlist: EventService,private userlist: UserService,private companylist: CompanyService) {
-        this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
-        this.eventlist.currentList.subscribe(eventlist => this.events = eventlist);
-        this.userlist.currentList.subscribe(userlist => this.users = userlist);
-        this.companylist.currentList.subscribe(companylist => this.companies = companylist);
+    constructor(public router: Router,private tasklist: TaskService, private eventlist: EventService,private userlist: UserService,private projectlist: ProjectService) {
+        
       
     }
 
     ngOnInit() {
+        this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
+        this.eventlist.currentList.subscribe(eventlist => this.events = eventlist);
+        this.userlist.currentList.subscribe(userlist => this.users = userlist);
+        this.projectlist.currentList.subscribe(projectlist => this.project = projectlist);
         this.Uppgifter = ['Projekt','Uppgift'];
 
         this.Projekt = ['Projekt','Progress'];
         this.Handelser = ['Projekt','Händelse'];
-
+console.log(this.project);
  
 
 
