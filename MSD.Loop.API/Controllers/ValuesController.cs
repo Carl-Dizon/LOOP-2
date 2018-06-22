@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MSD.Loop.Engine.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,12 @@ namespace MSD.Loop.API.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly ICompanyService _companyService;
+        
+        public ValuesController(ICompanyService companyService)
+        {
+            _companyService = companyService;
+        }
         // GET api/values
         public IEnumerable<string> Get()
         {
@@ -18,7 +25,7 @@ namespace MSD.Loop.API.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return _companyService.Get(id).Name;
         }
 
         // POST api/values

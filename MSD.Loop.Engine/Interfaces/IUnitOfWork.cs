@@ -17,7 +17,7 @@ namespace MSD.Loop.Engine.Interfaces
         ICompanyUserRoleRepository CompanyUserRoleRepository { get; }
         ICompanyProjectTaskUserRepository ProjectUserTaskRepository { get; }
 
-        IProjectRepository ProjectRepository { get; }
+        ICompanyProjectRepository ProjectRepository { get; }
         IProjectTaskRepository ProjectTaskRepository { get; }
         ICompanyMaterialStockRepository MaterialStockRepository { get; }
         IProjectTaskMaterialRepository ProjectMaterialRepository { get; }

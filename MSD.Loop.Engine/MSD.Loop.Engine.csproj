@@ -59,10 +59,11 @@
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IDatabaseInitializer.cs" />
     <Compile Include="Interfaces\IMaterialService.cs" />
-    <Compile Include="Interfaces\IProjectRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />
     <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskRepository.cs" />
+    <Compile Include="Interfaces\IProjectTaskWorkRepository.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\ITaskService.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
@@ -85,6 +86,7 @@
     <Compile Include="Models\ProjectTaskMaterialEstimate.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
