@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ProjectService } from '../../../services/projects/project.service' 
+import { ProjectService } from '../../../services/CompanyProjects/project.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -10,10 +10,10 @@ import { ProjectService } from '../../../services/projects/project.service'
 })
 export class SidebarComponent {
     isActive: boolean = false;
-    showMenu: string = '';
-    pushRightClass: string = 'push-right';
-    projects:any[];
-    constructor(private translate: TranslateService, public router: Router,private projectlist: ProjectService) {
+    showMenu: string =  '';
+    pushRightClass: 'push-right';
+    projects: any[];
+    constructor(private translate: TranslateService, public router: Router, private projectlist: ProjectService) {
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
@@ -23,9 +23,9 @@ export class SidebarComponent {
             if (
                 val instanceof NavigationEnd &&
                 window.innerWidth <= 992 &&
-                this.isToggled()               
+                this.isToggled()
             ) {
-              
+
                 this.toggleSidebar();
             }
         });
@@ -36,14 +36,13 @@ export class SidebarComponent {
     }
 
     addExpandClass(element: any) {
-       
-        
-        if (element === this.showMenu) {     
-            document.getElementById("side").style.width = "60px";  
+
+        if (element === this.showMenu) {
+            document.getElementById('side').style.width = '60px';
             this.showMenu = '0';
         } else {
-            document.getElementById("side").style.width = "200px";
-            this.showMenu = element;            
+            document.getElementById('side').style.width = '200px';
+            this.showMenu = element;
         }
     }
 
@@ -53,7 +52,7 @@ export class SidebarComponent {
     }
 
     toggleSidebar() {
-        
+
         const dom: any = document.querySelector('body');
         dom.classList.toggle(this.pushRightClass);
     }

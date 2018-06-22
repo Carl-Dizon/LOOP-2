@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { Router, NavigationEnd } from '@angular/router';
-import { TaskService } from '../../services/tasks/task.service'
-import { EventService } from '../../services/events/event.service'
-import { UserService } from '../../services/users/user.service'
-import { PhotosService } from '../../services/temporarydashboardphotos/photos.service'
+import { TaskService } from '../../services/ProjectTasks/task.service';
+import { EventService } from '../../services/events/event.service';
+import { UserService } from '../../services/CompanyUsers/user.service';
+import { PhotosService } from '../../services/temporarydashboardphotos/photos.service';
 
 declare var angular: any;
 @Component({
@@ -16,21 +16,21 @@ declare var angular: any;
 export class DashboardComponent implements OnInit {
     public alerts: Array<any> = [];
     public sliders: Array<any> = [];
-    pushRightClass: string = 'push-right';
+    pushRightClass: 'push-right';
     tasks: any[];
     events: any[];
     users: any[];
     Uppgifter: string[];
     Handelser: string[];
-    photo : any[];
-   
+    photo: any[];
 
-    constructor(public router: Router,private tasklist: TaskService, private eventlist: EventService,private userlist: UserService,private photolist: PhotosService) {
+    constructor(public router: Router, private tasklist: TaskService, private eventlist: EventService,
+        private userlist: UserService, private photolist: PhotosService) {
         this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
         this.eventlist.currentList.subscribe(eventlist => this.events = eventlist);
         this.userlist.currentList.subscribe(userlist => this.users = userlist);
         this.photolist.currentList.subscribe(photolist => this.photo = photolist);
-      
+
     }
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -41,23 +41,20 @@ export class DashboardComponent implements OnInit {
         const dom: any = document.querySelector('body');
         dom.classList.toggle(this.pushRightClass);
     }
-    ngOnInit() {  
-        this.Uppgifter = ['Projekt','Uppgift'];
+    ngOnInit() {
+        this.Uppgifter = ['Projekt', 'Uppgift'];
 
-        this.Handelser = ['Projekt','Händelse'];
-  
+        this.Handelser = ['Projekt', 'Händelse'];
         }
 
     public closeAlert(alert: any) {
         const index: number = this.alerts.indexOf(alert);
         this.alerts.splice(index, 1);
 
-      
     }
 
-    requirementsClick(id: number){
+    requirementsClick(id: number) {
         this.router.navigate(['/tables', id]);
       }
 
-    
 }

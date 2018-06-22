@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ProjectService } from '../../../services/projects/project.service' 
+import { ProjectService } from '../../../services/CompanyProjects/project.service';
+import { TaskService } from '../../../services/ProjectTasks/task.service';
 // import {AlertsComponent} from '../alerts/alerts.component';
 
 @Component({
@@ -11,17 +12,18 @@ import { ProjectService } from '../../../services/projects/project.service'
 })
 export class HeaderComponent implements OnInit {
     // @ViewChild (AlertsComponent) alert: AlertsComponent;
-    pushRightClass: string = 'push-right';
+    pushRightClass: 'push-right';
     public isCollapsed = false;
     reason: string;
-    modalDisplay = "none";
-    modalDisplayAddProject = "none";
-    
-    projects:any[];
-    alertMessage:string; 
+    modalDisplay = 'none';
+    modalDisplayAddProject = 'none';
+    tasks: any[];
+    projects: any[];
+    alertMessage: string;
 
-    constructor(private translate: TranslateService, public router: Router,private projectlist: ProjectService) {
-       
+    constructor(private translate: TranslateService, public router: Router,
+        private projectlist: ProjectService, private tasklist: TaskService) {
+
         this.translate.addLangs(['en', 'fr', 'ur', 'es', 'it', 'fa', 'de', 'zh-CHS']);
         this.translate.setDefaultLang('en');
         const browserLang = this.translate.getBrowserLang();
@@ -41,37 +43,39 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
         this.projectlist.currentList.subscribe(projectlist => this.projects = projectlist);
         this.projectlist.changeList(this.projects);
-       
+        this.tasklist.currentList.subscribe(tasklist => this.tasks = tasklist);
+        this.tasklist.changeList(this.tasks);
     }
 
-    save(form: IProjectApplication) {
-        form.profPic = "/assets/images/Stadsrosen.PNG";
-        console.log(this.projects);  
-        //adds leave Data to temorary leave storage/array ---------------------------
+    saveProject(form: IProjectApplication) {
+        form.profPic = '/assets/images/Stadsrosen.PNG';
+        console.log(this.projects);
         this.projects.push(form);
         this.projectlist.changeList(this.projects);
-        console.log("Submitted");
-        //---------------------------------------------------------------------------------
-        // this.alertMessage = "Leave Form Submitted";
-        // this.alert.showError(this.alertMessage);
-       
+        console.log('Submitted');
+      }
+      saveTask(formtask: ITaskApplication) {
+        formtask.profPic = '/assets/images/Stadsrosen.PNG';
+        console.log(this.tasks);
+        this.tasks.push(formtask);
+        this.tasklist.changeList(this.tasks);
+        console.log('Submitted');
       }
 
-    showModal(){
-        console.log("clicked text-area");
-        this.modalDisplay = "block";
+    showModal() {
+
+        this.modalDisplay = 'block';
       }
-      closeModal(){
-        this.modalDisplay = "none";
-      } 
-      showModalProject(){
-        console.log("clicked text-area");
-        this.modalDisplayAddProject = "block";
+      closeModal() {
+        this.modalDisplay = 'none';
       }
-      closeModalProject(){
-        console.log("closed text-area");
-        this.modalDisplayAddProject = "none";
-      } 
+      showModalProject() {
+
+        this.modalDisplayAddProject = 'block';
+      }
+      closeModalProject() {
+        this.modalDisplayAddProject = 'none';
+      }
 
     isToggled(): boolean {
         const dom: Element = document.querySelector('body');
@@ -95,41 +99,37 @@ export class HeaderComponent implements OnInit {
     changeLang(language: string) {
         this.translate.use(language);
     }
-    onViewClick()
-    {
-        
-        var view = (<HTMLInputElement>document.getElementById("mySelect")).value;
+    onViewClick() {
+
+        const view = (<HTMLInputElement>document.getElementById('mySelect')).value;
         console.log(view);
-        if(view == "grid")
-        {
+        if (view === 'grid') {
             this.router.navigate(['/dashboard']);
-        }
-        else if(view == "list")
-        {
+        } else if (view === 'list') {
             this.router.navigate(['/list']);
-        
-        }
-        else if(view == "listfull")
-        {
+        } else if (view === 'listfull') {
             this.router.navigate(['/listfull']);
         }
-        //this.router.navigate(['/charts']);
-        
+
+
     }
-    onBtnClick()
-    {
+    onBtnClick() {
         this.router.navigate(['/addtask']);
     }
-    
+
 
 }
 export interface IProjectApplication {
     ProjectName: string;
-    profPic:"/assets/images/Stadsrosen.PNG";
-    
+    profPic: '/assets/images/Stadsrosen.PNG';
+
   }
-  
-//   export interface ILeaveType {
-//     Name: string;
-//     Checked: boolean;
-//   }
+
+  export interface ITaskApplication {
+    projectName: string;
+    task: string;
+    asignee: string;
+    profPic: '/assets/images/Stadsrosen.PNG';
+
+  }
+

@@ -53,7 +53,7 @@
                                 <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
                                
                             </div> -->
-                    <form #form="ngForm" (ngSubmit)="save(form.value)" novalidate>
+                    <form #formtask="ngForm" (ngSubmit)="saveTask(formtask.value)" novalidate>
                       <div class="modal-body">
                         <table class="table table-hover" class="table table-bordered" style="margin-bottom: 0;">
                           <thead>
@@ -72,12 +72,12 @@
                                 Rubrik:
                                 <span style="color: red">*</span>
                               </td>
-                              <td colspan="5">
-                                <input type="text" id="fname" name="projectName" [(ngModel)]="projectName">
+                              <td colspan="6">
+                                <input type="text" id="fname" name="task" [(ngModel)]="task">
                               </td>
                               <td>
-                                <select name="projectNames" id="projectNameList" class="form-control">
-                                  <option *ngFor="let project of projects; let i = index" [value]="project.projectName">
+                                <select name="projectName" id="projectNameList" class="form-control" [(ngModel)]="projectName">
+                                  <option *ngFor="let project of projects; let i = index" [value]="project.projectName" >
                                     {{project.projectName}}
                                   </option>
                                 </select>
@@ -89,10 +89,9 @@
                                 Beskrivning:
                                 <span style="color: red">*</span>
                               </td>
-                              <td colspan="6">
+                              <td colspan="7">
                                 <textarea rows="10" cols="20" id="reason" class="form-control select-textarea" name="Reason" [(ngModel)]="reason"></textarea>
                               </td>
-
                             </tr>
                             <tr>
                               <!-- Employee Name -->
@@ -102,7 +101,7 @@
                               <td class="text-center" colspan="2">
                                 Typ:
                               </td>
-                              <td class="text-center" colspan="2">
+                              <td class="text-center" colspan="3">
                                 Utförare:
                               </td>
                               <td class="text-center" colspan="2">
@@ -126,10 +125,10 @@
                                   </option>
                                 </select>
                               </td>
-                              <td class="text-center" colspan="2">
-                                <select>
-                                  <option>
-
+                              <td class="text-center" colspan="3">
+                                <select name="asignee" id="asignee" class="form-control" [(ngModel)]="asignee">
+                                  <option *ngFor="let task of tasks; let i = index" [value]="task.asignee">
+                                  {{task.asignee}}
                                   </option>
                                 </select>
                               </td>
@@ -145,7 +144,9 @@
                         </table>
                       </div>
                       <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" data-dismiss="modal" (click)="closeModal()">Submit</button>
+                        <button type="button" class="btn btn-default" id="cancelbtn" data-dismiss="modal" (click)="closeModal()">Avbryt</button>
+                        <button type="submit" class="btn btn-default" id="acceptbtn"  data-dismiss="modal" (click)="closeModal()">Spara</button>
+                       
                       </div>
                     </form>
                   </div>
@@ -164,7 +165,7 @@
                     <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
                    
                 </div> -->
-        <form #form="ngForm" (ngSubmit)="save(form.value)" novalidate>
+        <form #form="ngForm" (ngSubmit)="saveProject(form.value)" novalidate>
           <div class="modal-body">
             <table class="table table-hover" class="table table-bordered" style="margin-bottom: 0;">
               <thead>

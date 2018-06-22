@@ -7,45 +7,42 @@ import { BehaviorSubject } from 'rxjs';
 export class EventService {
   private listSource = new BehaviorSubject<any[]>([
     {
-      projectName:"Kopparhusen",    
-      event:"Redigerade Rapportera timmar för projektering",
-      asignee:"FRANSISCO N",
-      profPic:"/assets/images/employeeavatar.png",
+      projectName: 'Kopparhusen ',
+      event: 'Redigerade Rapportera timmar för projektering ',
+      asignee: 'FRANSISCO N ',
+      profPic: '/assets/images/employeeavatar.png ',
     },
     {
-      projectName:"Kopparhusen",
-        event:"Slutförde Publicera pressmeddelande",
-        asignee:"CHRISTIAN N",
-        profPic:"/assets/images/employeeavatar.png",
+      projectName: 'Kopparhusen ',
+        event: 'Slutförde Publicera pressmeddelande ',
+        asignee: 'CHRISTIAN N ',
+        profPic: '/assets/images/employeeavatar.png ',
     },
     {
-      projectName:"Kopparhusen",      
-        event:"Slutförde Skicka bygglovsansökan",
-        asignee:"ELEONORA P",
-        profPic:"/assets/images/employeeavatar.png",
+      projectName: 'Kopparhusen ',
+        event: 'Slutförde Skicka bygglovsansökan ',
+        asignee: 'ELEONORA P ',
+        profPic: '/assets/images/employeeavatar.png ',
     },
     {
-      projectName:"Kopparhusen",
-        event:"Raderade Säga upp tidigare VVS-avtal",
-        asignee:"ROBERT F",
-        profPic:"/assets/images/employeeavatar.png",
+      projectName: 'Kopparhusen ',
+        event: 'Raderade Säga upp tidigare VVS-avtal ',
+        asignee: 'ROBERT F ',
+        profPic: '/assets/images/employeeavatar.png ',
     },
     {
-      projectName:"Kopparhusen",
-        event:"Slutförde Rapportera timmar för projektering",
-        asignee:"KLARA N",
-        profPic:"/assets/images/employeeavatar.png",
-        
+      projectName: 'Kopparhusen ',
+        event: 'Slutförde Rapportera timmar för projektering ',
+        asignee: 'KLARA N ',
+        profPic: '/assets/images/employeeavatar.png ',
     },
-   
-   
+
   ]);
   currentList = this.listSource.asObservable();
 
   constructor() { }
-  
+
   changeList(list: any[]) {
     this.listSource.next(list);
   }
- 
 }
