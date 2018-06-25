@@ -1,12 +1,8 @@
 ﻿using MSD.Loop.Engine.Configurations;
+using MSD.Loop.Engine.Factories;
 using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Engine.Services;
 using MSD.Loop.Infrastructure.Configurations;
 using MSD.Loop.Infrastructure.Data;
-using MSD.Loop.Infrastructure.IoC;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 using Unity;
 using Unity.AspNet.WebApi;
@@ -41,6 +37,8 @@ namespace MSD.Loop.API
             unityContainer.RegisterType<ICompanyService, CompanyService>();
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
+            unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
+            unityContainer.RegisterType<IUserFactory, UserFactory>();
 
             unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
             config.DependencyResolver = new UnityDependencyResolver(unityContainer);

@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MSD.Loop.Engine.Models;
 
-namespace MSD.Loop.Engine.Services
+namespace MSD.Loop.Engine.Interfaces
 {
     public class CompanyService : ICompanyService
     {
         private readonly IUnitOfWork _uow;
-        public CompanyService(IUnitOfWork uow)
+
+        public CompanyService(IUnitOfWork uow, ICompanyFactory companyFactory)
         {
             _uow = uow;
         }

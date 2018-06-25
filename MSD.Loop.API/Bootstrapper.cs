@@ -1,6 +1,4 @@
-﻿using MSD.Loop.DTOs.Factories;
-using MSD.Loop.DTOs.Interfaces;
-using MSD.Loop.Engine.Configurations;
+﻿using MSD.Loop.Engine.Configurations;
 using MSD.Loop.Engine.Interfaces;
 using MSD.Loop.Engine.Services;
 using MSD.Loop.Infrastructure.Configurations;
@@ -42,8 +40,8 @@ namespace MSD.Loop.API
             unityContainer.RegisterType<IProjectTaskMaterialRepository, ProjectTaskMaterialRepository>();
 
             unityContainer.RegisterType<ICompanyService, CompanyService>();
-            unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
-            unityContainer.RegisterType<IUserFactory, UserFactory>();
+           // unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
+           // unityContainer.RegisterType<IUserFactory, UserFactory>();
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
             unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
 

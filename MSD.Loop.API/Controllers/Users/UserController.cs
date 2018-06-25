@@ -1,5 +1,4 @@
-﻿using MSD.Loop.DTOs.Interfaces;
-using MSD.Loop.Engine.Interfaces;
+﻿using MSD.Loop.Engine.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ namespace MSD.Loop.API.Controllers.Users
 {
     public class UserController : BaseController
     {
-        public UserController(IUserService userService, IUserFactory userFactory)
+        public UserController(IUserService userService)
         {
 
         }
