@@ -9,6 +9,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { CoreModule } from './core/core.module';
+import { UserModule } from './manage-users/user.module';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -23,7 +25,6 @@ export const createTranslateLoader = (http: HttpClient) => {
 
 @NgModule({
     imports: [
-        CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
@@ -34,7 +35,9 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        CoreModule,
+        UserModule
     ],
     declarations: [AppComponent],
     providers: [AuthGuard],
