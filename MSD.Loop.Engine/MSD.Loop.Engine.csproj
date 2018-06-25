@@ -45,7 +45,10 @@
     <Compile Include="Configurations\ConfigurationFactory.cs" />
     <Compile Include="Configurations\ModuleElement.cs" />
     <Compile Include="Configurations\ModuleElementCollection.cs" />
+    <Compile Include="Factories\CompanyFactory.cs" />
+    <Compile Include="Factories\UserFactory.cs" />
     <Compile Include="Interfaces\IApplicationModule.cs" />
+    <Compile Include="Interfaces\ICompanyFactory.cs" />
     <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRoleRepository.cs" />
@@ -59,13 +62,15 @@
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\IDatabaseInitializer.cs" />
     <Compile Include="Interfaces\IMaterialService.cs" />
-    <Compile Include="Interfaces\IProjectRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />
     <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskRepository.cs" />
+    <Compile Include="Interfaces\IProjectTaskWorkRepository.cs" />
     <Compile Include="Interfaces\IRoleService.cs" />
     <Compile Include="Interfaces\ITaskService.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IUserFactory.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Models\AccessLevel.cs" />
@@ -85,6 +90,7 @@
     <Compile Include="Models\ProjectTaskMaterialEstimate.cs" />
     <Compile Include="Models\Permission.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -95,6 +101,10 @@
     <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
       <Project>{312e1c8f-ae31-4310-a1e4-eb93291c4a01}</Project>
       <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
+      <Project>{3308d94d-2b88-4091-b24a-6c7aca4e0565}</Project>
+      <Name>MSD.Loop.DTO</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -116,13 +116,16 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Abstractions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Abstractions.dll</HintPath>
+      <HintPath>..\packages\Unity.Abstractions.3.3.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AspNet.WebApi, Version=5.0.13.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.AspNet.WebApi.5.0.13\lib\net46\Unity.AspNet.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Container, Version=5.7.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.7.0\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.dll</HintPath>
@@ -135,6 +138,9 @@
     </Reference>
     <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -172,6 +178,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
@@ -201,9 +209,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\Access\AccessRoleController.cs" />
+    <Compile Include="Controllers\Access\PermissionController.cs" />
+    <Compile Include="Controllers\Access\CompanyUserRoleController.cs" />
+    <Compile Include="Controllers\Access\ProjectUserRoleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Companies\CompanyController.cs" />
+    <Compile Include="Controllers\Companies\CompanyMaterialController.cs" />
+    <Compile Include="Controllers\Projects\ProjectController.cs" />
+    <Compile Include="Controllers\Projects\ProjectUserController.cs" />
+    <Compile Include="Controllers\Tasks\ProjectTaskController.cs" />
+    <Compile Include="Controllers\Tasks\TaskMaterialEstimateController.cs" />
+    <Compile Include="Controllers\Tasks\TaskUserController.cs" />
+    <Compile Include="Controllers\Tasks\TaskWorkEstimateController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -263,12 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Companies\" />
-    <Folder Include="Controllers\Permissions\" />
-    <Folder Include="Controllers\Projects\" />
-    <Folder Include="Controllers\Roles\" />
-    <Folder Include="Controllers\Tasks\" />
-    <Folder Include="Controllers\Users\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -285,6 +299,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
+      <Project>{3308D94D-2B88-4091-B24A-6C7ACA4E0565}</Project>
+      <Name>MSD.Loop.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
+      <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
+      <Name>MSD.Loop.Engine</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Infrastructure\MSD.Loop.Infrastructure.csproj">
       <Project>{343601de-f09c-42c6-b936-a3b1de7c7909}</Project>
       <Name>MSD.Loop.Infrastructure</Name>

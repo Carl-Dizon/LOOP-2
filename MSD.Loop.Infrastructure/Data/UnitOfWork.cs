@@ -1,6 +1,7 @@
 ﻿using MSD.Loop.Engine.Interfaces;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace MSD.Loop.Infrastructure.Data
 {
@@ -18,11 +19,11 @@ namespace MSD.Loop.Infrastructure.Data
         private readonly ICompanyProjectUserRepository _projectUserRepo;
         private readonly ICompanyUserRoleRepository _companyUserRoleRepo;
         private readonly ICompanyProjectTaskUserRepository _projectUserTaskRepo;
-        private readonly IProjectRepository _projectRepo;
+        private readonly ICompanyProjectRepository _projectRepo;
 
         private readonly IProjectTaskRepository _projectTaskRepo;
         private readonly ICompanyMaterialStockRepository _materialStockRepo;
-        private readonly ProjectMaterialRepository _projectMaterialRepo;
+        private readonly ProjectTaskMaterialRepository _projectMaterialRepo;
 
         public UnitOfWork(IConnectionFactory connectionFactory)
         {
@@ -65,7 +66,7 @@ namespace MSD.Loop.Infrastructure.Data
             get { return _projectUserTaskRepo ?? (new ProjectTaskUserRepository(_transaction)); }
         }
 
-        public IProjectRepository ProjectRepository
+        public ICompanyProjectRepository ProjectRepository
         {
             get { return _projectRepo ?? (new CompanyProjectRepository(_transaction)); }
         }
@@ -82,7 +83,7 @@ namespace MSD.Loop.Infrastructure.Data
 
         public IProjectTaskMaterialRepository ProjectMaterialRepository
         {
-            get { return _projectMaterialRepo ?? (new ProjectMaterialRepository(_transaction)); }
+            get { return _projectMaterialRepo ?? (new ProjectTaskMaterialRepository(_transaction)); }
         }
 
         public ICompanyAccessRoleRepository CompanyRoleRepository
