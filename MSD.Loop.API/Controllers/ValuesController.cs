@@ -25,6 +25,12 @@ namespace MSD.Loop.API.Controllers
         // GET api/values/5
         public string Get(int id)
         {
+            var company = _companyService.Get(id);
+            if(company == null)
+            {
+                return "No company found";
+            }
+
             return _companyService.Get(id).Name;
         }
 

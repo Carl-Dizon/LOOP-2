@@ -209,9 +209,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Controllers\Access\AccessRoleController.cs" />
+    <Compile Include="Controllers\Access\PermissionController.cs" />
+    <Compile Include="Controllers\Access\CompanyUserRoleController.cs" />
+    <Compile Include="Controllers\Access\ProjectUserRoleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\Companies\CompanyController.cs" />
+    <Compile Include="Controllers\Companies\CompanyMaterialController.cs" />
+    <Compile Include="Controllers\Projects\ProjectController.cs" />
+    <Compile Include="Controllers\Projects\ProjectUserController.cs" />
+    <Compile Include="Controllers\Tasks\ProjectTaskController.cs" />
+    <Compile Include="Controllers\Tasks\TaskMaterialEstimateController.cs" />
+    <Compile Include="Controllers\Tasks\TaskUserController.cs" />
+    <Compile Include="Controllers\Tasks\TaskWorkEstimateController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -271,12 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Companies\" />
-    <Folder Include="Controllers\Permissions\" />
-    <Folder Include="Controllers\Projects\" />
-    <Folder Include="Controllers\Roles\" />
-    <Folder Include="Controllers\Tasks\" />
-    <Folder Include="Controllers\Users\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +299,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.DTOs\MSD.Loop.DTOs.csproj">
+      <Project>{ff16a893-ba3d-4a2f-ab1f-4746d570bd9b}</Project>
+      <Name>MSD.Loop.DTOs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
       <Name>MSD.Loop.Engine</Name>
