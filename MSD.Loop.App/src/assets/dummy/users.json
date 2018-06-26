@@ -1,0 +1,22 @@
+[
+  {
+    "firstName": "Cristopher",
+    "lastName": "Worker",
+    "role": {
+      "name": "Worker"
+    },
+    "company":  {
+      "name": "Loop Company Inc."
+    }
+  },
+  {
+    "firstName": "Siteus",
+    "lastName": "Manager",
+    "role": {
+      "name": "Site Manager"
+    },
+    "company":  {
+      "name": "Loop Company Inc."
+    }
+  }
+]
