@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSD.Loop.Providers.Roles
+namespace MSD.Loop.Providers.Loggers
 {
-    public class RoleProvider : IRoleProvider
+    public class Logger : ILogger
     {
-
     }
 }

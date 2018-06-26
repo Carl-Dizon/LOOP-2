@@ -22,7 +22,7 @@ namespace MSD.Loop.Engine.Configurations
                 _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailer;
                 _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
                 
-                _roleProvider = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as IRoleProvider;
+                _roleProvider = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as IRoleProvider;
             }
 
             //handle modules
@@ -51,5 +51,9 @@ namespace MSD.Loop.Engine.Configurations
             return _events;
         }
 
+        public IRoleProvider GetRoleProvider()
+        {
+            return _roleProvider;
+        }
     }
 }

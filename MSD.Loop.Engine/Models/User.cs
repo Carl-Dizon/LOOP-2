@@ -20,5 +20,6 @@ namespace MSD.Loop.Engine.Models
         public DateTime LastModifiedOn { get; set; }
 
         public bool IsArchived { get; set; }
+        public bool IsDefault { get; set; }
     }
 }

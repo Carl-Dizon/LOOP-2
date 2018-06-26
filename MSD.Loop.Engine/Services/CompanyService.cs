@@ -1,20 +1,18 @@
-﻿using MSD.Loop.Engine.Interfaces;
+﻿using MSD.Loop.Engine.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MSD.Loop.Engine.Models;
 
 namespace MSD.Loop.Engine.Interfaces
 {
     public class CompanyService : ICompanyService
     {
         private readonly IUnitOfWork _uow;
+        private readonly ICompanyFactory _companyFactory;
 
         public CompanyService(IUnitOfWork uow, ICompanyFactory companyFactory)
         {
             _uow = uow;
+            _companyFactory = companyFactory;
         }
 
         public Company Get(int id)

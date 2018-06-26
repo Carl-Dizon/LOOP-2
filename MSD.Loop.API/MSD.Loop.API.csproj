@@ -299,6 +299,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
+      <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
+      <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
       <Project>{3308D94D-2B88-4091-B24A-6C7ACA4E0565}</Project>
       <Name>MSD.Loop.DTO</Name>

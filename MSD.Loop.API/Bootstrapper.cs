@@ -1,8 +1,12 @@
-﻿using MSD.Loop.Engine.Configurations;
+﻿using MSD.Loop.Common.Interfaces;
+using MSD.Loop.Engine.Configurations;
+using MSD.Loop.Engine.Factories;
 using MSD.Loop.Engine.Interfaces;
 using MSD.Loop.Engine.Services;
 using MSD.Loop.Infrastructure.Configurations;
 using MSD.Loop.Infrastructure.Data;
+using MSD.Loop.Providers.Mailers;
+using MSD.Loop.Providers.Roles;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,14 +44,26 @@ namespace MSD.Loop.API
             unityContainer.RegisterType<IProjectTaskMaterialRepository, ProjectTaskMaterialRepository>();
 
             unityContainer.RegisterType<ICompanyService, CompanyService>();
-           // unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
-           // unityContainer.RegisterType<IUserFactory, UserFactory>();
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
+
+            unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
+            unityContainer.RegisterType<IUserFactory, UserFactory>();
+
             unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
 
-            //config.DependencyResolver = new UnityDependencyResolver(unityContainer);
-            //DependencyResolver.SetResolver(new Unity.Mvc3.UnityDependencyResolver(unityContainer));
+            //register providers
+            unityContainer.RegisterType<IMailer, Mailer>();
+            unityContainer.RegisterType<IRoleProvider, CompanyAccessRoleProvider>();
+            //unityContainer.RegisterType<ILogger, Logger>();
+
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
+
+            var configFactory = unityContainer.Resolve<ConfigurationFactory>();
+            var connFactory = unityContainer.Resolve<ConnectionFactory>();
+            var roleProvider = configFactory.GetRoleProvider();
+            roleProvider.Initialize(connFactory.GetConnection());
+
+           
         }
     }
 }

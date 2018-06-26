@@ -99,6 +99,6 @@ namespace MSD.Loop.Engine.Configurations
 
     public class RoleProviderElement : ProviderBaseElement
     {
-
+       
     }
 }
