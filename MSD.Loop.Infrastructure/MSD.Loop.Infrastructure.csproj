@@ -68,6 +68,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\ApplicationInitializer.cs" />
+    <Compile Include="Configurations\ApplicationSettingRepository.cs" />
     <Compile Include="Configurations\ConnectionFactory.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\CompanyMaterialStockRepository.cs" />
@@ -97,6 +99,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
+      <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
+      <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
       <Name>MSD.Loop.Engine</Name>

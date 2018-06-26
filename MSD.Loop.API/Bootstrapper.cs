@@ -42,27 +42,30 @@ namespace MSD.Loop.API
             unityContainer.RegisterType<ICompanyProjectTaskUserRepository, ProjectTaskUserRepository>();
             unityContainer.RegisterType<IProjectTaskRepository, ProjectTaskRepository>();
             unityContainer.RegisterType<IProjectTaskMaterialRepository, ProjectTaskMaterialRepository>();
+            unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
 
             unityContainer.RegisterType<ICompanyService, CompanyService>();
-            unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
-
             unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
             unityContainer.RegisterType<IUserFactory, UserFactory>();
 
-            unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
+            unityContainer.RegisterType<IApplicationSettingRepository, ApplicationSettingRepository>();
+            unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();
+            unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
             //register providers
             unityContainer.RegisterType<IMailer, Mailer>();
-            unityContainer.RegisterType<IRoleProvider, CompanyAccessRoleProvider>();
+            unityContainer.RegisterType<ICompanyAccessLevelProvider, CompanyAccessRoleProvider>();
             //unityContainer.RegisterType<ILogger, Logger>();
 
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
 
-            var configFactory = unityContainer.Resolve<ConfigurationFactory>();
-            var connFactory = unityContainer.Resolve<ConnectionFactory>();
-            var roleProvider = configFactory.GetRoleProvider();
-            roleProvider.Initialize(connFactory.GetConnection());
+            //var configFactory = unityContainer.Resolve<ConfigurationFactory>();
+            //var connFactory = unityContainer.Resolve<ConnectionFactory>();
+            //var roleProvider = configFactory.GetRoleProvider();
+            //roleProvider.Initialize(connFactory.GetConnection());
 
+            var appInitializer = unityContainer.Resolve<ApplicationInitializer>();
+            appInitializer.Initialize();
            
         }
     }

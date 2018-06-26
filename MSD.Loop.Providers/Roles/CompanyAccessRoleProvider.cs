@@ -1,5 +1,5 @@
-﻿using MSD.Loop.Common.Interfaces;
-using System;
+﻿using System;
+using MSD.Loop.Common.Interfaces;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -10,7 +10,7 @@ using MSD.Loop.Engine.Models;
 
 namespace MSD.Loop.Providers.Roles
 {
-    public class CompanyAccessRoleProvider : IRoleProvider
+    public class CompanyAccessRoleProvider : ICompanyAccessLevelProvider
     {
         private IDbConnection _connection;
         public void Initialize(IDbConnection connection)

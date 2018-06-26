@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\ApplicationSetting.cs" />
     <Compile Include="Configurations\Configuration.cs" />
     <Compile Include="Configurations\ConfigurationFactory.cs" />
     <Compile Include="Configurations\ModuleElement.cs" />
     <Compile Include="Configurations\ModuleElementCollection.cs" />
     <Compile Include="Factories\CompanyFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
-    <Compile Include="Interfaces\IApplicationModule.cs" />
+    <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
     <Compile Include="Interfaces\ICompanyFactory.cs" />
     <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />

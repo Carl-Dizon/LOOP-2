@@ -10,7 +10,7 @@ namespace MSD.Loop.Engine.Configurations
     {
         private IMailer _mailer;
         private ILogger _logger;
-        private IRoleProvider _roleProvider;
+        private ICompanyAccessLevelProvider _roleProvider;
         private ApplicationEvents _events;
 
         public ConfigurationFactory()
@@ -22,7 +22,7 @@ namespace MSD.Loop.Engine.Configurations
                 _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailer;
                 _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
                 
-                _roleProvider = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as IRoleProvider;
+                _roleProvider = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as ICompanyAccessLevelProvider;
             }
 
             //handle modules
@@ -51,7 +51,7 @@ namespace MSD.Loop.Engine.Configurations
             return _events;
         }
 
-        public IRoleProvider GetRoleProvider()
+        public ICompanyAccessLevelProvider GetRoleProvider()
         {
             return _roleProvider;
         }

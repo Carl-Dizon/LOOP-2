@@ -11,7 +11,7 @@ namespace MSD.Loop.Infrastructure.Data
     {
         public void Initialize(IConnectionFactory connectionFactory)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }

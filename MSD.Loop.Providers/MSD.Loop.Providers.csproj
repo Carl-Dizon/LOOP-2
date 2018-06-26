@@ -48,10 +48,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\CompanyAccessRoleProvider.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Initializers\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
-      <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
+      <Project>{312e1c8f-ae31-4310-a1e4-eb93291c4a01}</Project>
       <Name>MSD.Loop.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
