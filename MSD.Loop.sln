@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.TestClient", "MSD.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.DTO", "MSD.Loop.DTO\MSD.Loop.DTO.csproj", "{3308D94D-2B88-4091-B24A-6C7ACA4E0565}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Business", "MSD.Loop.Business\MSD.Loop.Business.csproj", "{6D576F72-7C65-4D78-957A-742CE1CF1582}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{3308D94D-2B88-4091-B24A-6C7ACA4E0565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3308D94D-2B88-4091-B24A-6C7ACA4E0565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3308D94D-2B88-4091-B24A-6C7ACA4E0565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,8 @@
-﻿using MSD.Loop.Common.Modules;
+﻿using MSD.Loop.Business.Interfaces;
+using MSD.Loop.Common.Modules;
 using MSD.Loop.Engine.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MSD.Loop.Engine.Services
+namespace MSD.Loop.Business.Services
 {
     public class ProjectService : IProjectService
     {

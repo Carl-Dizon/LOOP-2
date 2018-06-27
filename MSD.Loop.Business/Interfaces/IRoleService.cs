@@ -1,4 +1,4 @@
-﻿namespace MSD.Loop.Engine.Interfaces
+﻿namespace MSD.Loop.Business.Interfaces
 {
     public interface IRoleService
     {

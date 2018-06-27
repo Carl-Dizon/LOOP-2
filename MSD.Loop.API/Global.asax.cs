@@ -1,16 +1,8 @@
-﻿using MSD.Loop.Engine.Configurations;
-using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Infrastructure.Configurations;
-using MSD.Loop.Infrastructure.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MSD.Loop.Infrastructure.Configurations;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using Unity;
 using Unity.AspNet.WebApi;
 
 namespace MSD.Loop.API

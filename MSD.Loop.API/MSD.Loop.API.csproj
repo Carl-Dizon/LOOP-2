@@ -215,7 +215,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Access\AccessRoleController.cs" />
     <Compile Include="Controllers\Access\PermissionController.cs" />
     <Compile Include="Controllers\Access\CompanyUserRoleController.cs" />
@@ -305,6 +304,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Business\MSD.Loop.Business.csproj">
+      <Project>{6D576F72-7C65-4D78-957A-742CE1CF1582}</Project>
+      <Name>MSD.Loop.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
       <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
       <Name>MSD.Loop.Common</Name>
@@ -314,20 +317,12 @@
       <Name>MSD.Loop.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
-      <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
+      <Project>{809278e4-4bbe-42f9-8e61-73c3f87c57cf}</Project>
       <Name>MSD.Loop.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Infrastructure\MSD.Loop.Infrastructure.csproj">
       <Project>{343601de-f09c-42c6-b936-a3b1de7c7909}</Project>
       <Name>MSD.Loop.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.Modules\MSD.Loop.Modules.csproj">
-      <Project>{cc647e07-edc6-4997-ba7c-b3becdfe101e}</Project>
-      <Name>MSD.Loop.Modules</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.Providers\MSD.Loop.Providers.csproj">
-      <Project>{62270ed3-92c3-460a-88c1-e81fe797dc1c}</Project>
-      <Name>MSD.Loop.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

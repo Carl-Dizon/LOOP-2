@@ -104,9 +104,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Business\MSD.Loop.Business.csproj">
+      <Project>{6D576F72-7C65-4D78-957A-742CE1CF1582}</Project>
+      <Name>MSD.Loop.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
       <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
       <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
+      <Project>{3308D94D-2B88-4091-B24A-6C7ACA4E0565}</Project>
+      <Name>MSD.Loop.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>

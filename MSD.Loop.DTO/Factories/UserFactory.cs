@@ -1,8 +1,8 @@
-﻿using MSD.Loop.DTO.Models;
-using MSD.Loop.Engine.Interfaces;
+﻿using MSD.Loop.DTO.Interfaces;
+using MSD.Loop.DTO.Models;
 using MSD.Loop.Engine.Models;
 
-namespace MSD.Loop.Engine.Factories
+namespace MSD.Loop.Business.Factories
 {
     public class UserFactory : IUserFactory
     {
