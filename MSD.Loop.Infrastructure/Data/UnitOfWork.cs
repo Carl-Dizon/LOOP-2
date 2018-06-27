@@ -1,7 +1,8 @@
 ﻿using MSD.Loop.Engine.Interfaces;
+using MSD.Loop.Infrastructure.Configurations;
+using MSD.Loop.Infrastructure.Interfaces;
 using System;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace MSD.Loop.Infrastructure.Data
 {
@@ -23,12 +24,18 @@ namespace MSD.Loop.Infrastructure.Data
 
         private readonly IProjectTaskRepository _projectTaskRepo;
         private readonly ICompanyMaterialStockRepository _materialStockRepo;
-        private readonly ProjectTaskMaterialRepository _projectMaterialRepo;
+        private readonly IProjectTaskMaterialRepository _projectMaterialRepo;
+        private readonly IApplicationSettingRepository _applicationSettingRepo;
 
         public UnitOfWork(IConnectionFactory connectionFactory)
         {
             _connection = connectionFactory.GetConnection();
             _transaction = _connection.BeginTransaction();
+        }
+
+        public IApplicationSettingRepository ApplicationSettingRepository
+        {
+            get { return _applicationSettingRepo ?? (new ApplicationSettingRepository(_transaction)); }
         }
 
         public ICompanyRepository CompanyRepository

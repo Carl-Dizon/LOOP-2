@@ -48,7 +48,6 @@
     <Compile Include="Configurations\ModuleElementCollection.cs" />
     <Compile Include="Factories\CompanyFactory.cs" />
     <Compile Include="Factories\UserFactory.cs" />
-    <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
     <Compile Include="Interfaces\ICompanyFactory.cs" />
     <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="Interfaces\ICompanyUserRoleRepository.cs" />
     <Compile Include="Interfaces\IConfigurationFactory.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
-    <Compile Include="Interfaces\IDatabaseInitializer.cs" />
     <Compile Include="Interfaces\IMaterialService.cs" />
     <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
     <Compile Include="Interfaces\IProjectService.cs" />

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Unity;
+using Unity.AspNet.WebApi;
 
 namespace MSD.Loop.API
 {
@@ -18,14 +19,14 @@ namespace MSD.Loop.API
     {
         protected void Application_Start()
         {
-
-            //database.Initilize();
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            Bootstrapper.Initialise();
+
+            var unityContainer = new UnityContainerBuilder().Build();
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
         }
     }
 }

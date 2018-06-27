@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity;
 
-namespace MSD.Loop.Engine.Interfaces
+namespace MSD.Loop.Infrastructure.Interfaces
 {
-    public interface IApplicationSettingRepository
+    public interface IUnityContainerBuilder
     {
-
+        UnityContainer Build();
     }
 }

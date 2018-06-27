@@ -1,56 +1,33 @@
-﻿using MSD.Loop.Common.Interfaces;
+﻿using Dapper;
+using MSD.Loop.Common.Interfaces;
 using MSD.Loop.Engine.Interfaces;
+using MSD.Loop.Engine.Models;
+using MSD.Loop.Infrastructure.Interfaces;
 using System;
-using Dapper;
+using System.Data;
 
 namespace MSD.Loop.Infrastructure.Configurations
 {
+    /// <summary>
+    /// An instance used in setting up the 
+    /// </summary>
     public class ApplicationInitializer : IApplicationInitializer
     {
-        private readonly IApplicationSettingRepository _appSettingRepository;
-        private readonly IConnectionFactory _connectionFactory;
+       
+        private readonly IDatabaseInitializer _dbInitializer;
 
-        public ApplicationInitializer(IApplicationSettingRepository appSettingRepository, IConnectionFactory connectionFactory)
+        public ApplicationInitializer(IDatabaseInitializer dbInitializer)
         {
-            _appSettingRepository = appSettingRepository;
-            _connectionFactory = connectionFactory;
+            _dbInitializer = dbInitializer;
         }
 
         public void Initialize()
         {
-            InitializeAppSettings();
-            InitializeDatabase();
+           
+            _dbInitializer.BootstrapAppSettings();
+            _dbInitializer.BootstrapAppDatabases();
         }
 
-        private void InitializeAppSettings()
-        {
-            var connection = _connectionFactory.GetConnection();
-            if(connection == null)
-            {
-                throw new NullReferenceException("Connection to application database cannot be established. ");
-            }
 
-            var transaction = connection.BeginTransaction();
-            if(transaction == null)
-            {
-                throw new NullReferenceException("Transaction object from connection cannot be established.");
-            }
-
-            //try fetch appsettings if any exist
-            var sqlQuery = @"SELECT * ApplicationSettings";
-            var returnedRows = connection.Execute(sqlQuery, transaction: transaction);
-            if(returnedRows == 0)
-            {
-                //create or insert the application setting table
-                sqlQuery = @"INSERT INTO ApplicationSettings"
-            }
-
-
-        }
-
-        private void InitializeDatabase()
-        {
-
-        }
     }
 }

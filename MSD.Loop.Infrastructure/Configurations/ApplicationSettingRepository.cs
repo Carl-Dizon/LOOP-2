@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using MSD.Loop.Infrastructure.Interfaces;
 
 namespace MSD.Loop.Infrastructure.Configurations
 {

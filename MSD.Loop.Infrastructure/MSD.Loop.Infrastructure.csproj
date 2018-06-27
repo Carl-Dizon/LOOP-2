@@ -71,6 +71,8 @@
     <Compile Include="Configurations\ApplicationInitializer.cs" />
     <Compile Include="Configurations\ApplicationSettingRepository.cs" />
     <Compile Include="Configurations\ConnectionFactory.cs" />
+    <Compile Include="Configurations\DatabaseInitializer.cs" />
+    <Compile Include="Configurations\UnityContainerBuilder.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\CompanyMaterialStockRepository.cs" />
     <Compile Include="Data\CompanyProjectRepository.cs" />
@@ -79,7 +81,6 @@
     <Compile Include="Data\CompanyAccessRoleRepository.cs" />
     <Compile Include="Data\CompanyUserRepository.cs" />
     <Compile Include="Data\CompanyUserRoleRepository.cs" />
-    <Compile Include="Data\DatabaseInitializer.cs" />
     <Compile Include="Data\ProjectTaskMaterialRepository.cs" />
     <Compile Include="Data\ProjectTaskRepository.cs" />
     <Compile Include="Data\ProjectTaskWorkRepository.cs" />
@@ -87,6 +88,10 @@
     <Compile Include="Data\ProjectTaskUserRepository.cs" />
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Interfaces\IApplicationInitializer.cs" />
+    <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
+    <Compile Include="Interfaces\IDatabaseInitializer.cs" />
+    <Compile Include="Interfaces\IUnityContainerBuilder.cs" />
     <Compile Include="IoC\UnityResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -106,6 +111,10 @@
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
       <Name>MSD.Loop.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.Providers\MSD.Loop.Providers.csproj">
+      <Project>{62270ED3-92C3-460A-88C1-E81FE797DC1C}</Project>
+      <Name>MSD.Loop.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSD.Loop.Common.Interfaces
+namespace MSD.Loop.Infrastructure.Interfaces
 {
-    public interface IApplicationInitializer
+    public interface IApplicationSettingRepository
     {
-        void Initialize();
+
     }
 }

@@ -2,25 +2,26 @@
 using MSD.Loop.Engine.Configurations;
 using MSD.Loop.Engine.Factories;
 using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Engine.Services;
-using MSD.Loop.Infrastructure.Configurations;
 using MSD.Loop.Infrastructure.Data;
+using MSD.Loop.Infrastructure.Interfaces;
 using MSD.Loop.Providers.Mailers;
 using MSD.Loop.Providers.Roles;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
+using System.Text;
+using System.Threading.Tasks;
 using Unity;
-using Unity.AspNet.WebApi;
 
-namespace MSD.Loop.API
+namespace MSD.Loop.Infrastructure.Configurations
 {
-    public static class Bootstrapper
+    /// <summary>
+    /// Register all dependencies for the bootstrapper to use on the client application
+    /// </summary>
+    public class UnityContainerBuilder : IUnityContainerBuilder
     {
-        public static void Initialise()
+        public UnityContainer Build()
         {
             //will be moved to another class
             var unityContainer = new UnityContainer();
@@ -50,6 +51,7 @@ namespace MSD.Loop.API
 
             unityContainer.RegisterType<IApplicationSettingRepository, ApplicationSettingRepository>();
             unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();
+            unityContainer.RegisterType<IDatabaseInitializer, DatabaseInitializer>();
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
             //register providers
@@ -57,16 +59,18 @@ namespace MSD.Loop.API
             unityContainer.RegisterType<ICompanyAccessLevelProvider, CompanyAccessRoleProvider>();
             //unityContainer.RegisterType<ILogger, Logger>();
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
+            unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();
+            unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
-            //var configFactory = unityContainer.Resolve<ConfigurationFactory>();
-            //var connFactory = unityContainer.Resolve<ConnectionFactory>();
-            //var roleProvider = configFactory.GetRoleProvider();
-            //roleProvider.Initialize(connFactory.GetConnection());
+            var configFactory = unityContainer.Resolve<ConfigurationFactory>();
+            var connFactory = unityContainer.Resolve<ConnectionFactory>();
+            unityContainer.RegisterInstance<IDbConnection>(connFactory.GetConnection());
+            unityContainer.RegisterInstance<IDbTransaction>(connFactory.GetConnection().BeginTransaction());
 
-            var appInitializer = unityContainer.Resolve<ApplicationInitializer>();
-            appInitializer.Initialize();
-           
+            var applicationInitializer = unityContainer.Resolve<ApplicationInitializer>();
+            applicationInitializer.Initialize();
+
+            return unityContainer;
         }
     }
 }
