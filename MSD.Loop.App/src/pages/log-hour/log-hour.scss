@@ -1,3 +1,31 @@
 page-log-hour {
+    .ion-content{
+        background-color: rgb(209, 209, 209);
+    }
 
+    .user-img{
+        width:60px;
+        height:60px;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+    }
+
+    .user-name{
+        font-weight: 500;
+        font-size: 22px;
+    }
+
+    .date{
+        // border: 1px solid black;
+        color: color($colors, light);
+        font-size: 16px;
+        border-radius: 25px;
+        font-weight: 500;
+        background-color: color($colors, primary);
+    }
+
+    .ion-buttons{
+        width: 100%;
+        height: 40px;
+    }
 }

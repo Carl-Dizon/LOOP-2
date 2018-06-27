@@ -15,6 +15,9 @@ import { PrototypeLandingPage } from '../pages/prototype-landing/prototype-landi
 import { HttpClientModule } from '@angular/common/http';
 import { LogHourPage } from '../pages/log-hour/log-hour';
 import { LogMaterialPage } from '../pages/log-material/log-material';
+import { ProjectProvider } from '../providers/project/project';
+import { AreaProvider } from '../providers/area/area';
+import { MaterialProvider } from '../providers/material/material';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,10 @@ import { LogMaterialPage } from '../pages/log-material/log-material';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserProvider
+    UserProvider,
+    ProjectProvider,
+    AreaProvider,
+    MaterialProvider
   ]
 })
 export class AppModule {}

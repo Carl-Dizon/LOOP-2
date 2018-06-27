@@ -6,13 +6,60 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>log-hour</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>LOG HOURS</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="ion-content" padding-right padding-left no-bounce>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+          <img class="user-img" src="../../assets/imgs/unknown_user.png"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-label class="user-name" no-margin>Christopher Plumber</ion-label>
+        <ion-label no-margin>Plumber</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        Date
+        <ion-datetime class="date" displayFormat="MMM DD YYYY" [(ngModel)]="date" no-margin></ion-datetime>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col text-center>
+          Project
+          <button class="ion-buttons" (click)="onProjectSelect()" ion-button round no-margin>
+            {{project}}
+          </button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col text-center>
+          Area
+          <button class="ion-buttons" (click)="onAreaSelect()" ion-button round no-margin>
+            {{area}}
+          </button>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col text-center>
+          Hours worked
+          <ion-datetime class="date" displayFormat="h:mm" [(ngModel)]="hours" no-margin></ion-datetime>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col text-center padding-top>
+          <button class="ion-buttons-ok" color="secondary" (click)="onSave()" ion-button round no-margin>
+            OK
+          </button>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

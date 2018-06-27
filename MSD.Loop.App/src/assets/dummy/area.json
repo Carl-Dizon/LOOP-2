@@ -1,0 +1,14 @@
+[
+  {
+    "areaId": 1,
+    "areaName": "Plumbing"
+  },
+  {
+    "areaId": 2,
+    "areaName": "Electrical"
+  },
+  {
+    "areaId": 3,
+    "areaName": "Wood works"
+  }
+]

@@ -6,13 +6,62 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>log-material</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>LOG MATERIAL</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="ion-content" padding-right padding-left no-bounce>
+    <ion-grid>
+        <ion-row>
+          <ion-col text-center>
+            Date
+            <ion-datetime class="date" displayFormat="MMM DD YYYY" [(ngModel)]="date" no-margin></ion-datetime>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            &nbsp;
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-center>
+            Project
+            <button class="ion-buttons" (click)="onProjectSelect()" ion-button round no-margin>
+              {{project}}
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+              Area
+              <button class="ion-buttons" (click)="onAreaSelect()" ion-button round no-margin>
+                {{area}}
+              </button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+              Material
+              <button class="ion-buttons" (click)="onMaterialSelect()" ion-button round no-margin>
+                {{material}}
+              </button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center>
+              Usage
+              <ion-input class="date" text-center type="number" [(ngModel)]="usage" value="1"></ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col text-center padding-top>
+              <button class="ion-buttons-ok" color="secondary" (click)="onSave()" ion-button round no-margin>
+                OK
+              </button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>
