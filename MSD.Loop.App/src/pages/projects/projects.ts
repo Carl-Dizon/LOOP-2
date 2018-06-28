@@ -31,7 +31,14 @@ export class ProjectsPage {
         completedTasks: 34,
         totalEstimatedHours: 150,
         currentHoursLogged: 89,
-        completionPercentage: 0
+        totalEstimatedMaterial: 500,
+        usedMaterials: 280,
+        costEstimate: 2000000000,
+        totalSpent: 1100000000,
+        completionPercentage: 0,
+        hourCompletionPercentage: 0,
+        costEstimateSpentPercentage: 0,
+        usedMaterialPercentage: 0
       },
       {
         name: 'Project 2',
@@ -39,7 +46,14 @@ export class ProjectsPage {
         completedTasks: 35,
         totalEstimatedHours: 82,
         currentHoursLogged: 82,
-        completionPercentage: 0
+        totalEstimatedMaterial: 300,
+        usedMaterials: 300,
+        costEstimate: 50000,
+        totalSpent: 50000,
+        completionPercentage: 0,
+        hourCompletionPercentage: 0,
+        costEstimateSpentPercentage: 0,
+        usedMaterialPercentage: 0
       },
       {
         name: 'Project 3',
@@ -47,7 +61,14 @@ export class ProjectsPage {
         completedTasks: 10,
         totalEstimatedHours: 240,
         currentHoursLogged: 20,
-        completionPercentage: 0
+        totalEstimatedMaterial: 200,
+        usedMaterials: 20,
+        costEstimate: 200000,
+        totalSpent: 11000,
+        completionPercentage: 0,
+        hourCompletionPercentage: 0,
+        costEstimateSpentPercentage: 0,
+        usedMaterialPercentage: 0
       }
     ];
 
@@ -66,13 +87,38 @@ export class ProjectsPage {
       );
     });
 
+    this.projects.forEach(element => {
+      element.hourCompletionPercentage = this.calculateProjectCompletionBasedOnTasks(
+        element.totalEstimatedHours,
+        element.currentHoursLogged
+      )
+    });
+
+    this.projects.forEach(element => {
+      element.usedMaterialPercentage = this.calculateProjectCompletionBasedOnTasks(
+        element.totalEstimatedMaterial,
+        element.usedMaterials
+      )
+    });
+
+    this.projects.forEach(element => {
+      element.costEstimateSpentPercentage = this.calculateProjectCompletionBasedOnTasks(
+        element.costEstimate,
+        element.totalSpent
+      )
+    });
+
     console.log('ionViewDidLoad ProjectsPage');
   }
 
   calculateProjectCompletionBasedOnTasks(totalTasks, completedTasks) {
     this.completionPercentage = (completedTasks / totalTasks) * 100;
+    return Math.ceil(this.completionPercentage);
+  }
 
-    return this.completionPercentage;
+  getColor(completionPercentage){
+    let strColor = this.generateColor(completionPercentage);
+    return strColor.color;
   }
 
   generateColor(completionPercentage) {
@@ -94,5 +140,25 @@ export class ProjectsPage {
 
   switchView(){
     this.isListView = !this.isListView;
+  }
+
+  abbrNum(number, decPlaces) {
+    decPlaces = Math.pow(10,decPlaces);
+    var abbrev = [ "k", "m", "b", "t" ];
+
+    for (var i=abbrev.length-1; i>=0; i--) {
+        var size = Math.pow(10,(i+1)*3);
+        if(size <= number) {
+             number = Math.round(number*decPlaces/size)/decPlaces;
+             if((number == 1000) && (i < abbrev.length - 1)) {
+                 number = 1;
+                 i++;
+             }
+             number += abbrev[i];
+             break;
+        }
+    }
+
+    return number;
   }
 }

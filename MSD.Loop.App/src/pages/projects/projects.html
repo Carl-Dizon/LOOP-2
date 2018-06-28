@@ -21,7 +21,7 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-padding>
   <loading *ngIf="isLoading"></loading>
   <div class="project-list-container" *ngIf="isListView">
     <div class="project-item" *ngFor="let project of projects">
@@ -43,6 +43,50 @@
   </div>
 
   <div class="project-grid-container" *ngIf="!isListView">
-    Show grid view
+    <ion-grid no-padding no-margin>
+      <ion-row *ngFor="let project of projects">
+        <ion-col>
+            <ion-card class="ion-card">
+              <ion-item>
+                <ion-avatar item-start>
+                  <img [src]="defaultProjectImagePlaceholder">
+                </ion-avatar>
+                <h2>{{project.name}}</h2>
+              </ion-item>
+              <ion-card-content no-padding>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <div style="position: relative;">
+                        <span>Hours logged</span>
+                        <span class="unit-count">{{abbrNum(project.currentHoursLogged, 2)}}/{{abbrNum(project.totalEstimatedHours, 2)}}</span>
+                      </div>
+                      <progress-bar [progress]="project.hourCompletionPercentage" [color]="getColor(project.hourCompletionPercentage)"></progress-bar>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                        <div style="position: relative;">
+                          <span>Material logged</span>
+                          <span class="unit-count">{{abbrNum(project.usedMaterials, 2)}}/{{abbrNum(project.totalEstimatedMaterial, 2)}}</span>
+                        </div>
+                        <progress-bar [progress]="project.usedMaterialPercentage" [color]="getColor(project.usedMaterialPercentage)"></progress-bar>
+                      </ion-col>
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                        <div style="position: relative;">
+                          <span>Cost spent</span>
+                          <span class="unit-count">{{abbrNum(project.totalSpent, 2)}}/{{abbrNum(project.costEstimate, 2)}}</span>
+                        </div>
+                        <progress-bar [progress]="project.costEstimateSpentPercentage" [color]="getColor(project.costEstimateSpentPercentage)"></progress-bar>
+                      </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>

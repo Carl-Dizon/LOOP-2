@@ -3,6 +3,11 @@ page-projects {
     font-size: 26px;
   }
 
+  .unit-count{
+    position: absolute;
+    right: 0px;
+  }
+
   .project-list-container {
     .project-item {
       display: flex;

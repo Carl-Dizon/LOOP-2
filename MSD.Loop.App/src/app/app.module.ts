@@ -20,6 +20,7 @@ import { AreaProvider } from '../providers/area/area';
 import { MaterialProvider } from '../providers/material/material';
 import { ProjectsPage } from '../pages/projects/projects';
 import { ComponentsModule } from '../components/components.module';
+import { ProgressBarModule } from 'angular-progress-bar';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ComponentsModule } from '../components/components.module';
     BrowserModule,
     ComponentsModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    ProgressBarModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
