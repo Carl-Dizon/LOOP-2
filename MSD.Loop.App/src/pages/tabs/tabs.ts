@@ -8,6 +8,7 @@ import { IUser } from '../../models/IUser';
 import { IRole } from '../../models/IRole';
 import { LogHourPage } from '../log-hour/log-hour';
 import { LogMaterialPage } from '../log-material/log-material';
+import { ProjectsPage } from '../projects/projects';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -42,14 +43,14 @@ export class TabsPage {
     } else if (role.name === 'Site Manager') {
       this.tabs = [
         {
-          title: 'Project',
-          root: LogHourPage,
-          icon: 'time'
+          title: 'Projects',
+          root: ProjectsPage,
+          icon: 'logo-buffer'
         },
         {
           title: 'Log',
           root: LogMaterialPage,
-          icon: 'logo-buffer'
+          icon: 'time'
         }
       ];
     }

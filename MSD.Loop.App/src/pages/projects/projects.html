@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ProjectsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Projects</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button class="change-view" (click)="switchView()">
+          <ion-icon [name]="isListView ? 'apps' : 'reorder'"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <loading *ngIf="isLoading"></loading>
+  <div class="project-list-container" *ngIf="isListView">
+    <div class="project-item" *ngFor="let project of projects">
+      <div class="project-logo">
+        <img [src]="defaultProjectImagePlaceholder" alt="">
+      </div>
+      <h3>
+        {{ project.name }}
+      </h3>
+      <div class="project-completion">
+        <span class="percentage" [ngStyle]="generateColor(project.completionPercentage)">
+          {{ project.completionPercentage| number : '1.0-0'}} <sup>%</sup>
+        </span>
+        <span class="details">
+          completion
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-grid-container" *ngIf="!isListView">
+    Show grid view
+  </div>
+</ion-content>

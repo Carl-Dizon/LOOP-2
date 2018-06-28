@@ -18,6 +18,8 @@ import { LogMaterialPage } from '../pages/log-material/log-material';
 import { ProjectProvider } from '../providers/project/project';
 import { AreaProvider } from '../providers/area/area';
 import { MaterialProvider } from '../providers/material/material';
+import { ProjectsPage } from '../pages/projects/projects';
+import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { MaterialProvider } from '../providers/material/material';
     TabsPage,
     PrototypeLandingPage,
     LogHourPage,
-    LogMaterialPage
+    LogMaterialPage,
+    ProjectsPage
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule
   ],
@@ -44,7 +48,8 @@ import { MaterialProvider } from '../providers/material/material';
     TabsPage,
     PrototypeLandingPage,
     LogHourPage,
-    LogMaterialPage
+    LogMaterialPage,
+    ProjectsPage
   ],
   providers: [
     StatusBar,
