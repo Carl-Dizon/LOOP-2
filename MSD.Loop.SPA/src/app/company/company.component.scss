@@ -1,0 +1,32 @@
+$topnav-background-color: #222;
+
+.companies-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: $topnav-background-color;
+    text-align: center;
+    color: #fff;
+    padding: 3em;
+
+    .company-avatar {
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        border: 2px solid #fff;
+    }
+
+    h2 {
+        margin: 50px;
+        padding: 30px;
+    }
+    .company-avatar {
+        margin: 15px;
+        width: 150px;
+        cursor: pointer;
+    }
+    .company-item {
+    }
+}

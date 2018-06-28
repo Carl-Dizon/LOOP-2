@@ -1,0 +1,13 @@
+<div class="companies-page" [@routerTransition]>
+    <div class="container">
+        <h2>
+            Select your company
+        </h2>
+        <div class="row justify-content-md-center">
+            <div class="col-md-3 company-item" *ngFor="let company of companies" [routerLink]="['/']" (click)="onSelectCompany()">
+                <img [src]="company.logo" class="company-avatar" />
+                <h3>{{ company.name }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
