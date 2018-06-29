@@ -16,7 +16,7 @@ namespace MSD.Loop.Engine.Models
         public bool IsRegistered { get; set; }
         public User CreatedBy { get; set; }
 
-        public virtual List<CompanyRole> AssignedRoles { get; set; }
+        public virtual List<CompanyAccessRole> AssignedRoles { get; set; }
         public virtual List<CompanyProject> Projects { get; set; }
 
         //timestamp
