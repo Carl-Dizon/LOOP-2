@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../shared/services';
 import { routerTransition } from '../../router.animations';
-
+import { Router, NavigationEnd } from '@angular/router';
 @Component({
     selector: 'app-projects',
     templateUrl: './projects.component.html',
@@ -11,7 +11,7 @@ import { routerTransition } from '../../router.animations';
 export class ProjectsComponent implements OnInit {
     projects: any;
 
-    constructor(private projectService: ProjectService) {}
+    constructor(private projectService: ProjectService, public router: Router) {}
 
     ngOnInit() {
         this.projects = this.projectService.getProjects();

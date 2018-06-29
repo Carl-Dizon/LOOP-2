@@ -11,17 +11,17 @@
 
     <div class="fluid-container projects-list-container">
         <div class="row">
-            <div class="col-md-3 project-item" *ngFor="let project of projects">
-                <div class="project-image" [ngStyle]="{ 'background': '    linear-gradient(
+            <div class="col-md-3 project-item" *ngFor="let project of projects;  let i = index">
+                <div class="project-image"  [ngStyle]="{ 'background': '    linear-gradient(
                     rgba(173, 173, 173, 0.45),
                     rgba(30, 128, 197, 0.45)
-                  ), url('+ project.image +') top / cover no-repeat' }">
+                  ), url('+ project.image +') top / cover no-repeat' }" [routerLink]="['/projects/project-details', i+1]"  [routerLinkActive]="['router-link-active']">
                     <div class="hex">
                     </div>
                     <span class="project-name">
                         {{ project.name }}
                     </span>
-                </div>
+                </div >
                 <div class="progress">
                     <div class="area-progress">
                         <i class="fa fa-wrench" aria-hidden="true"></i>
