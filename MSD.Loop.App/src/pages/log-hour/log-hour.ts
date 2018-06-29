@@ -25,8 +25,8 @@ interface acButtons {
 
 export class LogHourPage {
 
-  projects: IProject[];
-  areas: IArea[];
+  projects: IProject[] = [];
+  areas: IArea[] = [];
 
   date: string = new Date().toISOString();
   hours: string = '08:00';

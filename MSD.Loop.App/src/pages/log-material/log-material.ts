@@ -26,9 +26,9 @@ interface acButtons {
 })
 export class LogMaterialPage {
 
-  projects: IProject[];
-  areas: IArea[];
-  materials: IMaterial[];
+  projects: IProject[] = [];
+  areas: IArea[] = [];
+  materials: IMaterial[] = [];
 
   date: string = new Date().toISOString();
   hours: string = '08:00';

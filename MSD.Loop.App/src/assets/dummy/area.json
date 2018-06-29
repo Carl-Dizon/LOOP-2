@@ -1,14 +1,92 @@
 [
   {
     "areaId": 1,
-    "areaName": "Plumbing"
+    "areaName": "Plumbing",
+    "estimatedHours": 200,
+    "totalHoursLogged": 60,
+    "usersInHoursLogged": 6,
+    "estimatedMaterials": 150,
+    "totalMaterialsLogged": 86,
+    "usersInMaterialsLogged": 4,
+    "estimateCost": 30000,
+    "spentCost": 15400,
+    "materials": [
+      {
+        "materialName": "Pipes",
+        "usageCount": 30
+      },
+      {
+        "materialName": "Valves",
+        "usageCount": 20
+      },
+      {
+        "materialName": "Coupling",
+        "usageCount": 16
+      },
+      {
+        "materialName": "Elbow",
+        "usageCount": 20
+      }
+    ]
   },
   {
     "areaId": 2,
-    "areaName": "Electrical"
+    "areaName": "Electrical",
+    "estimatedHours": 1500,
+    "totalHoursLogged": 115,
+    "usersInHoursLogged": 16,
+    "estimatedMaterials": 420,
+    "totalMaterialsLogged": 234,
+    "usersInMaterialsLogged": 12,
+    "estimateCost": 120000,
+    "spentCost": 9365.23,
+    "materials": [
+      {
+        "materialName": "Junction Box",
+        "usageCount": 56
+      },
+      {
+        "materialName": "Flat Cord",
+        "usageCount": 100
+      },
+      {
+        "materialName": "Switch",
+        "usageCount": 78
+      }
+    ]
   },
   {
     "areaId": 3,
-    "areaName": "Wood works"
+    "areaName": "Wood works",
+    "estimatedHours": 2500,
+    "totalHoursLogged": 212,
+    "usersInHoursLogged": 35,
+    "estimatedMaterials": 870,
+    "totalMaterialsLogged": 356,
+    "usersInMaterialsLogged": 26,
+    "estimateCost": 536000,
+    "spentCost": 12561.70,
+    "materials": [
+      {
+        "materialName": "Wood",
+        "usageCount": 200
+      },
+      {
+        "materialName": "Glues",
+        "usageCount": 56
+      },
+      {
+        "materialName": "Sandpaper",
+        "usageCount": 100
+      },
+      {
+        "materialName": "Nails",
+        "usageCount": 300
+      },
+      {
+        "materialName": "Varnish",
+        "usageCount": 115
+      }
+    ]
   }
 ]

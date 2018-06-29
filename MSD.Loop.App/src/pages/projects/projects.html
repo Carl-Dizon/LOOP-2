@@ -24,7 +24,7 @@
 <ion-content no-padding>
   <loading *ngIf="isLoading"></loading>
   <div class="project-list-container" *ngIf="isListView">
-    <div class="project-item" *ngFor="let project of projects">
+    <div class="project-item" *ngFor="let project of projects" (click)="onProjectAreaView(project)">
       <div class="project-logo">
         <img [src]="defaultProjectImagePlaceholder" alt="">
       </div>
@@ -44,7 +44,7 @@
 
   <div class="project-grid-container" *ngIf="!isListView">
     <ion-grid no-padding no-margin>
-      <ion-row *ngFor="let project of projects">
+      <ion-row *ngFor="let project of projects" (click)="onProjectAreaView(project)">
         <ion-col>
             <ion-card class="ion-card">
               <ion-item>
@@ -57,7 +57,7 @@
                 <ion-grid>
                   <ion-row>
                     <ion-col>
-                      <div style="position: relative;">
+                      <div class="grid-col-row">
                         <span>Hours logged</span>
                         <span class="unit-count">{{abbrNum(project.currentHoursLogged, 2)}}/{{abbrNum(project.totalEstimatedHours, 2)}}</span>
                       </div>
@@ -66,7 +66,7 @@
                   </ion-row>
                   <ion-row>
                       <ion-col>
-                        <div style="position: relative;">
+                        <div class="grid-col-row">
                           <span>Material logged</span>
                           <span class="unit-count">{{abbrNum(project.usedMaterials, 2)}}/{{abbrNum(project.totalEstimatedMaterial, 2)}}</span>
                         </div>
@@ -75,7 +75,7 @@
                   </ion-row>
                   <ion-row>
                       <ion-col>
-                        <div style="position: relative;">
+                        <div class="grid-col-row">
                           <span>Cost spent</span>
                           <span class="unit-count">{{abbrNum(project.totalSpent, 2)}}/{{abbrNum(project.costEstimate, 2)}}</span>
                         </div>

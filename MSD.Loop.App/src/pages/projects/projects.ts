@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { env } from '../../app/env';
+import { AreaPage } from '../area/area';
 
 /**
  * Generated class for the ProjectsPage page.
@@ -73,6 +74,10 @@ export class ProjectsPage {
     ];
 
     this.isListView = true;
+  }
+
+  onProjectAreaView(project){
+    this.navCtrl.push(AreaPage, project);
   }
 
   ionViewDidLoad() {
