@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout.component';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ProjectsModule } from './projects/projects.module';
+import { UsersModule } from './users/users.module';
 
 const routes: Routes = [
     {
@@ -15,6 +16,9 @@ const routes: Routes = [
                 loadChildren: () => DashboardModule
             },
             { path: 'projects', loadChildren: () => ProjectsModule },
+            {
+                path: 'users', loadChildren: () => UsersModule
+            },
             // THEME STUFF
             {
                 path: 'charts',
@@ -47,4 +51,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class LayoutRoutingModule {}
+export class LayoutRoutingModule { }

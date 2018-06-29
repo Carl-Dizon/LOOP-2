@@ -14,22 +14,26 @@ export class ProjectService {
             {
                 id: 1,
                 name: 'Loop',
-                image: environment.defaultProjectImagePlaceholder
+                image: environment.defaultProjectImagePlaceholder,
+                estimatedHours: 500
             },
             {
                 id: 2,
                 name: 'Pool',
-                image: environment.defaultProjectImagePlaceholder
+                image: environment.defaultProjectImagePlaceholder,
+                estimatedHours: 500
             },
             {
                 id: 3,
                 name: 'Opol',
-                image: environment.defaultProjectImagePlaceholder
+                image: environment.defaultProjectImagePlaceholder,
+                estimatedHours: 500
             },
             {
                 id: 4,
                 name: 'Oopl',
-                image: environment.defaultProjectImagePlaceholder
+                image: environment.defaultProjectImagePlaceholder,
+                estimatedHours: 500
             }
         ];
         return this.projects;
