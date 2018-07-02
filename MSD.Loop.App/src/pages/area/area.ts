@@ -41,7 +41,7 @@ export class AreaPage {
   barChart: any;
   areaLabel: string;
 
-  constructor(public navCtrl: NavController, 
+  constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private areaProvider: AreaProvider,
               private actionSheetCtrl: ActionSheetController) {
@@ -78,7 +78,7 @@ export class AreaPage {
       text: 'Cancel',
       role: 'cancel',
       handler: () => {
-  
+
       }
     }
     actionButtons.push(cancelButton);
@@ -149,13 +149,13 @@ export class AreaPage {
         : Math.floor((completionPercentage * 2 * 255) / 100);
 
     let color = 'rgb(' + r + ',0,' + g + ')';
- 
+
     return color;
   }
 
   getPercentage(usageAmount, estimatedAmount){
     let percentage = (usageAmount / estimatedAmount) * 100;
-    return percentage;
+    return  Math.round(percentage);
   }
 
 }

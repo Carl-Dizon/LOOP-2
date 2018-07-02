@@ -9,6 +9,7 @@ import { IRole } from '../../models/IRole';
 import { LogHourPage } from '../log-hour/log-hour';
 import { LogMaterialPage } from '../log-material/log-material';
 import { ProjectsPage } from '../projects/projects';
+import { IssuesPage } from '../issues/issues';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -45,12 +46,23 @@ export class TabsPage {
         {
           title: 'Projects',
           root: ProjectsPage,
-          icon: 'logo-buffer'
+          icon: 'albums'
+        },
+        {
+          title: 'Issues',
+          root: IssuesPage,
+          icon: 'notifications',
+          numberOfIssues: 3
+        },
+        {
+          title: 'Log',
+          root: LogHourPage,
+          icon: 'time'
         },
         {
           title: 'Log',
           root: LogMaterialPage,
-          icon: 'time'
+          icon: 'logo-buffer'
         }
       ];
     }

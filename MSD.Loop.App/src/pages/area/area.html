@@ -33,13 +33,13 @@
         <ion-grid>
           <ion-row>
             <ion-col>
-              {{area.totalHoursLogged}} hours by {{area.usersInHoursLogged}} users
+              {{area.totalHoursLogged}} hours logged by {{area.usersInHoursLogged}} users
               <progress-bar [progress]="getPercentage(area.totalHoursLogged, area.estimatedHours)" [color]="generateColor(getPercentage(area.totalHoursLogged, area.estimatedHours))"></progress-bar>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col>
-              {{area.totalMaterialsLogged}} materials by {{area.usersInMaterialsLogged}} users
+              {{area.totalMaterialsLogged}} materials logged by {{area.usersInMaterialsLogged}} users
               <progress-bar [progress]="getPercentage(area.totalMaterialsLogged, area.estimatedMaterials)" [color]="generateColor(getPercentage(area.totalMaterialsLogged, area.estimatedMaterials))"></progress-bar>
             </ion-col>
           </ion-row>

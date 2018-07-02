@@ -22,6 +22,7 @@ import { ProjectsPage } from '../pages/projects/projects';
 import { ComponentsModule } from '../components/components.module';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { AreaPageModule } from '../pages/area/area.module';
+import { IssuesPage } from '../pages/issues/issues';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AreaPageModule } from '../pages/area/area.module';
     PrototypeLandingPage,
     LogHourPage,
     LogMaterialPage,
-    ProjectsPage
+    ProjectsPage,
+    IssuesPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { AreaPageModule } from '../pages/area/area.module';
     PrototypeLandingPage,
     LogHourPage,
     LogMaterialPage,
-    ProjectsPage
+    ProjectsPage,
+    IssuesPage
   ],
   providers: [
     StatusBar,
