@@ -23,6 +23,7 @@ import { ComponentsModule } from '../components/components.module';
 import { ProgressBarModule } from 'angular-progress-bar';
 import { AreaPageModule } from '../pages/area/area.module';
 import { IssuesPage } from '../pages/issues/issues';
+import { TaskViewPage } from '../pages/task-view/task-view';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { IssuesPage } from '../pages/issues/issues';
     LogHourPage,
     LogMaterialPage,
     ProjectsPage,
-    IssuesPage
+    IssuesPage,
+    TaskViewPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { IssuesPage } from '../pages/issues/issues';
     LogHourPage,
     LogMaterialPage,
     ProjectsPage,
-    IssuesPage
+    IssuesPage,
+    TaskViewPage
   ],
   providers: [
     StatusBar,

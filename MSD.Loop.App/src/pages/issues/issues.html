@@ -6,13 +6,28 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>issues</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Issues</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-List of tasks
+<ion-content no-padding>
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col>
+          <ion-item  *ngFor="let issue of issues" no-lines (click)="onTaskView()">
+            <ion-thumbnail item-start>
+              <img [src]="issue.iconSrc">
+            </ion-thumbnail>
+            <h3 class="h3" text-wrap>{{issue.title}}</h3>
+            <h3>{{issue.subtitle}}</h3>
+            <p text-wrap><ion-icon name="ios-beer-outline"></ion-icon> &nbsp;
+              {{issue.expireOn}}</p>
+            <!-- <button ion-button clear item-end>View</button> -->
+          </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
