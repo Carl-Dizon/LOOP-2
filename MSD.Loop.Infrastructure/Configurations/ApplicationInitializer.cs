@@ -24,7 +24,6 @@ namespace MSD.Loop.Infrastructure.Configurations
         public void Initialize()
         {
            
-            _dbInitializer.BootstrapAppSettings();
             _dbInitializer.BootstrapAppDatabases();
         }
 

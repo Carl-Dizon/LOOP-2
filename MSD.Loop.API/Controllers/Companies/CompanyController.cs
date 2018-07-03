@@ -1,6 +1,7 @@
 ﻿using MSD.Loop.Business.Interfaces;
 using MSD.Loop.DTO.Interfaces;
 using System.Web.Http;
+using MSD.Loop.Engine.Interfaces;
 
 namespace MSD.Loop.API.Controllers.Companies
 {
@@ -9,7 +10,9 @@ namespace MSD.Loop.API.Controllers.Companies
         private readonly ICompanyService _companyService;
         private readonly ICompanyFactory _companyFactory;
 
-        public CompanyController(ICompanyService companyService, ICompanyFactory companyFactory)
+        public CompanyController(IConfigurationFactory configurationFactory, 
+            ICompanyService companyService, 
+            ICompanyFactory companyFactory) : base(configurationFactory)
         {
             _companyService = companyService;
             _companyFactory = companyFactory;

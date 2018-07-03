@@ -12,10 +12,16 @@ namespace MSD.Loop.Infrastructure.Data
         private IDbTransaction _transaction;
         private bool _disposed;
 
+        private readonly IApplicationSettingRepository _applicationSettingRepo;
+        private readonly IPermissionRepository _permissionRepo;
+        private readonly IAccessLevelRepository _accessLevelRepo;
+        private readonly IAccessLevelPermissionRepository _accessLevelPermissionRepo;
+
         private readonly ICompanyRepository _companyRepo;
         private readonly IUserRepository _userRepo;
         private readonly ICompanyAccessRoleRepository _companyRoleRepo;
         private readonly ICompanyUserRepository _companyUserRepo;
+
 
         private readonly ICompanyProjectUserRepository _projectUserRepo;
         private readonly ICompanyUserRoleRepository _companyUserRoleRepo;
@@ -25,7 +31,6 @@ namespace MSD.Loop.Infrastructure.Data
         private readonly IProjectTaskRepository _projectTaskRepo;
         private readonly ICompanyMaterialStockRepository _materialStockRepo;
         private readonly IProjectTaskMaterialRepository _projectMaterialRepo;
-        private readonly IApplicationSettingRepository _applicationSettingRepo;
 
         public UnitOfWork(IConnectionFactory connectionFactory)
         {
@@ -33,9 +38,23 @@ namespace MSD.Loop.Infrastructure.Data
             _transaction = _connection.BeginTransaction();
         }
 
-        public IApplicationSettingRepository ApplicationSettingRepository
+        public IPermissionRepository PermissionRepo {
+            get { return _permissionRepo ?? (new PermissionRepository(_transaction)); }
+        }
+
+        public IApplicationSettingRepository ApplicationSettingRepo
         {
             get { return _applicationSettingRepo ?? (new ApplicationSettingRepository(_transaction)); }
+        }
+
+        public IAccessLevelRepository AccessLevelRepo
+        {
+            get { return _accessLevelRepo ?? (new AccessLevelRepository(_transaction)); }
+        }
+
+        public IAccessLevelPermissionRepository AccessLevelPermissionRepo
+        {
+            get { return _accessLevelPermissionRepo ?? (new AccessLevelPermissionRepository(_transaction)); }
         }
 
         public ICompanyRepository CompanyRepository
@@ -97,6 +116,8 @@ namespace MSD.Loop.Infrastructure.Data
         {
             get { return _companyRoleRepo ?? (new CompanyAccessRoleRepository(_transaction)); }
         }
+
+        
         //TODO: more to be added here as we go along
         //ADD them here as needed
 

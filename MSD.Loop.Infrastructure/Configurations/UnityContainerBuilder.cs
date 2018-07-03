@@ -28,6 +28,9 @@ namespace MSD.Loop.Infrastructure.Configurations
             unityContainer.RegisterType<IConfigurationFactory, ConfigurationFactory>();
             unityContainer.RegisterType<IConnectionFactory, ConnectionFactory>();
 
+            unityContainer.RegisterType<IAccessLevelRepository, AccessLevelRepository>();
+            unityContainer.RegisterType<IAccessLevelPermissionRepository, AccessLevelPermissionRepository>();
+            unityContainer.RegisterType<IPermissionRepository, PermissionRepository>();
             unityContainer.RegisterType<IUserRepository, UserRepository>();
             unityContainer.RegisterType<ICompanyRepository, CompanyRepository>();
             unityContainer.RegisterType<ICompanyUserRepository, CompanyUserRepository>();

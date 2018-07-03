@@ -73,6 +73,8 @@
     <Compile Include="Configurations\ConnectionFactory.cs" />
     <Compile Include="Configurations\DatabaseInitializer.cs" />
     <Compile Include="Configurations\UnityContainerBuilder.cs" />
+    <Compile Include="Data\AccessLevelPermissionRepository.cs" />
+    <Compile Include="Data\AccessLevelRepository.cs" />
     <Compile Include="Data\BaseRepository.cs" />
     <Compile Include="Data\CompanyMaterialStockRepository.cs" />
     <Compile Include="Data\CompanyProjectRepository.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Data\CompanyAccessRoleRepository.cs" />
     <Compile Include="Data\CompanyUserRepository.cs" />
     <Compile Include="Data\CompanyUserRoleRepository.cs" />
+    <Compile Include="Data\PermissionRepository.cs" />
     <Compile Include="Data\ProjectTaskMaterialRepository.cs" />
     <Compile Include="Data\ProjectTaskRepository.cs" />
     <Compile Include="Data\ProjectTaskWorkRepository.cs" />
@@ -89,7 +92,6 @@
     <Compile Include="Data\UnitOfWork.cs" />
     <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Interfaces\IApplicationInitializer.cs" />
-    <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
     <Compile Include="Interfaces\IDatabaseInitializer.cs" />
     <Compile Include="Interfaces\IUnityContainerBuilder.cs" />
     <Compile Include="IoC\UnityResolver.cs" />

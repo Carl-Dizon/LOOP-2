@@ -8,6 +8,12 @@ namespace MSD.Loop.Engine.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
+
+        IApplicationSettingRepository ApplicationSettingRepo { get; }
+        IPermissionRepository PermissionRepo { get; }
+        IAccessLevelRepository AccessLevelRepo { get; }
+        IAccessLevelPermissionRepository AccessLevelPermissionRepo { get; }
+
         ICompanyRepository CompanyRepository { get; }
         IUserRepository UserRepository { get; }
         ICompanyAccessRoleRepository CompanyRoleRepository { get; }

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.DTO", "MSD.Loop.DT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Business", "MSD.Loop.Business\MSD.Loop.Business.csproj", "{6D576F72-7C65-4D78-957A-742CE1CF1582}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.TestAuthJwt", "MSD.Loop.TestAuthJwt\MSD.Loop.TestAuthJwt.csproj", "{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D576F72-7C65-4D78-957A-742CE1CF1582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

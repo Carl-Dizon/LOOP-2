@@ -9,7 +9,6 @@ namespace MSD.Loop.Infrastructure.Interfaces
 {
     public interface IDatabaseInitializer
     {
-        void BootstrapAppSettings();
         void BootstrapAppDatabases();
     }
 }

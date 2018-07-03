@@ -17,7 +17,7 @@ namespace MSD.Loop.Business.Servicess
 
         public Company Get(int id)
         {
-            var company = _uow.CompanyRepository.FindById(id);
+            var company = _uow.CompanyRepository.Find(id);
             if(company == null)
             {
                 throw new NullReferenceException("company is not found");
