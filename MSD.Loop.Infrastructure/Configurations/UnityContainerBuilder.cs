@@ -46,6 +46,7 @@ namespace MSD.Loop.Infrastructure.Configurations
             unityContainer.RegisterType<IProjectTaskRepository, ProjectTaskRepository>();
             unityContainer.RegisterType<IProjectTaskMaterialRepository, ProjectTaskMaterialRepository>();
             unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
+            unityContainer.RegisterType<ICompanyProjectAreaRepository, CompanyProjectAreaRepository>();
 
             unityContainer.RegisterType<ICompanyService, CompanyService>();
             unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();

@@ -66,6 +66,7 @@
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
     <Compile Include="Interfaces\IPermissionRepository.cs" />
+    <Compile Include="Interfaces\ICompanyProjectAreaRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskWorkRepository.cs" />
@@ -75,7 +76,6 @@
     <Compile Include="Models\AccessLevelPermission.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyAccessRole.cs" />
-    <Compile Include="Models\CompanyArea.cs" />
     <Compile Include="Models\CompanyMaterialStock.cs" />
     <Compile Include="Models\CompanyProjectArea.cs" />
     <Compile Include="Models\CompanyProjectUser.cs" />

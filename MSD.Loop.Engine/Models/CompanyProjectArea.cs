@@ -9,7 +9,14 @@ namespace MSD.Loop.Engine.Models
     public class CompanyProjectArea
     {
         public int Id { get; set; }
-        public CompanyArea Area { get; set; }
-        public CompanyProject Project { get; set; }
+        public Company Company{ get; set; }
+        public User CreatedBy { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+        public DateTime LastModifiedOn { get; set; }
+
+        public bool IsArchived { get; set; }
     }
 }
