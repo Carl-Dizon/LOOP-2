@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IApplicationModule.cs" />
+    <Compile Include="Interfaces\IAuthenticationProvider.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Interfaces\IMailer.cs" />
     <Compile Include="Interfaces\ICompanyAccessLevelProvider.cs" />

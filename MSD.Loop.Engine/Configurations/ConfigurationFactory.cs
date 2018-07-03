@@ -8,10 +8,12 @@ namespace MSD.Loop.Engine.Configurations
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
-        private IMailer _mailer;
-        private ILogger _logger;
-        private ICompanyAccessLevelProvider _roleProvider;
-        private ApplicationEvents _events;
+        private readonly IMailer _mailer;
+        private readonly ILogger _logger;
+        private readonly ICompanyAccessLevelProvider _roleManager;
+        private readonly IAuthenticationProvider _authManager;
+
+        private readonly ApplicationEvents _events;
 
         public ConfigurationFactory()
         {
@@ -19,10 +21,12 @@ namespace MSD.Loop.Engine.Configurations
             var config = ConfigurationManager.GetSection("loopEngine") as LoopEngineConfigurationSection;
             if(config != null)
             {
+
                 _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailer;
                 _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
                 
-                _roleProvider = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as ICompanyAccessLevelProvider;
+                _roleManager = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as ICompanyAccessLevelProvider;
+                _authManager = Activator.CreateInstance(Type.GetType(config.AuthenticationProvider.Type)) as IAuthenticationProvider;
             }
 
             //handle modules
@@ -53,7 +57,12 @@ namespace MSD.Loop.Engine.Configurations
 
         public ICompanyAccessLevelProvider GetRoleProvider()
         {
-            return _roleProvider;
+            return _roleManager;
+        }
+
+        public IAuthenticationProvider GetAuthProvider()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -42,10 +42,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\ApplicationSetting.cs" />
+    <Compile Include="Configurations\AuthenticationProviderElement.cs" />
     <Compile Include="Configurations\Configuration.cs" />
     <Compile Include="Configurations\ConfigurationFactory.cs" />
+    <Compile Include="Configurations\LoggerElement.cs" />
+    <Compile Include="Configurations\MailerElement.cs" />
     <Compile Include="Configurations\ModuleElement.cs" />
     <Compile Include="Configurations\ModuleElementCollection.cs" />
+    <Compile Include="Configurations\ProviderBaseElement.cs" />
+    <Compile Include="Configurations\RoleProviderElement.cs" />
+    <Compile Include="Interfaces\IAccessLevelPermissionRepository.cs" />
+    <Compile Include="Interfaces\IAccessLevelRepository.cs" />
+    <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
     <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRoleRepository.cs" />
@@ -57,6 +65,7 @@
     <Compile Include="Interfaces\IConfigurationFactory.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
+    <Compile Include="Interfaces\IPermissionRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskWorkRepository.cs" />
@@ -66,7 +75,9 @@
     <Compile Include="Models\AccessLevelPermission.cs" />
     <Compile Include="Models\Company.cs" />
     <Compile Include="Models\CompanyAccessRole.cs" />
+    <Compile Include="Models\CompanyArea.cs" />
     <Compile Include="Models\CompanyMaterialStock.cs" />
+    <Compile Include="Models\CompanyProjectArea.cs" />
     <Compile Include="Models\CompanyProjectUser.cs" />
     <Compile Include="Models\CompanyProjectUserRole.cs" />
     <Compile Include="Models\CompanyRole.cs" />
