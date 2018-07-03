@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { RoundProgressModule } from 'angular-svg-round-progressbar';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -45,7 +46,8 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     ProgressBarModule,
-    AreaPageModule
+    AreaPageModule,
+    RoundProgressModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

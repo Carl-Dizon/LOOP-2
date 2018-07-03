@@ -7,12 +7,94 @@
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>TaskView</ion-title>
+    <ion-title>
+      {{issue.subtitle}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="onAddLog()">Add log</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content no-padding>
+  <h5 padding no-margin>{{issue.title}}</h5>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div style="width: 120px; margin: auto">
+            <round-progress [max]="issue.timeEstimate" [current]="issue.hoursLogged" [color]="getColor(getPercentage(issue))" responsive="true" stroke="40"></round-progress>
+            <label class="percentage">{{getPercentage(issue)}}%</label>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        {{issue.hoursLogged}} Hour/s logged
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="column-info" id="column-estimate">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col text-center id="column-label">
+              Time estimate
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center id="column-value">
+              {{issue.timeEstimate}}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center id="column-label">
+              Hour/s
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+      <ion-col class="column-info" id="column-remaining">
+          <ion-grid no-padding>
+            <ion-row>
+              <ion-col text-center id="column-label">
+                Time remaining
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center id="column-value">
+                {{getTimeRemaining(issue)}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col text-center id="column-label">
+                Hour/s
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col class="column-info" id="column-assignee">
+        <ion-grid no-padding>
+          <ion-row>
+            <ion-col text-center id="column-label">
+              Assignee
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col text-center>
+              <ion-item id="ion-item-assignee" *ngFor="let assignee of issue.assignee" no-lines>
+                <ion-avatar item-start>
+                  <img src="../../assets/imgs/unknown_user.png">
+                </ion-avatar>
+                <h2>{{assignee.name}}</h2>
+                <p>{{assignee.role}}</p>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

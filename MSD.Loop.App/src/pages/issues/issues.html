@@ -17,13 +17,13 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col>
-          <ion-item  *ngFor="let issue of issues" no-lines (click)="onTaskView()">
+          <ion-item  *ngFor="let issue of issues" no-lines (click)="onTaskView(issue)" [ngStyle]="{'background-color': getColor(issue.statusNew)}">
             <ion-thumbnail item-start>
-              <img [src]="issue.iconSrc">
+              <img src="../../assets/imgs/task-icon.png">
             </ion-thumbnail>
             <h3 class="h3" text-wrap>{{issue.title}}</h3>
             <h3>{{issue.subtitle}}</h3>
-            <p text-wrap><ion-icon name="ios-beer-outline"></ion-icon> &nbsp;
+            <p text-wrap><ion-icon name="md-alert" color="danger"></ion-icon>&nbsp;
               {{issue.expireOn}}</p>
             <!-- <button ion-button clear item-end>View</button> -->
           </ion-item>

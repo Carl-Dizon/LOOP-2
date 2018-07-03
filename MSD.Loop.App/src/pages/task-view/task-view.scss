@@ -1,3 +1,45 @@
 page-task-view {
+    .percentage{
+        position: absolute;
+        top: 53px;
+        left: 132px;
+        text-align: center;
+        width: 50px;
+        font-size: 20px;
+    }
 
+    .column-info{
+        border-radius: 10px;
+        margin: 8px;
+    }
+
+    #column-label{
+        font-weight: 600;
+    }
+
+    #column-value{
+        height: 55px;
+        font-size: 35px;
+        font-weight: 500;
+        padding: 7px;
+    }
+
+    #column-estimate{
+        height: 100px;
+        background-color: rgb(179, 231, 250);
+    }
+
+    #column-remaining{
+        height: 100px;
+        background-color: rgb(250, 179, 179);
+    }
+
+    #column-assignee{
+        height: 200px;
+        background-color: rgb(253, 242, 192);
+    }
+
+    #ion-item-assignee{
+        background-color: transparent;
+    }
 }

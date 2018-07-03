@@ -7,7 +7,7 @@ import { TaskViewPage } from './task-view';
     TaskViewPage,
   ],
   imports: [
-    IonicPageModule.forChild(TaskViewPage),
+    IonicPageModule.forChild(TaskViewPage)
   ],
 })
 export class TaskViewPageModule {}
