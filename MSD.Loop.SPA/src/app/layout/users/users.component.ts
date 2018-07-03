@@ -10,7 +10,6 @@ import { User } from '../../shared/models/User';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  closeResult: string;
   users: User[] = [];
   constructor(
     private _modalService: NgbModal,
@@ -22,19 +21,11 @@ export class UsersComponent implements OnInit {
 
   openCreateUserModal() {
     this._modalService.open(UserFormComponent).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
+      let id = +this.users[this.users.length - 1].id;
+      result.id = '' + ++id;
+      this.users.push(result);
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log(reason);
     });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 }

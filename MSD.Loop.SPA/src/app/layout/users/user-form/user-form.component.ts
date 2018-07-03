@@ -1,57 +1,67 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../../shared/models/User';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss']
+    selector: 'app-user-form',
+    templateUrl: './user-form.component.html',
+    styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  @Input() user: User;
-  formModal: FormGroup;
-  constructor(private _activeModal: NgbActiveModal, private _formBuilder: FormBuilder) { }
+    @Input() user: User;
 
-  ngOnInit() {
-    this.resetFormGroup();
+    roleOptions: any[] = [
+        { id: 1, name: 'Superadmin' },
+        { id: 2, name: 'Admin' },
+        { id: 3, name: 'User' }
+    ];
 
-    if (!this.user) {
-      this.initCreateModal();
-    } else {
-      this.initEditModal();
+    formModal: FormGroup;
+    constructor(
+        private _activeModal: NgbActiveModal,
+        private _formBuilder: FormBuilder
+    ) {}
+
+    ngOnInit() {
+        this.resetFormGroup();
+
+        if (!this.user) {
+            this.initCreateModal();
+        } else {
+            this.initEditModal();
+        }
     }
-  }
 
-  close(reason: string = 'User cancelled') {
-    this._activeModal.dismiss(reason);
-  }
+    dismiss(reason: string = 'User cancelled') {
+        this._activeModal.dismiss(reason);
+    }
 
-  async onSubmit() {
-    const formValue = this.formModal.value;
-    console.log(formValue);
-    this.resetFormGroup();
-    this.close('Form submitted');
-  }
-  private initCreateModal() {
-    this.resetFormGroup();
-  }
+    async onSubmit() {
+        const formValue = this.formModal.value;
+        this.resetFormGroup();
+        this._activeModal.close(formValue);
+    }
 
-  private initEditModal() {
-    this.formModal.patchValue({
-      firstName: this.user.firstName,
-      lastName: this.user.lastName,
-      address: this.user.address,
-      role: this.user.userRole
-    });
-  }
+    private initCreateModal() {
+        this.resetFormGroup();
+    }
 
-  private resetFormGroup() {
-    this.formModal = this._formBuilder.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      role: ['', [Validators.required]]
-    });
-  }
+    private initEditModal() {
+        this.formModal.patchValue({
+            firstName: this.user.firstName,
+            lastName: this.user.lastName,
+            address: this.user.address,
+            role: this.user.role
+        });
+    }
+
+    private resetFormGroup() {
+        this.formModal = this._formBuilder.group({
+            firstName: ['', [Validators.required]],
+            lastName: ['', [Validators.required]],
+            address: ['', [Validators.required]],
+            role: ['', [Validators.required]]
+        });
+    }
 }

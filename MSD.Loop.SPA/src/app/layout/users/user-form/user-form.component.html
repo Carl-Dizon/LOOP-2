@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title">New User</h4>
-  <button type="button" class="close" aria-label="Close" (click)="close()">
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -24,9 +24,7 @@
     <div class="form-group">
         <label>Role</label>
         <select class="form-control" formControlName="role">
-            <option>Role 1</option>
-            <option>Role 2</option>
-            <option>Role 3</option>
+            <option *ngFor="let role of roleOptions" [value]="role.name">{{ role.name }}</option>
         </select>
     </div>
 

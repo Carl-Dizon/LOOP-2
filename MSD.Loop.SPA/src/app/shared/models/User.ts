@@ -5,7 +5,7 @@ export class User implements IUser {
     firstName: string;
     lastName: string;
     address: string;
-    userRole: string;
+    role: string;
 
     constructor(init?: Partial<User>) {
         Object.assign(this, init);

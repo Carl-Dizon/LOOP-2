@@ -3,5 +3,5 @@ export interface IUser {
     firstName: string;
     lastName: string;
     address: string;
-    userRole: string;
+    role: string;
 }
