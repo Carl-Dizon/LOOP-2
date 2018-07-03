@@ -5,11 +5,11 @@ namespace MSD.Loop.Engine.Interfaces
 {
     public interface ICompanyRepository
     {
-        Company Add(Company entity);
+        IEnumerable<Company> All();
+        Company Find(int id);
+        Company FindByName(string name);
+        Company Create(Company entity);
+        void Update(Company entity);
         void Delete(Company entity);
-        void DeleteById(int id);
-        IEnumerable<Company> FindAll();
-        Company FindById(int id);
-        Company Update(Company entity);
     }
 }

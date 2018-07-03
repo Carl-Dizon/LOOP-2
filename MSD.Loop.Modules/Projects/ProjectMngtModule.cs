@@ -1,5 +1,5 @@
-﻿using MSD.Loop.Common.Modules;
-using MSD.Loop.Engine.Interfaces;
+﻿using MSD.Loop.Common.Interfaces;
+using MSD.Loop.Common.Modules;
 
 namespace MSD.Loop.Modules.Projects
 {

@@ -14,52 +14,91 @@ namespace MSD.Loop.Infrastructure.Data
 
         }
 
-        public Company Add(Company entity)
+        public IEnumerable<Company> All()
         {
-            if(entity == null)
+            var query = @"SELECT * FROM Companies";
+            var results = Connection.Query<Company>(query, transaction: Transaction);
+            if (results == null)
+            {
+                throw new System.Exception("No companies found.");
+            }
+
+            return results;
+        }
+
+        public Company Create(Company entity)
+        {
+            if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
-            entity.Id = Connection.ExecuteScalar<int>(@"INSERT INTO Companies(Name, CreatedOn, LastModifiedOn, IsArchived, CreatedByUserId) VALUES 
-                                                        (@Name, @CreatedOn, @LastModifiedOn, @IsArchived, @CreatedByUserId)", 
+
+            var query = @"INSERT INTO Companies(Name, CreatedOn, LastModifiedOn, IsArchived, CreatedByUserId) VALUES
+                        (@Name, @CreatedOn, @LastModifiedOn, @IsArchived, @CreatedByUserId); SELECT CAST(SCOPE_IDENTITY() as int)";
+            var result = Connection.QuerySingle<int>(query,
                 param: new
                 {
                     Name = entity.Name,
                     CreatedOn = entity.CreatedOn,
                     LastModifiedOn = entity.CreatedOn,
-                    IsArchived = false,
-                    CreatedByUserId = 1
+                    IsArchived = entity.IsArchived,
+                    CreatedByUserId = entity.CreatedByUser.Id
                 }, transaction: Transaction);
 
-
+            entity.Id = result;
             return entity;
         }
 
         public void Delete(Company entity)
         {
-            throw new System.NotImplementedException();
+            var query = @"DELETE FROM Companies WHERE Id = @Id";
+            Connection.Execute(query, param: new { Id = entity.Id }, transaction: Transaction);
         }
 
-        public void DeleteById(int id)
+        public Company Find(int id)
         {
-            throw new System.NotImplementedException();
-        }
+            var query = @"SELECT * FROM Companies WHERE Id = @Id";
+            var company = Connection.QueryFirstOrDefault<Company>(query, param: new { Id = id }, transaction: Transaction);
+            if (company == null)
+            {
+                throw new System.Exception("No company with the id found.");
+            }
 
-        public IEnumerable<Company> FindAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Company FindById(int id)
-        {
-            var query = @"SELECT * FROM Companies WHERE Id = @CompanyId;";
-            var company =  Connection.QueryFirstOrDefault<Company>(query, param: new { CompanyId = id }, transaction: Transaction);
             return company;
         }
 
-        public Company Update(Company entity)
+        public Company FindByName(string name)
         {
-            throw new System.NotImplementedException();
+            var query = @"SELECT * FROM Companies WHERE Name = @Name";
+            var company = Connection.QueryFirstOrDefault<Company>(query, param: new { Name = name }, transaction: Transaction);
+            if (company == null)
+            {
+                throw new System.Exception("No permission with the name found.");
+            }
+
+            return company;
+        }
+
+        public void Update(Company entity)
+        {
+            var query = @"UPDATE Companies SET Name = @Name, 
+                        LastModifiedOn = @LastModifiedOn,
+                        IsArchived = @IsArchived WHERE Id = @Id";
+            var result = Connection.Execute(query,
+               param: new
+               {
+                   Name = entity.Name,
+                   LastModifiedOn = entity.CreatedOn,
+                   IsArchived = entity.IsArchived,
+                   Id = entity.Id
+               },
+               transaction: Transaction
+           );
+
+            if (result < 1)
+            {
+                throw new System.Exception("Unable to update permission.");
+            }
         }
     }
 }

@@ -40,9 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Factories\CompanyFactory.cs" />
+    <Compile Include="Factories\UserFactory.cs" />
+    <Compile Include="Interfaces\ICompanyFactory.cs" />
+    <Compile Include="Interfaces\IUserFactory.cs" />
     <Compile Include="Models\CompanyDTO.cs" />
     <Compile Include="Models\UserDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
+      <Project>{809278e4-4bbe-42f9-8e61-73c3f87c57cf}</Project>
+      <Name>MSD.Loop.Engine</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,7 +19,7 @@ namespace MSD.Loop.TestClient
             //var conn = connectionFactory.GetConnection();
 
             var uow = new UnitOfWork(new ConnectionFactory());
-            var company= uow.CompanyRepository.Add(new Company
+            var company= uow.CompanyRepository.Create(new Company
             {
                 CreatedByUser = new User { Id = 1},
                 CreatedOn = DateTime.UtcNow,

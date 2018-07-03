@@ -56,11 +56,23 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
@@ -77,17 +89,11 @@
     </Reference>
     <Reference Include="System.Net.Http">
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
@@ -124,8 +130,8 @@
     <Reference Include="Unity.Configuration, Version=5.2.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Configuration.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Container, Version=5.7.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\packages\Unity.Container.5.7.0\lib\net46\Unity.Container.dll</HintPath>
+    <Reference Include="Unity.Container, Version=5.8.6.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.8.6\lib\net46\Unity.Container.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Interception, Version=5.5.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.6\lib\net46\Unity.Interception.dll</HintPath>
@@ -209,7 +215,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\Access\AccessRoleController.cs" />
     <Compile Include="Controllers\Access\PermissionController.cs" />
     <Compile Include="Controllers\Access\CompanyUserRoleController.cs" />
@@ -299,25 +304,25 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Business\MSD.Loop.Business.csproj">
+      <Project>{6D576F72-7C65-4D78-957A-742CE1CF1582}</Project>
+      <Name>MSD.Loop.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
+      <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
+      <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
       <Project>{3308D94D-2B88-4091-B24A-6C7ACA4E0565}</Project>
       <Name>MSD.Loop.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
-      <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
+      <Project>{809278e4-4bbe-42f9-8e61-73c3f87c57cf}</Project>
       <Name>MSD.Loop.Engine</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Infrastructure\MSD.Loop.Infrastructure.csproj">
       <Project>{343601de-f09c-42c6-b936-a3b1de7c7909}</Project>
       <Name>MSD.Loop.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.Modules\MSD.Loop.Modules.csproj">
-      <Project>{cc647e07-edc6-4997-ba7c-b3becdfe101e}</Project>
-      <Name>MSD.Loop.Modules</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.Providers\MSD.Loop.Providers.csproj">
-      <Project>{62270ed3-92c3-460a-88c1-e81fe797dc1c}</Project>
-      <Name>MSD.Loop.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

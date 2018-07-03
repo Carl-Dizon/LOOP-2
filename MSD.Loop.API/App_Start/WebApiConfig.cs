@@ -1,11 +1,7 @@
-﻿using MSD.Loop.Engine.Configurations;
-using MSD.Loop.Engine.Factories;
-using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Infrastructure.Configurations;
-using MSD.Loop.Infrastructure.Data;
+﻿using Newtonsoft.Json.Serialization;
+using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web.Http;
-using Unity;
-using Unity.AspNet.WebApi;
 
 namespace MSD.Loop.API
 {
@@ -13,35 +9,8 @@ namespace MSD.Loop.API
     {
         public static void Register(HttpConfiguration config)
         {
-            //will be moved to another class
-            var unityContainer = new UnityContainer();
-
-            unityContainer.RegisterType<IConfigurationFactory, ConfigurationFactory>();
-            unityContainer.RegisterType<IConnectionFactory, ConnectionFactory>();
-
-            unityContainer.RegisterType<IUserRepository, UserRepository>();
-            unityContainer.RegisterType<ICompanyRepository, CompanyRepository>();
-            unityContainer.RegisterType<ICompanyUserRepository, CompanyUserRepository>();
-            unityContainer.RegisterType<ICompanyProjectRepository, CompanyProjectRepository>();
-
-            unityContainer.RegisterType<ICompanyAccessRoleRepository, CompanyAccessRoleRepository>();
-            unityContainer.RegisterType<ICompanyMaterialStockRepository, CompanyMaterialStockRepository>();
-            unityContainer.RegisterType<ICompanyProjectUserRepository, ProjectUserRepository>();
-            unityContainer.RegisterType<ICompanyUserRoleRepository, CompanyUserRoleRepository>();
-
-            unityContainer.RegisterType<ICompanyProjectUserRoleRepository, CompanyProjectUserRoleRepository>();
-            unityContainer.RegisterType<ICompanyProjectTaskUserRepository, ProjectTaskUserRepository>();
-            unityContainer.RegisterType<IProjectTaskRepository, ProjectTaskRepository>();
-            unityContainer.RegisterType<IProjectTaskMaterialRepository, ProjectTaskMaterialRepository>();
-
-            unityContainer.RegisterType<ICompanyService, CompanyService>();
-            unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
-
-            unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
-            unityContainer.RegisterType<IUserFactory, UserFactory>();
-
-            unityContainer.RegisterType<IProjectTaskWorkRepository, ProjectTaskWorkRepository>();
-            config.DependencyResolver = new UnityDependencyResolver(unityContainer);
+            //enable cors
+            config.EnableCors();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
@@ -52,6 +21,8 @@ namespace MSD.Loop.API
                 defaults: new { id = RouteParameter.Optional }
             );
 
+            var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
         }
     }
