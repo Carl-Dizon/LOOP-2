@@ -55,6 +55,8 @@
     <Compile Include="Interfaces\IAccessLevelPermissionRepository.cs" />
     <Compile Include="Interfaces\IAccessLevelRepository.cs" />
     <Compile Include="Interfaces\IApplicationSettingRepository.cs" />
+    <Compile Include="Interfaces\IAppSettingsProvider.cs" />
+    <Compile Include="Interfaces\IAuthenticationProvider.cs" />
     <Compile Include="Interfaces\ICompanyMaterialStockRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectUserRoleRepository.cs" />
@@ -66,11 +68,15 @@
     <Compile Include="Interfaces\IConfigurationFactory.cs" />
     <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
+    <Compile Include="Interfaces\ILoggerProvider.cs" />
+    <Compile Include="Interfaces\IMailerProvider.cs" />
     <Compile Include="Interfaces\IPermissionRepository.cs" />
     <Compile Include="Interfaces\ICompanyProjectAreaRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskMaterialRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskRepository.cs" />
     <Compile Include="Interfaces\IProjectTaskWorkRepository.cs" />
+    <Compile Include="Interfaces\IRoleProvider.cs" />
+    <Compile Include="Interfaces\ITokenProvider.cs" />
     <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\AccessLevel.cs" />

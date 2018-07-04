@@ -1,13 +1,14 @@
 ﻿using MSD.Loop.Business.Factories;
 using MSD.Loop.Business.Interfaces;
 using MSD.Loop.Business.Servicess;
-using MSD.Loop.Common.Interfaces;
 using MSD.Loop.DTO.Factories;
 using MSD.Loop.DTO.Interfaces;
 using MSD.Loop.Engine.Configurations;
 using MSD.Loop.Engine.Interfaces;
 using MSD.Loop.Infrastructure.Data;
 using MSD.Loop.Infrastructure.Interfaces;
+using MSD.Loop.Providers.Authentication;
+using MSD.Loop.Providers.Loggers;
 using MSD.Loop.Providers.Mailers;
 using MSD.Loop.Providers.Roles;
 using System.Data;
@@ -58,9 +59,11 @@ namespace MSD.Loop.Infrastructure.Configurations
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
             //register providers
-            unityContainer.RegisterType<IMailer, Mailer>();
+            unityContainer.RegisterType<IMailerProvider, Mailer>();
             unityContainer.RegisterType<IRoleProvider, RoleProvider>();
-            //unityContainer.RegisterType<ILogger, Logger>();
+            unityContainer.RegisterType<ILoggerProvider, Logger>();
+            unityContainer.RegisterType<IAuthenticationProvider, AuthenticationProvider>();
+            unityContainer.RegisterType<ITokenProvider, TokenProvider>();
 
             unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();

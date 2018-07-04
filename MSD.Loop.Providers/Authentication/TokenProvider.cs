@@ -1,4 +1,4 @@
-﻿using MSD.Loop.Common.Interfaces;
+﻿using MSD.Loop.Engine.Interfaces;
 
 namespace MSD.Loop.Providers.Authentication
 {

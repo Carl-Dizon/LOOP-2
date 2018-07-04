@@ -1,6 +1,7 @@
 ﻿using MSD.Loop.Common.Interfaces;
 using MSD.Loop.Common.Modules;
 using MSD.Loop.Engine.Interfaces;
+using MSD.Loop.Infrastructure.Interfaces;
 using System;
 using System.Configuration;
 
@@ -8,8 +9,8 @@ namespace MSD.Loop.Engine.Configurations
 {
     public class ConfigurationFactory : IConfigurationFactory
     {
-        private readonly IMailer _mailer;
-        private readonly ILogger _logger;
+        private readonly IMailerProvider _mailer;
+        private readonly ILoggerProvider _logger;
         private readonly IRoleProvider _roleManager;
         private readonly IAuthenticationProvider _authManager;
         private readonly ITokenProvider _tokenManager;
@@ -23,8 +24,8 @@ namespace MSD.Loop.Engine.Configurations
             if(config != null)
             {
 
-                _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailer;
-                _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
+                _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailerProvider;
+                _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILoggerProvider;
                 
                 _roleManager = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as IRoleProvider;
                 _authManager = Activator.CreateInstance(Type.GetType(config.AuthenticationProvider.Type)) as IAuthenticationProvider;
@@ -42,12 +43,12 @@ namespace MSD.Loop.Engine.Configurations
         }
 
         //factory methods
-        public IMailer GetMailer()
+        public IMailerProvider GetMailer()
         {
             return _mailer;
         }
 
-        public ILogger GetLogger()
+        public ILoggerProvider GetLogger()
         {
             return _logger;
         }

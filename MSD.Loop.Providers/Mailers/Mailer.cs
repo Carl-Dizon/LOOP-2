@@ -1,13 +1,8 @@
-﻿using MSD.Loop.Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MSD.Loop.Infrastructure.Interfaces;
 
 namespace MSD.Loop.Providers.Mailers
 {
-    public class Mailer : IMailer
+    public class Mailer : IMailerProvider
     {
 
     }

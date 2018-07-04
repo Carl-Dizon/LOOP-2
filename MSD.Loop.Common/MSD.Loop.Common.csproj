@@ -41,11 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interfaces\IApplicationModule.cs" />
-    <Compile Include="Interfaces\IAuthenticationProvider.cs" />
-    <Compile Include="Interfaces\ILogger.cs" />
-    <Compile Include="Interfaces\IMailer.cs" />
-    <Compile Include="Interfaces\IRoleProvider.cs" />
-    <Compile Include="Interfaces\ITokenProvider.cs" />
     <Compile Include="Modules\ApplicationEventArgs.cs" />
     <Compile Include="Modules\ApplicationEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
