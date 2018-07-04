@@ -1,5 +1,7 @@
 [
   {
+    "userName": "worker",
+    "password": "worker",
     "firstName": "Cristopher",
     "lastName": "Worker",
     "role": {
@@ -10,6 +12,8 @@
     }
   },
   {
+    "userName": "manager",
+    "password": "manager",
     "firstName": "Siteus",
     "lastName": "Manager",
     "role": {

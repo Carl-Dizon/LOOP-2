@@ -1,3 +1,31 @@
 page-prototype-landing {
+    .content{
+        background: linear-gradient(to bottom, #ffffff 0%, #0099ff 450%);
+    }
+
+    .center-position{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .logo{
+        width: 170px;
+    }
+
+    .warning-label{
+        height: 50px;
+        color: color($colors,danger);
+    }
+
+    #logo{
+        height: 190px;
+    }
+
+    #item-input{
+        background-color: transparent;
+        border-bottom: 1px solid black;
+    }
 
 }

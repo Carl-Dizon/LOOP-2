@@ -19,6 +19,11 @@ import { TabsPage } from "../tabs/tabs";
 export class PrototypeLandingPage {
   users: IUser[] = [];
 
+  username: string;
+  password: string;
+
+  wrongCredentials: boolean = false;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -35,5 +40,26 @@ export class PrototypeLandingPage {
   goToApplication(user: IUser) {
     console.log("user pushed", user);
     this.navCtrl.push(TabsPage, { user: user });
+  }
+
+  onModelClear(){
+    if(this.wrongCredentials === true){
+      this.username = null;
+      this.password = null;
+      this.wrongCredentials = false;
+    } 
+  }
+
+  onLogin(){
+    let index = this.users.findIndex(x => x.userName === this.username);
+    if(index >= 0){
+      if(this.password === this.users[index].password){
+        this.navCtrl.push(TabsPage, { user: this.users[index]});
+      } else {
+        this.wrongCredentials = true;
+      }
+    } else {
+      this.wrongCredentials = true;
+    }
   }
 }

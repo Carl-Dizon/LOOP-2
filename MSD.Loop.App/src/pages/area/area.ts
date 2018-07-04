@@ -99,7 +99,7 @@ export class AreaPage {
       materialCount.push(areaValue.materials[index].usageCount);
     }
 
-    this.barChart = new Chart(this.barCanvas.nativeElement, {
+    this.barChart = new Chart(this.barCanvas.nativeElement, { // this.barCanvas.nativeElement
       type: 'bar',
       data: {
           labels: materialLabels,// ["Pipe", "Pumps", "Valves", "Coupling", "Elbow", "Drain"],
@@ -136,6 +136,8 @@ export class AreaPage {
       }
 
     });
+
+    // this.barCanvas.nativeElement = '';
   }
 
   generateColor(completionPercentage) {
