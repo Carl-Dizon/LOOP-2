@@ -10,8 +10,9 @@ namespace MSD.Loop.Engine.Configurations
     {
         private readonly IMailer _mailer;
         private readonly ILogger _logger;
-        private readonly ICompanyAccessLevelProvider _roleManager;
+        private readonly IRoleProvider _roleManager;
         private readonly IAuthenticationProvider _authManager;
+        private readonly ITokenProvider _tokenManager;
 
         private readonly ApplicationEvents _events;
 
@@ -25,8 +26,9 @@ namespace MSD.Loop.Engine.Configurations
                 _mailer = Activator.CreateInstance(Type.GetType(config.Mailer.Type)) as IMailer;
                 _logger = Activator.CreateInstance(Type.GetType(config.Logger.Type)) as ILogger;
                 
-                _roleManager = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as ICompanyAccessLevelProvider;
+                _roleManager = Activator.CreateInstance(Type.GetType(config.RoleProvider.Type)) as IRoleProvider;
                 _authManager = Activator.CreateInstance(Type.GetType(config.AuthenticationProvider.Type)) as IAuthenticationProvider;
+                _tokenManager = Activator.CreateInstance(Type.GetType(config.TokenProvider.Type)) as ITokenProvider;
             }
 
             //handle modules
@@ -55,14 +57,19 @@ namespace MSD.Loop.Engine.Configurations
             return _events;
         }
 
-        public ICompanyAccessLevelProvider GetRoleProvider()
+        public IRoleProvider GetRoleManager()
         {
             return _roleManager;
         }
 
-        public IAuthenticationProvider GetAuthProvider()
+        public IAuthenticationProvider GetAuthenticationManager()
         {
-            throw new NotImplementedException();
+            return _authManager;
+        }
+
+        public ITokenProvider GetTokenManager()
+        {
+            return _tokenManager;
         }
     }
 }

@@ -18,7 +18,6 @@ namespace MSD.Loop.Infrastructure.Configurations
 
         private readonly IDbConnection _connection;
         private readonly IDbTransaction _transaction;
-        private object existingPermission;
 
         public DatabaseInitializer(IUnitOfWork unitOfWork, IConnectionFactory connectionFactory)
         {

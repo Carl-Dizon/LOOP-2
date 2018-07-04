@@ -59,7 +59,7 @@ namespace MSD.Loop.Infrastructure.Configurations
 
             //register providers
             unityContainer.RegisterType<IMailer, Mailer>();
-            unityContainer.RegisterType<ICompanyAccessLevelProvider, CompanyAccessRoleProvider>();
+            unityContainer.RegisterType<IRoleProvider, RoleProvider>();
             //unityContainer.RegisterType<ILogger, Logger>();
 
             unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();

@@ -99,6 +99,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Authentication\" />
     <Folder Include="Data\Scripts\" />
     <Folder Include="Data\StoredProcs\" />
     <Folder Include="Data\Tables\" />

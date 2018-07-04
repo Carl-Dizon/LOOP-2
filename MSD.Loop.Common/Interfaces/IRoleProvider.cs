@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace MSD.Loop.Common.Interfaces
 {
-    public interface ICompanyAccessLevelProvider
+    public interface IRoleProvider
     {
-        void Initialize(IDbConnection connection);
+
     }
 }

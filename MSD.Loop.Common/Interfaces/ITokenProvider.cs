@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MSD.Loop.Common.Interfaces
 {
-    public interface IAuthenticationProvider
+    public interface ITokenProvider
     {
-
     }
 }

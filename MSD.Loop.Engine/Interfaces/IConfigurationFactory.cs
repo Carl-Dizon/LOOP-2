@@ -7,8 +7,9 @@ namespace MSD.Loop.Engine.Interfaces
     {
         IMailer GetMailer();
         ILogger GetLogger();
-        IAuthenticationProvider GetAuthProvider();
-        ICompanyAccessLevelProvider GetRoleProvider();
+        IAuthenticationProvider GetAuthenticationManager();
+        IRoleProvider GetRoleManager();
+        ITokenProvider GetTokenManager();
         ApplicationEvents GetEvents();
         
     }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MSD.Loop.Common.Interfaces
+namespace MSD.Loop.Engine.Configurations
 {
-    public interface IAuthenticationProvider
+    public class TokenProviderElement : ProviderBaseElement
     {
-
     }
 }

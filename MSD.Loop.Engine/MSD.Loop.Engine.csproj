@@ -51,6 +51,7 @@
     <Compile Include="Configurations\ModuleElementCollection.cs" />
     <Compile Include="Configurations\ProviderBaseElement.cs" />
     <Compile Include="Configurations\RoleProviderElement.cs" />
+    <Compile Include="Configurations\TokenProviderElement.cs" />
     <Compile Include="Interfaces\IAccessLevelPermissionRepository.cs" />
     <Compile Include="Interfaces\IAccessLevelRepository.cs" />
     <Compile Include="Interfaces\IApplicationSettingRepository.cs" />

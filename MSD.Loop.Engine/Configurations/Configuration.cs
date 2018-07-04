@@ -32,6 +32,14 @@ namespace MSD.Loop.Engine.Configurations
             set { base["authProvider"] = value; }
         }
 
+        [ConfigurationProperty("tokenProvider", IsRequired = true)]
+        public TokenProviderElement TokenProvider
+        {
+            get { return (TokenProviderElement)base["tokenProvider"]; }
+            set { base["tokenProvider"] = value; }
+        }
+
+
         [ConfigurationProperty("modules", IsRequired = false)]
         public ModuleElementCollection Modules
         {
