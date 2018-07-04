@@ -41,7 +41,7 @@ export class TabsPage {
           icon: 'logo-buffer'
         }
       ];
-    } else if (role.name === 'Site Manager') {
+    } else if (role.name === 'Project Lead/Foreman') {
       this.tabs = [
         {
           title: 'Projects',

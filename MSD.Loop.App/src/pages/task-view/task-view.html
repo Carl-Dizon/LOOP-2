@@ -23,7 +23,7 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div style="width: 120px; margin: auto">
+        <div class="round-progress-container">
             <round-progress [max]="issue.timeEstimate" [current]="issue.hoursLogged" [color]="getColor(getPercentage(issue))" responsive="true" stroke="40"></round-progress>
             <label class="percentage">{{getPercentage(issue)}}%</label>
         </div>
