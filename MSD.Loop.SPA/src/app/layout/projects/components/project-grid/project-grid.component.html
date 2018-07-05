@@ -1,0 +1,80 @@
+<div class="fluid-container projects-page" [@routerTransition]>
+  <div class="project-header">
+    <h2>Projekt</h2>
+    <select class="form-control" ng-model="myVar" (change)="navigateTo($event.target.value)">
+      <option value="/projects">Dashboard</option>
+      <option value="/projects/project-grid" selected>Grid</option>
+      <option value="/projects/project-lists">List</option>
+    </select>
+  </div>
+  <div class="row">
+    <div class="col-xl-12 text-xs-center">
+      <div class="card mb-3">
+        <div class="card-body" style="text-align:left; overflow-x:auto;">
+          <table class="card-body table-bordered" width="100%" style="border:1px solid">
+            <thead>
+              <tr>
+                <th colspan="5">
+                  Projekt
+                  <th>
+                    <th *ngFor="let cell of areas">
+                      <h5>
+                        <i>{{cell.areaName}}</i>
+                      </h5>
+                    </th>
+                    <th>
+                        <h5>
+                          <i>Total</i>
+                        </h5>
+                      </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of projects; let i = index">
+                <td style="vertical-align:middle; border-right:none; width:20%" colspan="5">
+                    <div class="row">
+                        <div class="col-sm-4 project-item">
+                          <div class="project-image" [ngStyle]="{ 'background': '    linear-gradient(
+                              rgba(173, 173, 173, 0.45),
+                              rgba(30, 128, 197, 0.45)
+                            ), url('+ projects[i].image +') top / cover no-repeat' }" [routerLink]="['/projects/project-details', i+1]"
+                            [routerLinkActive]="['router-link-active']">
+    
+                          </div>
+                        </div>
+                        
+                      </div>
+                </td>
+                <td style="vertical-align:middle; border-left:none;" class="tbletd project-item" [routerLink]="['/projects/project-details', i+1]"
+                [routerLinkActive]="['router-link-active']">
+                  {{row.name}}
+                </td>
+                <td class="tbletd">
+                  {{woodworkfinalpercentage[i]}}<sup>%</sup>               
+                </td>
+                <td class="tbletd">
+                  {{brickworkfinalpercentage[i]}}<sup>%</sup>
+                </td>
+                <td class="tbletd">
+                  {{constructionfinalpercentage[i]}}<sup>%</sup>
+                </td>
+                <td class="tbletd">
+                  {{wallingfinalpercentage[i]}}<sup>%</sup>
+                </td>
+                <td class="tbletd">
+                  {{ plumbingfinalpercentage[i]}}<sup>%</sup>
+                </td>
+                <td class="tbletd">
+                  {{electricalsfinalpercentage[i]}}<sup>%</sup>
+                </td>
+                <td  class="tbletd">
+                    {{perprojecthours[i]}}<sup>%</sup>
+                  </td> 
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

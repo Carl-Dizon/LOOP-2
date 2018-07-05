@@ -44,6 +44,14 @@
                 font-size: 40px;
                 color: #fff;
             }
+            .project-percentage
+            {
+                text-align: center;
+                display: block;
+                padding-top:2rem;               
+                font-size: 150px;
+                color: #fff;
+            }
             .progress {
                 display: none !important;
 
@@ -63,4 +71,7 @@
             }
         }
     }
+}
+.card {
+    border:none;
 }

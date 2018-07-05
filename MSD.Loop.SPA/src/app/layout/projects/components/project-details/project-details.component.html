@@ -1,79 +1,195 @@
 <div class="fluid-container projects-page" [@routerTransition]>
   <div class="fluid-container projects-list-container">
     <div class="row">
-      <div class="col-xl-12 text-xs-center">
+      <div class="col-xl-6 text-xs-center">
         <div class="card mb-3">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-xl-6 text-xs-center">
-                <div class="card mb-3">
-                  <div class="card-bodys" id="proj-item" [ngStyle]="{ 'background': '    linear-gradient(
+          <div class="card-bodys" id="proj-item" [ngStyle]="{ 'background': '    linear-gradient(
                             rgba(173, 173, 173, 0.45),
                             rgba(30, 128, 197, 0.45)
                           ), url('+ specificproject.image +') top / cover no-repeat' }" [routerLink]="['/projects/project-details', i]"
-                    [routerLinkActive]="['router-link-active']">
-                    <div class="hex">
-                        <span class="project-percentage">
-                        {{status}}
-                      </span>
-                    </div>
-                    
-                    <span class="project-name">
-                      {{ specificproject.name }}
-                    </span>
-                   
-                  </div>
-                  <!-- {{status}} -->
-                  <div class="progress">
-                      <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{'width': status + '%'}" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+            [routerLinkActive]="['router-link-active']">
+            <div class="hex">
+              <span class="project-percentage">
+                {{totalhourpercentage}}
+              </span>
+            </div>
+
+            <span class="project-name">
+              {{ specificproject.name }}
+            </span>
+
+          </div>
+          <!-- {{status}} -->
+          Total hours logged:
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" [ngStyle]="{'width': totalhourpercentage + '%'}" aria-valuenow="50"
+              aria-valuemin="0" aria-valuemax="100">{{status}}/{{totalhours}}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 text-xs-center">
+        <div class="card mb-3">
+          <div class="card-body" style="text-align:center;">
+            <b>Project Details</b>
+            <div class="col-xl-12 text-xs-center">
+              <div class="card mb-3">
+                <div class="card-body" style="text-align:left;">
+                  Project Name: {{specificproject.name}}
+                  <br> Project ID: {{specificproject.id}}
+                  <br> Estimated Hours: {{specificproject.estimatedHours}} hrs
+                  <br> Total Hours Logged: {{status}} hrs
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              <div class="col-xl-6 text-xs-center">
+      <div class="col-xl-6 text-xs-center">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-xl-12 text-xs-center">
                 <div class="card mb-3">
                   <div class="card-body">
-                    <div class="row">
-                      <div class="col-xl-12 text-xs-center">
-                        <div class="card mb-3">
-                          <div class="card-body">
-                            <div style="overflow-x:auto;">
-                              <table width="100%">
+                    <div style="overflow-x:auto;">
+                      <table class="card-body table table-hover" width="100%">
+                        <tbody>
+                          <tr>
+                            <td colspan="5" style="text-align:center;">
+                              <b>Tasks</b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <i>Area</i>
+                            </td>
+                            <td>
+                              <i>Task</i>
+                            </td>
+                            <td>
+                              <i>Due Date</i>
+                            </td>
+                            <td>
+                              <i>Executor</i>
+                            </td>
+                          </tr>
+                          <tr *ngFor="let row of specificTask; let i = index; ">
+                            <td class="taskcol">
+                              <b>{{row.areaName}}</b>
+                            </td>
+                            <td class="taskcol">
+                              <b>{{row.task}}</b>
+                            </td>
+                            <td class="taskcol">17.01.22</td>
+                            <td>
+                                <b>{{row.asignee}}</b>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-12 text-xs-center">
+                <div class="card mb-3">
+                  <button type="button" class="btn btn-sm btn-primary" (click)="showModal()">Add Task</button>
+                </div>
+                <div class="row" id="myModal" role="dialog" [ngStyle]="{'display':modalDisplay}">
+                  <div class="col-xl-12 text-xs-center">
+                    <div class="card mb-3">
+                      <div class="card-body">
+                        <div class="modal-content">
+                          <form #formtask="ngForm" (ngSubmit)="saveTask(formtask.value)" novalidate>
+                            <div class="modal-body">
+                              <table class="table table-hover" class="table table-bordered" style="margin-bottom: 0;">
+                                <thead>
+                                  <tr>
+                                    <th colspan="8" rowspan="6" class="text-left">
+                                      <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">&times;</button>
+                                      <h2>Add Task</h2>
+                                    </th>
+                                  </tr>
+                                </thead>
                                 <tbody>
                                   <tr>
-                                    <td colspan="5" style="text-align:center;">
-                                      <i>Tasks</i>
+                                    <!-- Employee Name -->
+                                    <td class="text-center">
+                                      Heading:
+                                    </td>
+                                    <td colspan="6">
+                                      <input type="text" id="task" name="task" [(ngModel)]="task" class="form-control">
+                                      <input type="hidden" id="id" name="id" [(ngModel)]="id" value="">
+                                    </td>
+                                    <td>
+                                      <select class="form-control" >
+                                        <option *ngFor="let row of areas; let i = index" [value]="">
+                                          {{row.areaName}}
+                                        </option>
+                                      </select>
                                     </td>
                                   </tr>
                                   <tr>
-                                    <td>
-                                      <i>Area</i>
+                                    <!-- Employee Name -->
+                                    <td class="text-center">
+                                      Description:
                                     </td>
-                                    <td>
-                                      <i>Task</i>
-                                    </td>
-                                    <td>
-                                      <i>Due Date</i>
-                                    </td>
-                                    <td>
-                                      <i>Executor</i>
+                                    <td colspan="7">
+                                      <textarea rows="10" cols="20" id="reason" class="form-control select-textarea" name="Reason" [(ngModel)]="reason"></textarea>
                                     </td>
                                   </tr>
-                                  <tr *ngFor="let row of specificTask; let i = index; ">
-                                    <td class="taskcol">
-                                      <b>{{row.areaName}}</b>
+                                  <tr>
+                                    <!-- Employee Name -->
+                                    <td class="text-center" colspan="2">
+                                      Project:
                                     </td>
-                                    <td class="taskcol">
-                                      <b>{{row.task}}</b>
+                                    <td class="text-center" colspan="2">
+                                      Estimated Hours:
                                     </td>
-                                    <td class="taskcol">17.01.22</td>
-                                    <td>
-                                      PHOTO
+                                    <td class="text-center" colspan="3">
+                                      Executors:
+                                    </td>
+                                    <td class="text-center" colspan="2">
+                                      Due Date:
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <!-- Employee Name -->
+                                    <td class="text-center" colspan="2">
+                                      {{specificproject.name}}
+                                    </td>
+                                    <td class="text-center" colspan="2">
+                                        <input type="text" id="hourEstimate" name="hourEstimate" [(ngModel)]="hourEstimate" class="form-control">
+                                    </td>
+                                    <td class="text-center" colspan="3">
+                                      <select name="asignee" id="asignee" class="form-control" [(ngModel)]="asignee">
+                                        <option *ngFor="let task of tasks; let i = index" [value]="">
+                                          {{task.asignee}}
+                                        </option>
+                                      </select>
+                                    </td>
+                                    <td class="text-center" colspan="2">
+                                        <div class="form-group">
+                                            <div class="input-group datepicker-input">
+                                                <input class="form-control" placeholder="yyyy-mm-dd"
+                                                    name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                                                <button class="input-group-addon" (click)="d.toggle()" type="button">
+                                                    <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                                                    <span class="fa fa-calendar"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </td>
                                   </tr>
                                 </tbody>
                               </table>
                             </div>
-                          </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-sm btn-primary" id="cancelbtn" data-dismiss="modal" (click)="closeModal()">Cancel</button>
+                              <button type="submit" class="btn btn-sm btn-primary" id="acceptbtn" data-dismiss="modal" (click)="closeModal()">Save</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -81,64 +197,124 @@
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-xl-6 text-xs-center">
-                <div class="card mb-3">
-                  <div class="card-bodys">
-                    <div class="row">
-                      <div class="col-xl-6 text-xs-center">
-                        <div class="card mb-3">
-                          <div class="card-body" style="text-align:center;">
-                            Project Details
-                            <div class="col-xl-12 text-xs-center">
-                              <div class="card mb-3">
-                                <div class="card-body" style="text-align:left;">
-                                  Project Name: {{specificproject.name}}
-                                  <br> Project ID: {{specificproject.id}}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-6 text-xs-center">
-                        <div class="card mb-3">
-                          <div class="card-body" style="text-align:center;">
-                            Events
-                            <div class="col-xl-12 text-xs-center">
-                              <div class="card mb-3">
-                                <div class="card-body" style="text-align:left;">
-
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-
-
           </div>
-          <!--col12-->
         </div>
       </div>
-      <!-- <div class="fluid-container projects-page" [@routerTransition]>
-  <div class="fluid-container projects-list-container">
-    <div class="row">
-      <div class="col-xl-12 text-xs-center">
+
+      <div class="col-xl-6 text-xs-center">
         <div class="card mb-3">
-          <div class="card-body">
-            .col-xl-12
+          <div class="card-body" style="text-align:center">
+            <b> Materials </b>
+            <div class="col-xl-12 text-xs-center ">
+              <div class="card mb-3">
+                <div class="card-body table-responsive">
+                  <table class="card-body table table-hover" width="100%">
+                    <thead>
+                      <tr>
+                        <th class="text-center">Material Name</th>
+                        <th class="text-center">Amount Consumed</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let row of specificMaterial; let i = index; ">
+                        <td class="text-center">
+                          {{row.materialName}}
+                        </td>
+                        <td class="text-center">
+                          {{row.materialsUsed}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-xl-12 text-xs-center">
+                <div class="card mb-3">
+                  <div class="card-body" style="text-align:left;">
+                    <button type="button" class="btn btn-sm btn-primary" style="width:100%;" (click)="showMaterialModal()">Log Material</button>
+                    <div class="row" id="myModal" role="dialog" [ngStyle]="{'display':modalMaterialDisplay}">
+                      <div class="modal-content" style="overflow-x:auto;">
+                        <form #formtask="ngForm" (ngSubmit)="saveTask(formtask.value)" novalidate>
+                          <div class="card-body" style="text-align:left; overflow-x:auto;">
+                            <table class="card-body table table-hover" width="100%">
+                              <tbody>
+                                <tr *ngFor="let row of specificMaterial; let i = index; ">
+                                  <td class="taskcol">
+                                    <fieldset class="form-group">
+                                      <label>Material Name</label>
+                                      <input class="form-control">
+                                      <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                    </fieldset>
+                                  </td>
+                                  <td class="taskcol">
+                                    <fieldset class="form-group">
+                                      <label>Quantity</label>
+                                      <input class="form-control">
+                                      <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                    </fieldset>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-sm btn-primary" id="cancelbtn" data-dismiss="modal" (click)="closeMaterialModal()">Cancel</button>
+                            <button type="submit" class="btn btn-sm btn-primary" id="acceptbtn" data-dismiss="modal" (click)="closeMaterialModal()">Save</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-12 text-xs-center">
+              <div class="card mb-3">
+                <div class="card-body" style="text-align:center;">
+                  Areas
+                  <div class="col-xl-12 text-xs-center">
+                    <div class="card mb-3">
+                      <div class="card-body" style="text-align:left; overflow-x:auto;">
+                        <table class="card-body table table-hover" width="100%">
+                          <thead>
+                            <tr>
+                              <th>Area Name</th>
+                              <th>Total Percentage</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>WoodWork</td>
+                              <td>{{woodworkhourpercentage}}%</td>
+                            </tr>
+                            <tr>
+                              <td>Brickwork</td>
+                              <td>{{brickworkhourpercentage}}%</td>
+                            </tr>
+                            <tr>
+                              <td>Construction</td>
+                              <td>{{contructionhourpercentage}}%</td>
+                            </tr>
+                            <tr>
+                              <td>Walling</td>
+                              <td>{{wallinghourpercentage}}%</td>
+                            </tr>
+                            <tr>
+                              <td>Plumbing</td>
+                              <td>{{plumbinghourpercentage}}%</td>
+                            </tr>
+                            <tr>
+                              <td>Electricals</td>
+                              <td>{{electricalhourpercentage}}%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div> -->

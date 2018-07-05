@@ -1,0 +1,48 @@
+.projects-page {
+    .project-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 0 10px 0;
+        border-bottom: 2px solid #5f5c5c63;
+
+        .form-control {
+            width: initial;
+        }
+    }
+.project-item {
+    min-height: 100px;
+    height: 100px;
+    max-height: 400px;
+    cursor: pointer;
+
+    .project-image {
+        width: 100%;
+        height: 100%;
+    
+    }
+    .hex {
+        background: url('assets/svg/hex.svg');
+        background-size: contain;
+        height: 70%;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+.project-percentage
+{
+    text-align: center;
+    display: block; 
+    font-size: 50px;
+    color:rgb(20, 145, 218)
+}
+th{
+    border:none;
+}
+}

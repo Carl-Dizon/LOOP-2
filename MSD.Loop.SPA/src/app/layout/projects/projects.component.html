@@ -1,27 +1,54 @@
+
 <div class="fluid-container projects-page" [@routerTransition]>
     <div class="project-header">
         <h2>Projekt</h2>
-        <select class="form-control">
-            <option selected>Change view</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <select class="form-control" ng-model="myVar" (change)="navigateTo($event.target.value)">
+            <option value="/projects">Dashboard</option>
+            <option value="/projects/project-grid">Grid</option>
+            <option value="/projects/project-lists">List</option>
         </select>
     </div>
 
-    <div class="fluid-container projects-list-container">
-        <div class="row">
+    <div class="fluid-container projects-list-container" [ngSwitch]="myVar">
+            <div class="row">
+                    <div class="col-xl-12 text-xs-center">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                    <button  style="float:right;" class="btn btn-primary" (click)="open(content)">Add Project</button>
+                                    <ng-template #content let-c="close" let-d="dismiss">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Add Project</h4>
+                                                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>One fine body&hellip;</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                                            </div>
+                                        </ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <div class="row" *ngSwitchCase="dashboard">
             <div class="col-md-3 project-item" *ngFor="let project of projects;  let i = index">
-                <div class="project-image"  [ngStyle]="{ 'background': '    linear-gradient(
+                <div class="project-image" [ngStyle]="{ 'background': '    linear-gradient(
                     rgba(173, 173, 173, 0.45),
                     rgba(30, 128, 197, 0.45)
-                  ), url('+ project.image +') top / cover no-repeat' }" [routerLink]="['/projects/project-details', i+1]"  [routerLinkActive]="['router-link-active']">
+                  ), url('+ project.image +') top / cover no-repeat' }" [routerLink]="['/projects/project-details', i+1]"
+                    [routerLinkActive]="['router-link-active']">
                     <div class="hex">
+                            <span class="project-percentage">
+                                   {{perprojecthours[i]}}
+                                  </span>
                     </div>
                     <span class="project-name">
                         {{ project.name }}
                     </span>
-                </div >
+                </div>
                 <div class="progress">
                     <div class="area-progress">
                         <i class="fa fa-wrench" aria-hidden="true"></i>
@@ -33,11 +60,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-
-
 </div>
