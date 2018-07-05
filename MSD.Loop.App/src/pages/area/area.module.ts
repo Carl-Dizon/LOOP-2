@@ -4,6 +4,7 @@ import { AreaPage } from './area';
 import { ProgressBarModule  } from 'angular-progress-bar';
 
 import { AreaProvider } from '../../providers/area/area';
+import { ModalArealistPageModule } from '../../pages/modal-arealist/modal-arealist.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { AreaProvider } from '../../providers/area/area';
   ],
   imports: [
     IonicPageModule.forChild(AreaPage),
-    ProgressBarModule
+    ProgressBarModule,
+    ModalArealistPageModule
   ],
   providers: [
     AreaProvider

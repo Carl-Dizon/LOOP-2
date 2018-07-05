@@ -15,7 +15,7 @@
 
 <ion-content padding-top text-center>
   <label text-center style="font-weight: 600;">Select area</label>
-  <ion-grid>
+  <ion-grid no-padding>
     <ion-row class="grid-row" (click)="onSelectArea()">
       <ion-col col-3>
         <div class="img-container">
@@ -53,12 +53,15 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-card>
-      <ion-card-header no-padding>
+  <div style="position: relative;">
+    <ion-card>
+      <ion-card-header>
         Material usage
       </ion-card-header>
       <ion-card-content no-padding>
         <canvas #barCanvas></canvas>
       </ion-card-content>
-  </ion-card>
+    </ion-card>
+    <div class="cover"></div>
+  </div>
 </ion-content>

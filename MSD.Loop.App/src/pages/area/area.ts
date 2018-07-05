@@ -1,10 +1,12 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ModalController } from 'ionic-angular';
 import { Chart } from 'chart.js';
 
 import { AreaProvider } from '../../providers/area/area';
 
 import { IArea } from '../../models/IArea';
+
+import { ModalArealistPage } from '../../pages/modal-arealist/modal-arealist';
 
 interface acButtons {
   text: string,
@@ -19,7 +21,7 @@ interface acButtons {
 })
 export class AreaPage {
 
-  @ViewChild('barCanvas') barCanvas;
+  @ViewChild('barCanvas') canvas;
 
   viewAreaPageTitle: string = "";
 
@@ -44,7 +46,8 @@ export class AreaPage {
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               private areaProvider: AreaProvider,
-              private actionSheetCtrl: ActionSheetController) {
+              private actionSheetCtrl: ActionSheetController,
+              private modalCtrl: ModalController) {
                 this.onLoadArea();
   }
 
@@ -61,33 +64,16 @@ export class AreaPage {
   }
 
   onSelectArea(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.areas.length;index++){
-      let button: acButtons = {
-        text: this.areas[index].areaName,
-        handler: () => {
-          this.areaLabel = this.areas[index].areaName
-          this.area = this.areas[index];
-          this.setBarChart(this.area);
-        }
+    let areaListModule = this.modalCtrl.create(ModalArealistPage, this.areas);
+    areaListModule.present();
+
+    areaListModule.onDidDismiss(
+      callback => {
+        this.areaLabel = callback.areaName;
+        this.area = callback;
+        this.setBarChart(callback);
       }
-      actionButtons.push(button);
-    }
-
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const areaActionSheet = this.actionSheetCtrl.create({
-      title: 'Areas',
-      buttons: actionButtons
-    });
-    areaActionSheet.present();
+    );
   }
 
   setBarChart(areaValue: IArea){
@@ -99,7 +85,7 @@ export class AreaPage {
       materialCount.push(areaValue.materials[index].usageCount);
     }
 
-    this.barChart = new Chart(this.barCanvas.nativeElement, { // this.barCanvas.nativeElement
+    this.barChart = new Chart(this.canvas.nativeElement, { // this.barCanvas.nativeElement
       type: 'bar',
       data: {
           labels: materialLabels,// ["Pipe", "Pumps", "Valves", "Coupling", "Elbow", "Drain"],
@@ -136,8 +122,6 @@ export class AreaPage {
       }
 
     });
-
-    // this.barCanvas.nativeElement = '';
   }
 
   generateColor(completionPercentage) {
