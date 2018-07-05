@@ -3,25 +3,36 @@
         <div class="col-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
             <h1>SB Admin BS4 Angular5</h1>
-            <form role="form">
+            <form role="form" [formGroup]="signupForm" [hidden]="success" (ngSubmit)="onSubmit()">
+                <input type="hidden" formControlName="role">
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Full Name">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="First Name" formControlName="firstName">
                     </div>
 
                     <div class="form-group">
-                        <input type="text" class="form-control input-underline input-lg" id="" placeholder="Email">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Last Name" formControlName="lastName">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Password">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Address" formControlName="address">
                     </div>
+
                     <div class="form-group">
-                        <input type="password" class="form-control input-underline input-lg" id="" placeholder="Repeat Password">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Email" formControlName="email" readonly>
                     </div>
+
+                    <div formGroupName="passwords">
+                        <div class="form-group">
+                            <input type="password" class="form-control input-underline input-lg" placeholder="Password" formControlName="password">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-underline input-lg" placeholder="Repeat Password" formControlName="repeatedPassword">
+                        </div>
+                    </div>
+
                 </div>
-                <a class="btn rounded-btn" [routerLink]="['/dashboard']"> Register </a>&nbsp;
-                <a class="btn rounded-btn" [routerLink]="['/login']"> Log in </a>
+                <button type="submit" class="btn btn-secondary" [disabled]="signupForm.invalid">Register</button>
             </form>
         </div>
     </div>

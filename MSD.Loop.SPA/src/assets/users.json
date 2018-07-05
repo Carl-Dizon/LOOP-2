@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "firstName": "Fredrick",
+        "lastName": "Palmisano",
+        "address": "Siquijor",
+        "role": "Superadmin"
+    },
+    {
+        "id": "2",
+        "firstName": "Vince",
+        "lastName": "Pacarat",
+        "address": "Lazi",
+        "role": "Admin"
+    },
+    {
+        "id": "3",
+        "firstName": "Kalyn",
+        "lastName": "Kugler",
+        "address": "Maria",
+        "role": "User"
+    }
+]
