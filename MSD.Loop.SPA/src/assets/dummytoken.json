@@ -2,6 +2,8 @@
     {
         "token": "23ysh28qw3hsy283y8j21",
         "email": "test@test.com",
-        "role" : "Manager"
+        "role" : "Manager",
+        "companyId" : "1",
+        "companyRole" : "Foreman"
     }
 ]

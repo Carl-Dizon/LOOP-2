@@ -9,12 +9,13 @@
     </tr>
   </thead>
   <tbody>
+      <!-- <pre>{{ users | json }}</pre> -->
     <tr *ngFor = "let user of users">
         <td>{{ user.id }}</td>
         <td><a [routerLink]="user.id">{{ user.firstName }}</a></td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.role }}</td>
-        <td><button class="btn btn-info" (click)="openEditUserModal()">Edit</button><button class="btn btn-danger">Delete</button></td>
+        <td><button class="btn btn-info" (click)="openEditUserModal(user)">Edit</button><button class="btn btn-danger" (click)="openDeleteUserModal(user)">Delete</button></td>
     </tr>
   </tbody>
 </table>

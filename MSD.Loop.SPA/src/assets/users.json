@@ -4,20 +4,23 @@
         "firstName": "Fredrick",
         "lastName": "Palmisano",
         "address": "Siquijor",
-        "role": "Superadmin"
+        "role": "Superadmin",
+        "companyId" : "1"
     },
     {
         "id": "2",
         "firstName": "Vince",
         "lastName": "Pacarat",
         "address": "Lazi",
-        "role": "Admin"
+        "role": "Admin",
+        "companyId" : "2"
     },
     {
         "id": "3",
         "firstName": "Kalyn",
         "lastName": "Kugler",
         "address": "Maria",
-        "role": "User"
+        "role": "User",
+        "companyId" : "3"
     }
 ]

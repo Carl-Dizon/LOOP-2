@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserFormComponent } from './user-form/user-form.component';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UserService } from '../../shared/services/user/user.service';
 import { User } from '../../shared/models/User';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @Component({
   selector: 'app-users',
@@ -21,11 +21,21 @@ export class UsersComponent implements OnInit {
 
   openCreateUserModal() {
     this._modalService.open(UserFormComponent).result.then((result) => {
-      let id = +this.users[this.users.length - 1].id;
-      result.id = '' + ++id;
+        const id = +this.users[this.users.length - 1].id + 1;
+        result.id = `${id}`;
       this.users.push(result);
     }, (reason) => {
       console.log(reason);
     });
+  }
+
+  editUser(user: User) {
+    const index = this.users.findIndex(i => i.id === user.id);
+    this.users[index] = user;
+  }
+
+  deleteUser(user: User) {
+    const index = this.users.findIndex(i => i.id === user.id);
+    this.users.splice(index, 1);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../../../shared/models/User';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from '../../../../shared/models/User';
 
 @Component({
     selector: 'app-user-form',
@@ -17,7 +17,7 @@ export class UserFormComponent implements OnInit {
         { id: 3, name: 'User' }
     ];
 
-    formModal: FormGroup;
+    userForm: FormGroup;
     constructor(
         private _activeModal: NgbActiveModal,
         private _formBuilder: FormBuilder
@@ -38,7 +38,7 @@ export class UserFormComponent implements OnInit {
     }
 
     async onSubmit() {
-        const formValue = this.formModal.value;
+        const formValue = this.userForm.value;
         this.resetFormGroup();
         this._activeModal.close(formValue);
     }
@@ -48,7 +48,8 @@ export class UserFormComponent implements OnInit {
     }
 
     private initEditModal() {
-        this.formModal.patchValue({
+        this.userForm.patchValue({
+            id: this.user.id,
             firstName: this.user.firstName,
             lastName: this.user.lastName,
             address: this.user.address,
@@ -57,7 +58,8 @@ export class UserFormComponent implements OnInit {
     }
 
     private resetFormGroup() {
-        this.formModal = this._formBuilder.group({
+        this.userForm = this._formBuilder.group({
+            id: [''],
             firstName: ['', [Validators.required]],
             lastName: ['', [Validators.required]],
             address: ['', [Validators.required]],

@@ -1,2 +1,2 @@
 <button class="btn btn-primary" (click)="openCreateUserModal()">Create User</button>
-<app-user-list [users]="users"></app-user-list>
+<app-user-list [users]="users" (editedUser)="editUser($event)" (deletedUser)="deleteUser($event)"></app-user-list>

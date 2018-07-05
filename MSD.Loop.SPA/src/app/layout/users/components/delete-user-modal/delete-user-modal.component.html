@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title">Delete User</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form" [formGroup]="deleteForm" [hidden]="success" (ngSubmit)="onSubmit()">
+            <input type="hidden" formControlName="id">
+      <fieldset class="form-group">
+          <label>First Name</label>
+          <input class="form-control" formControlName="firstName" readonly>
+      </fieldset>
+
+      <fieldset class="form-group">
+          <label>Last Name</label>
+          <input class="form-control" formControlName="lastName" readonly>
+      </fieldset>
+
+      <fieldset class="form-group">
+          <label>Address</label>
+          <input class="form-control" formControlName="address" readonly>
+      </fieldset>
+
+      <div class="form-group">
+          <label>Role</label>
+          <input class="form-control" formControlName="role" readonly>
+      </div>
+
+      <button type="submit" class="btn btn-danger">Delete</button>
+
+  </form>
+  </div>
+
