@@ -14,7 +14,9 @@ export class UserFormComponent implements OnInit {
     roleOptions: any[] = [
         { id: 1, name: 'Superadmin' },
         { id: 2, name: 'Admin' },
-        { id: 3, name: 'User' }
+        { id: 3, name: 'Manager' },
+        { id: 4, name: 'Lead'},
+        { id: 5, name : 'Worker'}
     ];
 
     userForm: FormGroup;
