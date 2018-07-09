@@ -25,7 +25,9 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { AreaPageModule } from '../pages/area/area.module';
 import { IssuesPage } from '../pages/issues/issues';
 import { TaskViewPage } from '../pages/task-view/task-view';
+import { TaskProvider } from '../providers/task/task';
 import { LoggedProvider } from '../providers/logged/logged';
+import { ProjectTasksPage } from '../pages/project-tasks/project-tasks';
 
 import { ModalProjectListPageModule } from '../pages/modal-project-list/modal-project-list.module';
 import { ModalArealistPageModule } from '../pages/modal-arealist/modal-arealist.module';
@@ -43,7 +45,8 @@ import { ModalMaterialListPageModule } from '../pages/modal-material-list/modal-
     LogMaterialPage,
     ProjectsPage,
     IssuesPage,
-    TaskViewPage
+    TaskViewPage,
+    ProjectTasksPage
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { ModalMaterialListPageModule } from '../pages/modal-material-list/modal-
     LogMaterialPage,
     ProjectsPage,
     IssuesPage,
-    TaskViewPage
+    TaskViewPage,
+    ProjectTasksPage
   ],
   providers: [
     StatusBar,
@@ -79,6 +83,7 @@ import { ModalMaterialListPageModule } from '../pages/modal-material-list/modal-
     ProjectProvider,
     AreaProvider,
     MaterialProvider,
+    TaskProvider,
     LoggedProvider
   ]
 })

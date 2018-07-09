@@ -32,12 +32,7 @@
         {{ project.name }}
       </h3>
       <div class="project-completion">
-        <span class="percentage" [ngStyle]="generateColor(project.completionPercentage)">
-          {{ project.completionPercentage| number : '1.0-0'}} <sup>%</sup>
-        </span>
-        <span class="details">
-          completion
-        </span>
+          <img [src]="determineProjectProgress(project.remainingWorkHours, project.remainingWorkDays * 8)" class="indicator">
       </div>
     </div>
   </div>
