@@ -1,0 +1,29 @@
+<!--
+  Generated template for the ModalMaterialListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>Select Material</ion-title>
+      <ion-buttons start>
+          <button ion-button (click)="onCancel()">
+            Cancel
+          </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content no-padding>
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      <ion-list>
+        <ion-item *ngFor="let material of materials" (click)="onSelection(material)">
+          {{ material.materialName }}
+        </ion-item>
+      </ion-list>
+  </ion-content>
+

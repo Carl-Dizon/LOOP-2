@@ -3,13 +3,17 @@ import { IonicPage,
          NavController,
          NavParams,
          ActionSheetController,
-         AlertController } from 'ionic-angular';
+         AlertController,
+         ModalController } from 'ionic-angular';
 
 import { ProjectProvider } from '../../providers/project/project';
 import { AreaProvider } from '../../providers/area/area';
 
-import { IProject } from '../../models/IProject';
-import { IArea } from '../../models/IArea';
+import { ModalArealistPage } from '../modal-arealist/modal-arealist';
+import { ModalProjectListPage } from '../modal-project-list/modal-project-list';
+
+// import { IProject } from '../../models/IProject';
+// import { IArea } from '../../models/IArea';
 
 interface acButtons {
   text: string,
@@ -25,8 +29,8 @@ interface acButtons {
 
 export class LogHourPage {
 
-  projects: IProject[] = [];
-  areas: IArea[] = [];
+  projects: any[] = [];
+  areas: any[] = [];
 
   date: string = new Date().toISOString();
   hours: string = '08:00';
@@ -38,7 +42,8 @@ export class LogHourPage {
               private actionSheetCtrl: ActionSheetController,
               private projectProvider: ProjectProvider,
               private areaProvider: AreaProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private modalCtrl: ModalController) {
                 this.ionLoadProjects();
   }
 
@@ -54,59 +59,31 @@ export class LogHourPage {
   }
 
   onProjectSelect(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.projects.length;index++){
-      let button: acButtons = {
-        text: this.projects[index].projectName,
-        handler: () => {
-          this.project = this.projects[index].projectName
+    let projectPageModal = this.modalCtrl.create(ModalProjectListPage, this.projects);
+    projectPageModal.present();
+
+    projectPageModal.onDidDismiss(
+      callBack => {
+        if(callBack !== undefined && callBack !== null){
+          this.project = callBack.projectName;
         }
       }
-      actionButtons.push(button);
-    }
+    );
 
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-  
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const projectActionSheet = this.actionSheetCtrl.create({
-      title: 'Projects',
-      buttons: actionButtons
-    });
-    projectActionSheet.present();
   }
 
   onAreaSelect(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.areas.length;index++){
-      let button: acButtons = {
-        text: this.areas[index].areaName,
-        handler: () => {
-          this.area = this.areas[index].areaName
+    let areaPageModal = this.modalCtrl.create(ModalArealistPage, this.areas);
+    areaPageModal.present();
+
+    areaPageModal.onDidDismiss(
+      callBack => {
+        if(callBack !== undefined && callBack !== null){
+          this.area = callBack.areaName;
         }
       }
-      actionButtons.push(button);
-    }
+    );
 
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-  
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const areaActionSheet = this.actionSheetCtrl.create({
-      title: 'Areas',
-      buttons: actionButtons
-    });
-    areaActionSheet.present();
   }
 
   onSave(){

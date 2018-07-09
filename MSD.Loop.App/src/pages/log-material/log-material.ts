@@ -3,15 +3,20 @@ import { IonicPage,
          NavController, 
          NavParams,
          ActionSheetController,
-         AlertController } from 'ionic-angular';
+         AlertController,
+         ModalController } from 'ionic-angular';
 
 import { ProjectProvider } from '../../providers/project/project';
 import { AreaProvider } from '../../providers/area/area';
 import { MaterialProvider } from '../../providers/material/material';
 
-import { IProject } from '../../models/IProject';
-import { IArea } from '../../models/IArea';
-import { IMaterial } from '../../models/IMaterial';
+import { ModalProjectListPage } from '../modal-project-list/modal-project-list';
+import { ModalArealistPage } from '../modal-arealist/modal-arealist';
+import { ModalMaterialListPage } from '../modal-material-list/modal-material-list';
+
+// import { IProject } from '../../models/IProject';
+// import { IArea } from '../../models/IArea';
+// import { IMaterial } from '../../models/IMaterial';
 
 interface acButtons {
   text: string,
@@ -26,9 +31,9 @@ interface acButtons {
 })
 export class LogMaterialPage {
 
-  projects: IProject[] = [];
-  areas: IArea[] = [];
-  materials: IMaterial[] = [];
+  projects: any[] = [];
+  areas: any[] = [];
+  materials: any[] = [];
 
   date: string = new Date().toISOString();
   hours: string = '08:00';
@@ -44,7 +49,8 @@ export class LogMaterialPage {
               private projectProvider: ProjectProvider,
               private areaProvider: AreaProvider,
               private materialProvider: MaterialProvider,
-              private alertCtrl: AlertController) {
+              private alertCtrl: AlertController,
+              private modalCtrl: ModalController) {
                 this.ionLoadProjects();
   }
 
@@ -63,88 +69,42 @@ export class LogMaterialPage {
   }
 
   onProjectSelect(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.projects.length;index++){
-      let button: acButtons = {
-        text: this.projects[index].projectName,
-        handler: () => {
-          this.project = this.projects[index].projectName
+    let modalProjectSelection = this.modalCtrl.create(ModalProjectListPage, this.projects);
+    modalProjectSelection.present();
+
+    modalProjectSelection.onDidDismiss(
+      callBack => {
+        if(callBack !== undefined && callBack !== null){
+          this.project = callBack.projectName;
         }
       }
-      actionButtons.push(button);
-    }
-
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-  
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const projectActionSheet = this.actionSheetCtrl.create({
-      title: 'Projects',
-      buttons: actionButtons
-    });
-    projectActionSheet.present();
+    );
   }
 
   onAreaSelect(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.areas.length;index++){
-      let button: acButtons = {
-        text: this.areas[index].areaName,
-        handler: () => {
-          this.area = this.areas[index].areaName
+    let modalAreaList = this.modalCtrl.create(ModalArealistPage, this.areas);
+    modalAreaList.present();
+
+    modalAreaList.onDidDismiss(
+      callBack => {
+        if(callBack !== undefined && callBack !== null){
+          this.area = callBack.areaName;
         }
       }
-      actionButtons.push(button);
-    }
-
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-  
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const areaActionSheet = this.actionSheetCtrl.create({
-      title: 'Areas',
-      buttons: actionButtons
-    });
-    areaActionSheet.present();
+    );
   }
 
   onMaterialSelect(){
-    let actionButtons: acButtons[] = [];
-    for(let index=0;index<this.materials.length;index++){
-      let button: acButtons = {
-        text: this.materials[index].materialName,
-        handler: () => {
-          this.material = this.materials[index].materialName;
-          this.unit = this.materials[index].unit;
+    let modalMaterialList = this.modalCtrl.create(ModalMaterialListPage, this.materials);
+    modalMaterialList.present();
+
+    modalMaterialList.onDidDismiss(
+      callBack => {
+        if(callBack !== undefined && callBack !== null){
+          this.material = callBack.materialName;
         }
       }
-      actionButtons.push(button);
-    }
-
-    let cancelButton: acButtons = {
-      text: 'Cancel',
-      role: 'cancel',
-      handler: () => {
-  
-      }
-    }
-    actionButtons.push(cancelButton);
-
-    const materialActionSheet = this.actionSheetCtrl.create({
-      title: 'Materials',
-      buttons: actionButtons
-    });
-    materialActionSheet.present();
+    );
   }
 
   onSave(){

@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import { UserProvider } from "../../providers/user/user";
-import { IUser } from "../../models/IUser";
+// import { IUser } from "../../models/IUser";
 import { TabsPage } from "../tabs/tabs";
 
 /**
@@ -17,7 +17,7 @@ import { TabsPage } from "../tabs/tabs";
   templateUrl: "prototype-landing.html"
 })
 export class PrototypeLandingPage {
-  users: IUser[] = [];
+  users: any[] = [];
 
   username: string;
   password: string;
@@ -31,13 +31,13 @@ export class PrototypeLandingPage {
   ) {}
 
   ionViewDidLoad() {
-    this.userProvider.getUsers().subscribe((users: IUser[]) => {
+    this.userProvider.getUsers().subscribe((users: any[]) => {
       this.users = users;
     });
     console.log("ionViewDidLoad PrototypeLandingPage");
   }
 
-  goToApplication(user: IUser) {
+  goToApplication(user: any) {
     console.log("user pushed", user);
     this.navCtrl.push(TabsPage, { user: user });
   }

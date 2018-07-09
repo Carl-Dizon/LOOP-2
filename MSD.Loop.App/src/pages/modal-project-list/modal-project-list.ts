@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 
 /**
- * Generated class for the ModalArealistPage page.
+ * Generated class for the ModalProjectListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,25 +10,25 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 @IonicPage()
 @Component({
-  selector: 'page-modal-arealist',
-  templateUrl: 'modal-arealist.html',
+  selector: 'page-modal-project-list',
+  templateUrl: 'modal-project-list.html',
 })
-export class ModalArealistPage {
+export class ModalProjectListPage {
 
-  areas: any[] = [];
+  projects: any[] = [];
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private viewCtrl: ViewController) {
-        this.onInitAreas();
+              this.onInitProjects();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalArealistPage');
+    console.log('ionViewDidLoad ModalProjectListPage');
   }
 
-  onInitAreas(){
-    this.areas = this.navParams.data;
+  onInitProjects(){
+    this.projects = this.navParams.data;
   }
 
   onCancel(){
@@ -36,19 +36,19 @@ export class ModalArealistPage {
   }
 
   getItems(ev: any){
-    this.onInitAreas();
+    this.onInitProjects();
 
     const val = ev.target.value;
 
     if(val && val.trim() != ''){
-      this.areas = this.areas.filter((item)=>{
-        return (item.areaName.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      this.projects = this.projects.filter((item)=>{
+        return (item.projectName.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
     }
   }
 
-  onSelection(area){
-    this.viewCtrl.dismiss(area);
+  onSelection(project){
+    this.viewCtrl.dismiss(project);
   }
 
 }

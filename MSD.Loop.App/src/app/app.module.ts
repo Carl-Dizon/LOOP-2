@@ -25,6 +25,11 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { AreaPageModule } from '../pages/area/area.module';
 import { IssuesPage } from '../pages/issues/issues';
 import { TaskViewPage } from '../pages/task-view/task-view';
+import { LoggedProvider } from '../providers/logged/logged';
+
+import { ModalProjectListPageModule } from '../pages/modal-project-list/modal-project-list.module';
+import { ModalArealistPageModule } from '../pages/modal-arealist/modal-arealist.module';
+import { ModalMaterialListPageModule } from '../pages/modal-material-list/modal-material-list.module';
 
 @NgModule({
   declarations: [
@@ -47,7 +52,10 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     HttpClientModule,
     ProgressBarModule,
     AreaPageModule,
-    RoundProgressModule
+    RoundProgressModule,
+    ModalProjectListPageModule,
+    ModalArealistPageModule,
+    ModalMaterialListPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -70,7 +78,8 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     UserProvider,
     ProjectProvider,
     AreaProvider,
-    MaterialProvider
+    MaterialProvider,
+    LoggedProvider
   ]
 })
 export class AppModule {}

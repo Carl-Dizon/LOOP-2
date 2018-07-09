@@ -10,7 +10,7 @@ import { MaterialProvider } from '../../providers/material/material';
     LogMaterialPage,
   ],
   imports: [
-    IonicPageModule.forChild(LogMaterialPage),
+    IonicPageModule.forChild(LogMaterialPage)
   ],
   providers: [
     ProjectProvider,

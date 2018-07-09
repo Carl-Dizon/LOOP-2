@@ -9,7 +9,7 @@ import { AreaProvider } from '../../providers/area/area';
     LogHourPage,
   ],
   imports: [
-    IonicPageModule.forChild(LogHourPage),
+    IonicPageModule.forChild(LogHourPage)
   ],
   providers: [
     ProjectProvider,

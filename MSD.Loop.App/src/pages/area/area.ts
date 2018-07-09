@@ -4,8 +4,6 @@ import { Chart } from 'chart.js';
 
 import { AreaProvider } from '../../providers/area/area';
 
-import { IArea } from '../../models/IArea';
-
 import { ModalArealistPage } from '../../pages/modal-arealist/modal-arealist';
 
 interface acButtons {
@@ -25,8 +23,8 @@ export class AreaPage {
 
   viewAreaPageTitle: string = "";
 
-  areas: IArea[] = [];
-  area: IArea = {
+  areas: any[] = [];
+  area: any = {
     areaId: null,
     areaName: null,
     estimatedHours: null,
@@ -69,14 +67,16 @@ export class AreaPage {
 
     areaListModule.onDidDismiss(
       callback => {
-        this.areaLabel = callback.areaName;
-        this.area = callback;
-        this.setBarChart(callback);
+        if(callback !== undefined && callback != null){
+          this.areaLabel = callback.areaName;
+          this.area = callback;
+          this.setBarChart(callback);
+        }
       }
     );
   }
 
-  setBarChart(areaValue: IArea){
+  setBarChart(areaValue){
     let materialLabels: string[] = [];
     let materialCount: number[] = [];
 

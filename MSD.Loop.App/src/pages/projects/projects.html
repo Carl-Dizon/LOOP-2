@@ -54,8 +54,8 @@
                 <h2>{{project.name}}</h2>
               </ion-item>
               <ion-card-content no-padding>
-                <ion-grid>
-                  <ion-row>
+                <!-- <ion-grid> -->
+                  <!-- <ion-row>
                     <ion-col>
                       <div class="grid-col-row">
                         <span>Hours logged</span>
@@ -81,8 +81,11 @@
                         </div>
                         <progress-bar [progress]="project.costEstimateSpentPercentage" [color]="getColor(project.costEstimateSpentPercentage)"></progress-bar>
                       </ion-col>
-                  </ion-row>
-                </ion-grid>
+                  </ion-row> -->
+                <!-- </ion-grid> -->
+                  <div class="canvas-wrapper">
+                      <canvas id="myChart" width="400" height="400"></canvas>
+                  </div>
               </ion-card-content>
             </ion-card>
         </ion-col>

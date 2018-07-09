@@ -7,13 +7,16 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PrototypeLandingPage } from '../pages/prototype-landing/prototype-landing';
 import { IssuesPage } from '../pages/issues/issues';
 import { AreaPage } from '../pages/area/area';
+import { ProjectsPage } from '../pages/projects/projects';
+import { LogHourPage } from '../pages/log-hour/log-hour';
+import { LogMaterialPage } from '../pages/log-material/log-material';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  // rootPage:any = PrototypeLandingPage;
-  rootPage: any = PrototypeLandingPage; //IssuesPage; //
+  rootPage:any = PrototypeLandingPage;
+  // rootPage: any = LogMaterialPage;// LogHourPage; // ProjectsPage;// PrototypeLandingPage; //IssuesPage; //
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

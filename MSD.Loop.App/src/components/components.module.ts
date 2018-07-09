@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { LoadingComponent } from './loading/loading';
-import { SampleComponent } from './sample/sample';
 @NgModule({
-	declarations: [LoadingComponent,
-    SampleComponent],
+	declarations: [LoadingComponent],
 	imports: [],
-	exports: [LoadingComponent,
-    SampleComponent]
+	exports: [LoadingComponent]
 })
 export class ComponentsModule {}

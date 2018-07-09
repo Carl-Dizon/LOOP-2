@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { env } from '../../app/env';
 import { AreaPage } from '../area/area';
+import { Chart } from 'chart.js';
+import { LoggedProvider } from '../../providers/logged/logged';
 
 /**
  * Generated class for the ProjectsPage page.
@@ -16,6 +18,7 @@ import { AreaPage } from '../area/area';
   templateUrl: 'projects.html'
 })
 export class ProjectsPage {
+
   isLoading: boolean = true;
   defaultProjectImagePlaceholder = env.DEFAULT.projectImagePlaceholder;
   projects: any;
@@ -24,7 +27,8 @@ export class ProjectsPage {
 
   completionPercentage: number;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private logProvider: LoggedProvider) {
     this.projects = [
       {
         name: 'Project 1',
@@ -114,6 +118,7 @@ export class ProjectsPage {
     });
 
     console.log('ionViewDidLoad ProjectsPage');
+
   }
 
   calculateProjectCompletionBasedOnTasks(totalTasks, completedTasks) {
@@ -145,6 +150,9 @@ export class ProjectsPage {
 
   switchView(){
     this.isListView = !this.isListView;
+    if(!this.isListView){
+      this.onChart();
+    }
   }
 
   abbrNum(number, decPlaces) {
@@ -165,5 +173,95 @@ export class ProjectsPage {
     }
 
     return number;
+  }
+
+  async onChart(){
+    let logs = await this.logProvider.getProjectLog();
+    let remainingTime: number[] = [];
+    let estimateHours = this.projects[0].totalEstimatedHours;
+
+    for(let index=0;index<logs.length;index++){
+      let averageTime = logs[index].hoursLogged / 8;
+      for(let inIndex=0;inIndex<8;inIndex++){
+        remainingTime.push(estimateHours);
+        estimateHours = estimateHours - averageTime;
+      }
+    }
+
+    let estimatedHours: string[] = [];
+    let guideline: number[] = [];
+    for(let index=0;index <this.projects[0].totalEstimatedHours;index++){
+      if((index + 1) % 40 !== 0){
+        guideline.push(this.projects[0].totalEstimatedHours - index);
+        if((index) % 8 === 0){
+          estimatedHours.push('day label');
+        } else {
+          estimatedHours.push('');
+        }
+      } else {
+        for(let innerIndex=0;innerIndex<16;innerIndex++){
+          guideline.push(this.projects[0].totalEstimatedHours - index);
+          estimatedHours.push('');
+        }
+      }
+    }
+    setTimeout(() => {
+      let ctx = document.getElementById("myChart");
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: estimatedHours,
+            datasets: [{
+              label: 'Guideline',
+              data: guideline,
+              backgroundColor: [
+                  'rgba(255, 255, 255, 0)'
+              ],
+              borderColor: [
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1,
+              lineTension:0,
+              pointRadius: 0
+              },{
+                label: 'Remaing Values',
+                data: remainingTime,
+                backgroundColor: [
+                    'rgba(255, 255, 255, 0)'
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)'
+                ],
+                borderWidth: 2,
+                lineTension:0,
+                steppedLine: false,
+                pointRadius: 0
+              },{
+              label: 'Time Spent',
+              data: [0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,16,16,16,16,16,16,16,16],
+              backgroundColor: [
+                  'rgba(255, 255, 255, 0)'
+              ],
+              borderColor: [
+                  'rgba(75, 192, 192, 1)'
+              ],
+              borderWidth: 1,
+              lineTension:0,
+              steppedLine: true,
+              pointRadius: 0
+          }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+      });
+    }, 0);
+
   }
 }

@@ -1,11 +1,35 @@
 [
     {
-        "id":"",
-        "userId":"",
-        "projectId":"",
-        "areaId":"",
-        "taskId":"",
-        "hoursLogged":"",
-        "timeStamp":""
+        "id":1,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":5,
+        "timeStamp":"07-02-2018"
+    },{
+        "id":2,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":2,
+        "timeStamp":"07-03-2018"
+    },{
+        "id":3,
+        "userId":2,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":7,
+        "timeStamp":"07-02-2018"
+    },{
+        "id":4,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":6,
+        "timeStamp":"07-04-2018"
     }
 ]
