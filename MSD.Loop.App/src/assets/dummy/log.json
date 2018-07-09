@@ -1,11 +1,11 @@
 [
-    {
-        "id":"",
-        "userId":"",
-        "projectId":"",
-        "areaId":"",
-        "taskId":"",
-        "hoursLogged":"",
-        "timeStamp":""
-    }
+  {
+    "id": 1,
+    "userId": 1,
+    "projectId": 1,
+    "areaId": 1,
+    "taskId": 1,
+    "hoursLogged": 8,
+    "timeStamp": ""
+  }
 ]

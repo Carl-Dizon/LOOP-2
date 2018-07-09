@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { env } from '../../app/env';
 import { AreaPage } from '../area/area';
+import { ProjectTasksPage } from '../project-tasks/project-tasks';
 
 /**
  * Generated class for the ProjectsPage page.
@@ -18,6 +19,13 @@ import { AreaPage } from '../area/area';
 export class ProjectsPage {
   isLoading: boolean = true;
   defaultProjectImagePlaceholder = env.DEFAULT.projectImagePlaceholder;
+
+  onTimeIndicatorSvg = env.DEFAULT.onTimeIndicatorUrl;
+  delayIndicatorSvg = env.DEFAULT.delayIndicatorUrl;
+  criticalIndicatorSvg = env.DEFAULT.criticalIndicatorUrl;
+
+  indicatorUrl;
+
   projects: any;
 
   isListView: boolean = false;
@@ -27,6 +35,7 @@ export class ProjectsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.projects = [
       {
+        id: 1,
         name: 'Project 1',
         totalTasks: 59,
         completedTasks: 34,
@@ -39,9 +48,12 @@ export class ProjectsPage {
         completionPercentage: 0,
         hourCompletionPercentage: 0,
         costEstimateSpentPercentage: 0,
-        usedMaterialPercentage: 0
+        usedMaterialPercentage: 0,
+        remainingWorkHours: 18,
+        remainingWorkDays: 2
       },
       {
+        id: 2,
         name: 'Project 2',
         totalTasks: 35,
         completedTasks: 35,
@@ -54,9 +66,12 @@ export class ProjectsPage {
         completionPercentage: 0,
         hourCompletionPercentage: 0,
         costEstimateSpentPercentage: 0,
-        usedMaterialPercentage: 0
+        usedMaterialPercentage: 0,
+        remainingWorkHours: 40,
+        remainingWorkDays: 5
       },
       {
+        id: 3,
         name: 'Project 3',
         totalTasks: 120,
         completedTasks: 10,
@@ -69,7 +84,9 @@ export class ProjectsPage {
         completionPercentage: 0,
         hourCompletionPercentage: 0,
         costEstimateSpentPercentage: 0,
-        usedMaterialPercentage: 0
+        usedMaterialPercentage: 0,
+        remainingWorkHours: 40,
+        remainingWorkDays: 1
       }
     ];
 
@@ -77,13 +94,16 @@ export class ProjectsPage {
   }
 
   onProjectAreaView(project){
-    this.navCtrl.push(AreaPage, project);
+    this.navCtrl.push(ProjectTasksPage, {project: project});
   }
 
   ionViewDidLoad() {
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 3000);
+
+    this.isLoading = false;
+
+    // setTimeout(() => {
+    //   this.isLoading = false;
+    // }, 3000);
 
     this.projects.forEach(element => {
       element.completionPercentage = this.calculateProjectCompletionBasedOnTasks(
@@ -165,5 +185,19 @@ export class ProjectsPage {
     }
 
     return number;
+  }
+
+  determineProjectProgress(remainingWorkHours, remainingWorkDays){
+    let tmp = (remainingWorkDays ) / remainingWorkHours;
+    tmp = 100 - (tmp * 100);
+    if(tmp < 20 && tmp != 0){
+      this.indicatorUrl = this.delayIndicatorSvg;
+    }else if(tmp === 0){
+      this.indicatorUrl = this.onTimeIndicatorSvg;
+    }else{
+      this.indicatorUrl = this.criticalIndicatorSvg;
+    }
+
+    return this.indicatorUrl;
   }
 }

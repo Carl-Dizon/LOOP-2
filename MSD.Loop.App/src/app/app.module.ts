@@ -25,6 +25,8 @@ import { ProgressBarModule } from 'angular-progress-bar';
 import { AreaPageModule } from '../pages/area/area.module';
 import { IssuesPage } from '../pages/issues/issues';
 import { TaskViewPage } from '../pages/task-view/task-view';
+import { TaskProvider } from '../providers/task/task';
+import { ProjectTasksPage } from '../pages/project-tasks/project-tasks';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     LogMaterialPage,
     ProjectsPage,
     IssuesPage,
-    TaskViewPage
+    TaskViewPage,
+    ProjectTasksPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     LogMaterialPage,
     ProjectsPage,
     IssuesPage,
-    TaskViewPage
+    TaskViewPage,
+    ProjectTasksPage
   ],
   providers: [
     StatusBar,
@@ -70,7 +74,8 @@ import { TaskViewPage } from '../pages/task-view/task-view';
     UserProvider,
     ProjectProvider,
     AreaProvider,
-    MaterialProvider
+    MaterialProvider,
+    TaskProvider
   ]
 })
 export class AppModule {}
