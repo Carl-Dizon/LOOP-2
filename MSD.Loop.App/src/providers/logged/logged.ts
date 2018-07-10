@@ -32,19 +32,21 @@ export class LoggedProvider {
           }
         );
 
-        let logsByDate: any[] = [];
+        let logsByDate: any[] = undefined;
         for(let index=0;index<sortedByDateLogs.length;index++){
-          if(logsByDate === []){
+          if(logsByDate === undefined){
+            logsByDate = [];
             logsByDate.push(sortedByDateLogs[index]);
           } else {
-            // if(){
-
-            // }
+            if(sortedByDateLogs[index].timeStamp === logsByDate[(logsByDate.length - 1)].timeStamp){
+              logsByDate[(logsByDate.length - 1)].hoursLogged += sortedByDateLogs[index].hoursLogged;
+            } else {
+              logsByDate.push(sortedByDateLogs[index]);
+            }
           }
-          logsByDate.push();
         }
 
-        return logs;
+        return logsByDate;
       }
     )
   }

@@ -5,6 +5,7 @@ import { AreaPage } from '../area/area';
 import { ProjectTasksPage } from '../project-tasks/project-tasks';
 import { Chart } from 'chart.js';
 import { LoggedProvider } from '../../providers/logged/logged';
+import * as moment from 'moment/moment';
 
 /**
  * Generated class for the ProjectsPage page.
@@ -211,43 +212,81 @@ export class ProjectsPage {
 
   async onChart(){
     let logs = await this.logProvider.getProjectLog();
-    let remainingTime: number[] = [];
-    let estimateHours = this.projects[0].totalEstimatedHours;
 
-    for(let index=0;index<logs.length;index++){
-      let averageTime = logs[index].hoursLogged / 8;
-      for(let inIndex=0;inIndex<8;inIndex++){
-        remainingTime.push(estimateHours);
-        estimateHours = estimateHours - averageTime;
-      }
-    }
-
-    let estimatedHours: string[] = [];
-    let guideline: number[] = [];
-    for(let index=0;index <this.projects[0].totalEstimatedHours;index++){
-      if((index + 1) % 40 !== 0){
-        guideline.push(this.projects[0].totalEstimatedHours - index);
-        if((index) % 8 === 0){
-          estimatedHours.push('day label');
-        } else {
-          estimatedHours.push('');
-        }
+    let chartDate: string[] = undefined;
+    let dateArray: string[] = [];
+    let additionalDate: number = (Math.trunc(this.projects[0].totalEstimatedHours / (8 * 5)) * (8 * 2));
+    let estimateDate: number = this.projects[0].totalEstimatedHours + additionalDate;
+    let dateLabel: number = Math.round(estimateDate / 8);
+    let startDate: Date = new Date(logs[0].timeStamp);
+    for(let index=0;index<dateLabel;index++){
+      if(chartDate === undefined){
+        chartDate = [];
+        chartDate.push('');
+        chartDate.push(moment(startDate).format('MMM-DD'));
+        dateArray.push(moment(startDate).format('MM-DD-YYYY'));
       } else {
-        for(let innerIndex=0;innerIndex<16;innerIndex++){
-          guideline.push(this.projects[0].totalEstimatedHours - index);
-          estimatedHours.push('');
+        chartDate.push(moment(startDate).format('MMM-DD'));
+        dateArray.push(moment(startDate).format('MM-DD-YYYY'));
+      }
+      startDate.setDate(startDate.getDate() + 1);
+    }
+
+    //Guideline
+    let guideline: number[] = [];
+    let timeEstimate: number = this.projects[0].totalEstimatedHours;
+    for(let index=0;index<dateArray.length;index++){
+      guideline.push(timeEstimate);
+      let dayIndex = new Date(dateArray[index]).getDay();
+      if(dayIndex > 0 && dayIndex < 6){
+        timeEstimate = timeEstimate - 8;
+      }
+    }
+
+    //remainingTime --TODO refactor
+    let remainingTime: number[] = [];
+    let timeEstRemaining: number = this.projects[0].totalEstimatedHours;
+    let dateSpan: number = Math.ceil((new Date(logs[logs.length - 1].timeStamp).valueOf() - new Date(logs[0].timeStamp).valueOf()) / (1000 * 3600 * 24)) + 1;
+
+    for(let index=0;index<=dateSpan;index++){
+      remainingTime.push(timeEstRemaining);
+      let date: Date = new Date(logs[0].timeStamp);
+      date.setDate(new Date(logs[0].timeStamp).getDate() + index);
+      let checkDate: string = moment(date).format('MM-DD-YYYY');
+      for(let inIndex=0;inIndex<logs.length;inIndex++){
+        if(checkDate === moment(new Date(logs[inIndex].timeStamp)).format('MM-DD-YYYY')){
+          timeEstRemaining = timeEstRemaining - logs[inIndex].hoursLogged;
+          break;
         }
       }
     }
+
+    //spentTime
+    let spentTime: number[] = [];
+    let timeEstSpent: number = 0;
+    
+    for(let index=0;index<=dateSpan;index++){
+      spentTime.push(timeEstSpent);
+      let date: Date = new Date(logs[0].timeStamp);
+      date.setDate(new Date(logs[0].timeStamp).getDate() + index);
+      let checkDate: string = moment(date).format('MM-DD-YYYY');
+      for(let inIndex=0;inIndex<logs.length;inIndex++){
+        if(checkDate === moment(new Date(logs[inIndex].timeStamp)).format('MM-DD-YYYY')){
+          timeEstSpent = timeEstSpent + logs[inIndex].hoursLogged;
+          break;
+        }
+      }
+    }
+
     setTimeout(() => {
       let ctx = document.getElementById("myChart");
       new Chart(ctx, {
         type: 'line',
         data: {
-            labels: estimatedHours,
+            labels: chartDate,//estimatedHours,
             datasets: [{
               label: 'Guideline',
-              data: guideline,
+              data: guideline,//guideline,
               backgroundColor: [
                   'rgba(255, 255, 255, 0)'
               ],
@@ -256,9 +295,10 @@ export class ProjectsPage {
               ],
               borderWidth: 1,
               lineTension:0,
+              steppedLine: false,
               pointRadius: 0
               },{
-                label: 'Remaing Values',
+                label: 'Remaining Values',
                 data: remainingTime,
                 backgroundColor: [
                     'rgba(255, 255, 255, 0)'
@@ -272,16 +312,16 @@ export class ProjectsPage {
                 pointRadius: 0
               },{
               label: 'Time Spent',
-              data: [0,0,0,0,0,0,0,0,8,8,8,8,8,8,8,8,16,16,16,16,16,16,16,16],
+              data: spentTime,
               backgroundColor: [
                   'rgba(255, 255, 255, 0)'
               ],
               borderColor: [
                   'rgba(75, 192, 192, 1)'
               ],
-              borderWidth: 1,
+              borderWidth: 2,
               lineTension:0,
-              steppedLine: true,
+              steppedLine: false,
               pointRadius: 0
           }]
         },
