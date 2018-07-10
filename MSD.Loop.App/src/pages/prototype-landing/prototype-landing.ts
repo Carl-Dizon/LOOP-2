@@ -28,11 +28,14 @@ export class PrototypeLandingPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private userProvider: UserProvider
-  ) {}
+  ) {
+
+  }
 
   ionViewDidLoad() {
     this.userProvider.getUsers().subscribe((users: any[]) => {
       this.users = users;
+      this.navCtrl.push(TabsPage, { user: this.users[1] });
     });
     console.log("ionViewDidLoad PrototypeLandingPage");
   }
@@ -47,7 +50,7 @@ export class PrototypeLandingPage {
       this.username = null;
       this.password = null;
       this.wrongCredentials = false;
-    } 
+    }
   }
 
   onLogin(){

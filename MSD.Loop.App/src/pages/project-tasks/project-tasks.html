@@ -8,8 +8,9 @@
   <ion-navbar color="primary">
     <ion-title>{{ project.name }}</ion-title>
     <div class="select-area-container">
-      <ion-select [(ngModel)]="selectedAreas" multiple="true" cancelText="Cancel" okText="Select" end>
-        <ion-option *ngFor="let area of projectAreas" value="area.id">
+      <ion-select [(ngModel)]="selectedAreas" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="changeSelectedArea($event)"
+        placeholder="Select Area">
+        <ion-option *ngFor="let area of projectAreas" [value]="area.areaId">
           {{ area.areaName }}
         </ion-option>
       </ion-select>
@@ -18,9 +19,19 @@
 </ion-header>
 
 <ion-content padding-top text-center>
-  <div class="project-tasks">
-    <div class="task" *ngFor="let task of tasks">
-      {{ task.name }}
+  <div class="project-tasks-container">
+    <div class="task" *ngFor="let task of projectTasks" padding>
+      <div class="icon">
+        <img src="assets/imgs/task-icon.png">
+      </div>
+      <div class="task-detail">
+        <span>
+          {{ task.name }}
+        </span>
+      </div>
+      <div class="project-completion">
+        <img [src]="getIndicatorUrl(task.taskStatus)">
+      </div>
     </div>
   </div>
 </ion-content>

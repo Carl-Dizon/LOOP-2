@@ -11,7 +11,7 @@ import { IArea } from '../../models/IArea';
 @Injectable()
 export class AreaProvider {
 
-  areaURL: string = '../../assets/dummy/area.json';
+  areaURL: string = 'assets/dummy/area.json';
 
   constructor(public http: HttpClient) {
     console.log('Hello AreaProvider Provider');

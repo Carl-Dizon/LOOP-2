@@ -25,8 +25,13 @@ export class TaskProvider {
       .get(this.dummyTasksUrl)
       .map(response => <any[]>response)
       .toPromise()
-      .then(response => {
-        return response.filter(x => x.projectId === projectId);
-      });
+      .then(
+        response => {
+          return response.filter(x => x.projectId === projectId);
+        },
+        err => {
+          console.log('error', err);
+        }
+      );
   }
 }

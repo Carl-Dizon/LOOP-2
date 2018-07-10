@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TaskProvider } from '../../providers/task/task';
 import { AreaProvider } from '../../providers/area/area';
+import { env } from '../../app/env';
 
 /**
  * Generated class for the ProjectTasksPage page.
@@ -16,12 +17,18 @@ import { AreaProvider } from '../../providers/area/area';
   templateUrl: 'project-tasks.html'
 })
 export class ProjectTasksPage {
-
-  tasks;
+  projectTasks = [];
+  allTasks;
   project;
   projectAreas;
 
-  selectedAreas: Array<string>;
+  onTimeIndicatorSvg = env.DEFAULT.onTimeIndicatorUrl;
+  delayIndicatorSvg = env.DEFAULT.delayIndicatorUrl;
+  criticalIndicatorSvg = env.DEFAULT.criticalIndicatorUrl;
+
+  indicatorUrl;
+
+  selectedAreas: Array<string> = [];
 
   constructor(
     public navCtrl: NavController,
@@ -29,25 +36,71 @@ export class ProjectTasksPage {
     private taskProvider: TaskProvider,
     private areaProvider: AreaProvider
   ) {
-    this.project  = navParams.get('project');
+    this.selectedAreas = ['All'];
+    this.project = this.navParams.get('project');
     this.getTasksById(this.project.id);
     this.getProjectAreas();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ProjectTasksPage');
+    // this.project = this.navParams.get('project');
+    // this.getTasksById(this.project.id);
+    // this.getProjectAreas();
   }
 
-  getTasksById(projectId){
+  getTasksById(projectId) {
     this.taskProvider.getTasksByProject(projectId).then(tasks => {
-      this.tasks = tasks;
+      this.allTasks = tasks;
+      this.projectTasks = this.allTasks;
+      this.sortTasksByUrgency();
     });
   }
 
-  getProjectAreas(){
-    this.areaProvider.getArea().then( areas => {
+  getProjectAreas() {
+    this.areaProvider.getArea().then(areas => {
       this.projectAreas = areas;
-      console.log('areas', this.projectAreas);
+    });
+  }
+
+  changeSelectedArea($event) {
+    this.projectTasks = this.allTasks.filter(x => {
+      return this.selectedAreas.length
+        ? this.selectedAreas.indexOf(x.areaId) != -1
+        : this.allTasks;
+    });
+
+    console.log('filter', this.projectTasks)
+  }
+
+  getIndicatorUrl(status) {
+    switch (status) {
+      case 'on-time':
+        this.indicatorUrl = this.onTimeIndicatorSvg;
+        break;
+      case 'delayed':
+        this.indicatorUrl = this.delayIndicatorSvg;
+        break;
+      case 'critical':
+        this.indicatorUrl = this.criticalIndicatorSvg;
+        break;
+      default:
+        break;
+    }
+
+    return this.indicatorUrl;
+  }
+
+  sortTasksByUrgency() {
+    this.allTasks.sort((a, b) => {
+      if (a.taskStatus < b.taskStatus) {
+        return -1;
+      }
+
+      if (a.taskStatus > b.taskStatus) {
+        return 1;
+      }
+
+      return 0;
     });
   }
 }
