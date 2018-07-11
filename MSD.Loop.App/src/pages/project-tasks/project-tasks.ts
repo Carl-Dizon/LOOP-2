@@ -69,7 +69,7 @@ export class ProjectTasksPage {
         : this.allTasks;
     });
 
-    console.log('filter', this.projectTasks)
+    console.log('filter', this.projectTasks);
   }
 
   getIndicatorUrl(status) {
@@ -102,5 +102,15 @@ export class ProjectTasksPage {
 
       return 0;
     });
+  }
+
+  getColor(status) {
+    if (status === 'delayed') {
+      return '#FFF0CA';
+    } else if (status === 'critical') {
+      return 'rgb(253, 117, 117);';
+    }else{
+      return '#fff';
+    }
   }
 }

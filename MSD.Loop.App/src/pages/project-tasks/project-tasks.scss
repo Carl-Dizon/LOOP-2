@@ -2,7 +2,9 @@ page-project-tasks {
   .select-area-container {
     display: flex;
     justify-content: flex-end;
-
+    .item-cover{
+      height:auto;
+    }
     .select-icon {
       .select-icon-inner {
         color: #fff;
