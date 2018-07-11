@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TaskViewPage } from '../../pages/task-view/task-view';
-import {} from '../../assets/imgs/'
+
 
 /**
  * Generated class for the IssuesPage page.
@@ -67,7 +67,7 @@ export class IssuesPage {
             imgSrc:''
           }
         ]
-        
+
       },
       {
         title:'Prototype UI for Area materials and hours logged',
