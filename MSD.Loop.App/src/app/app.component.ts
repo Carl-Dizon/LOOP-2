@@ -16,7 +16,7 @@ import { LogMaterialPage } from '../pages/log-material/log-material';
 })
 export class MyApp {
   rootPage:any = PrototypeLandingPage;
-  // rootPage: any = LogMaterialPage;// LogHourPage; // ProjectsPage;// PrototypeLandingPage; //IssuesPage; //
+  // rootPage: any = ProjectsPage;// PrototypeLandingPage; //IssuesPage; //
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {

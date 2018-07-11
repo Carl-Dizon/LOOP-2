@@ -5,8 +5,8 @@
         "projectId":1,
         "areaId":2,
         "taskId":3,
-        "hoursLogged":5,
-        "timeStamp":"07-02-2018"
+        "hoursLogged":8,
+        "timeStamp":"07-10-2018"
     },{
         "id":2,
         "userId":1,
@@ -14,15 +14,15 @@
         "areaId":2,
         "taskId":3,
         "hoursLogged":2,
-        "timeStamp":"07-03-2018"
+        "timeStamp":"07-11-2018"
     },{
         "id":3,
         "userId":2,
         "projectId":1,
         "areaId":2,
         "taskId":3,
-        "hoursLogged":7,
-        "timeStamp":"07-02-2018"
+        "hoursLogged":8,
+        "timeStamp":"07-10-2018"
     },{
         "id":4,
         "userId":1,
@@ -30,6 +30,30 @@
         "areaId":2,
         "taskId":3,
         "hoursLogged":6,
-        "timeStamp":"07-04-2018"
+        "timeStamp":"07-12-2018"
+    },{
+        "id":5,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"07-13-2018"
+    },{
+        "id":6,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"07-16-2018"
+    },{
+        "id":7,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "taskId":3,
+        "hoursLogged":2,
+        "timeStamp":"07-18-2018"
     }
 ]
