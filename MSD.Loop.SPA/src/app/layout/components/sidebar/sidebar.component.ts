@@ -8,8 +8,11 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+    // tslint:disable-next-line:no-inferrable-types
     isActive: boolean = false;
+    // tslint:disable-next-line:no-inferrable-types
     showMenu: string = '';
+    // tslint:disable-next-line:no-inferrable-types
     pushRightClass: string = 'push-right';
 
     constructor(private translate: TranslateService, public router: Router) {

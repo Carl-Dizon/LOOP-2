@@ -1,0 +1,26 @@
+[
+    {
+        "projectID": "1",
+        "projectName": "Loop",
+        "image": "environment.defaultProjectImagePlaceholder",
+        "hourEstimate": 150
+    },
+    {
+        "projectID": "2",
+        "projectName": "Opol",
+        "image": "environment.defaultProjectImagePlaceholder",
+        "hourEstimate": 200
+    },
+    {
+        "projectID": "3",
+        "projectName": "Pool",
+        "image": "environment.defaultProjectImagePlaceholder",
+        "hourEstimate": 100
+    },
+    {
+        "projectID": "4",
+        "projectName": "Olop",
+        "image": "environment.defaultProjectImagePlaceholder",
+        "hourEstimate": 300
+    }
+]

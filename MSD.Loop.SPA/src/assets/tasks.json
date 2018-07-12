@@ -1,0 +1,152 @@
+[
+  {
+    "areaName": "Woodwork",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "1",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Construction",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Publicera pressmeddelande",
+    "taskID": "2",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Walling",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Publicera pressmeddelande",
+    "taskID": "3",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Electricals",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Publicera pressmeddelande",
+    "taskID": "4",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Brickwork",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Publicera pressmeddelande",
+    "taskID": "5",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Plumbing",
+    "projectID": "1",
+    "asignee": "FRANSISCO N",
+    "task": "Publicera pressmeddelande",
+    "taskID": "6",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Woodwork",
+    "projectID": "2",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "1",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Brickwork",
+    "projectID": "2",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "2",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Woodwork",
+    "projectID": "3",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "1",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Brickwork",
+    "projectID": "3",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "2",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Construction",
+    "projectID": "3",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "3",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Walling",
+    "projectID": "3",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "4",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Brickwork",
+    "projectID": "4",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "1",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "BrickConstructionwork",
+    "projectID": "4",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "2",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  },
+  {
+    "areaName": "Walling",
+    "projectID": "4",
+    "asignee": "FRANSISCO N",
+    "task": "Skicka bygglovsansökan",
+    "taskID": "3",
+    "dueDate": "17.01.22",
+    "hourEstimate": 100,
+    "profPic": "/assets/images/employeeavatar.png"
+  }
+]

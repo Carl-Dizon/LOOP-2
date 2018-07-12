@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{ !user ? 'Create' : 'Edit' }} Project</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form" [formGroup]="userForm" [hidden]="success" (ngSubmit)="onSubmit()">
+        <input type="hidden" *ngIf='user' formControlName="id">
+        <input type="hidden" formControlName="image" value="environment.defaultProjectImagePlaceholder">
+      <fieldset class="form-group">
+          <label>Project Name</label>
+          <input class="form-control" placeholder="Enter Project Name" formControlName="projectName">
+      </fieldset>
+  
+      <fieldset class="form-group">
+          <label>Project ID</label>
+          <input class="form-control" placeholder="Enter ProjectID" formControlName="projectID">
+      </fieldset>
+  
+      <fieldset class="form-group">
+          <label>Hour Estimate</label>
+          <input class="form-control" placeholder="Enter Hour Estimate" formControlName="hourEstimate">
+          <input type="hidden" name="image" id="image" value="environment.defaultProjectImagePlaceholder">
+      </fieldset>
+
+      <!-- <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Submit</button> -->
+      <button type="submit" class="btn btn-success" >Submit</button>
+  </form>
+  </div>
+  

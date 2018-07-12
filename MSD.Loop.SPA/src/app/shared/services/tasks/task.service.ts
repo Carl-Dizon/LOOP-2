@@ -1,188 +1,37 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { ApiService } from '../api.service';
+import { Tasks } from '../../models/Tasks';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+tasks: any[] = [];
+  private _tasksUrl = './assets/tasks.json';
+  constructor(private apiService: ApiService) {}
 
-  private listSource = new BehaviorSubject<any[]>([
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'FRANSISCO N',
-      task: 'Skicka bygglovsansökan',
-      taskID: '1',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Brickwork',
-      projectID: '1',
-      asignee: 'ÅSA M',
-      task: 'Publicera pressmeddelande ',
-      taskID: '2',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Construction',
-      projectID: '1',
-      asignee: 'JONATHAN H',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '3',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Walling',
-      projectID: '1',
-      asignee: 'JONATHAN H ',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '4',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'JONATHAN H',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '5',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'JONATHAN H',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '6',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'JONATHAN H',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '7',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'JONATHAN H',
-      task: 'Stämma av bygglov med förvaltaren',
-      taskID: '8',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '1',
-      asignee: 'CHRISTIAN N ',
-      task: 'Säga upp tidigare VVS-avtal',
-      taskID: '9',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Brickwork',
-      projectID: '2',
-      asignee: 'ROBERT F ',
-      task: 'Rapportera timmar för projektering',
-      taskID: '1',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Brickwork',
-      projectID: '2',
-      asignee: 'ÅKLARA N ',
-      task: 'Skicka bygglovsansökan',
-      taskID: '2',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Brickwork',
-      projectID: '2',
-      asignee: 'ROBERT F.',
-      task: 'Rapportera timmar för projektering',
-      taskID: '3',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Brickwork',
-      projectID: '2',
-      asignee: 'ÅSA M ',
-      task: 'Rapportera timmar för projektering',
-      taskID: '4',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Construction',
-      projectID: '3',
-      asignee: 'ÅSA M',
-      task: 'Rapportera timmar för projektering',
-      taskID: '1',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Construction',
-      projectID: '3',
-      asignee: 'ÅSA M ',
-      task: 'Rapportera timmar för projektering',
-      taskID: '2',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Construction',
-      projectID: '3',
-      asignee: 'ÅSA M ',
-      task: 'Rapportera timmar för projektering',
-      taskID: '3',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-    {
-      areaName: 'Woodwork',
-      projectID: '4',
-      asignee: 'ÅSA M ',
-      task: 'Rapportera timmar för projektering',
-      taskID: '1',
-      dueDate: '17.01.22',
-      hourEstimate: 100,
-      profPic: '/assets/images/employeeavatar.png',
-    },
-  ]);
+  getTasks(): Promise<Tasks[]> {
+    // console.log(this.apiService.get(this._tasksUrl));
 
-  currentList = this.listSource.asObservable();
+    return this.apiService.get(this._tasksUrl);
+      // return this._http.get<User[]>(this._usersUrl);
 
-  constructor() { }
-  changeList(list: any[]) {
-    this.listSource.next(list);
+  }
+  getById(projectID: number): Promise<Tasks> {
+    return this.apiService.get<Tasks>(this._tasksUrl, projectID)
+    .then((data: Tasks[]) => {
+        //  console.log(data.find(x => x.projectID === projectID.toString()));
+        return data.find(x => x.projectID === projectID.toString());
+    });
+
+}
+
+
+  private handleError(err: HttpErrorResponse) {
+      console.log(err.message);
+      return Observable.throw(err.message);
   }
 }

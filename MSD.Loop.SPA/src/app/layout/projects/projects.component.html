@@ -14,26 +14,14 @@
                     <div class="col-xl-12 text-xs-center">
                         <div class="card mb-3">
                             <div class="card-body">
-                                    <button  style="float:right;" class="btn btn-primary" (click)="open(content)">Add Project</button>
-                                    <ng-template #content let-c="close" let-d="dismiss">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Add Project</h4>
-                                                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>One fine body&hellip;</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-                                            </div>
-                                        </ng-template>
+                                    <button  style="float:right;" class="btn btn-primary" (click)="openCreateUserModal()">Add Project</button>
+                                    
                             </div>
                         </div>
                     </div>
                 </div>
         <div class="row" *ngSwitchCase="dashboard">
+           
             <div class="col-md-3 project-item" *ngFor="let project of projects;  let i = index">
                 <div class="project-image" [ngStyle]="{ 'background': '    linear-gradient(
                     rgba(173, 173, 173, 0.45),
@@ -42,11 +30,11 @@
                     [routerLinkActive]="['router-link-active']">
                     <div class="hex">
                             <span class="project-percentage">
-                                   {{perprojecthours[i]}}
+                                   {{getAreaPercentage(perprojectpercentage[i],pertaskhours[i])}}
                                   </span>
                     </div>
                     <span class="project-name">
-                        {{ project.name }}
+                        {{ project.projectName }}
                     </span>
                 </div>
                 <div class="progress">

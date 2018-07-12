@@ -17,9 +17,9 @@
                 <th colspan="5">
                   Projekt
                   <th>
-                    <th *ngFor="let cell of areas">
+                    <th *ngFor="let cell of arealist">
                       <h5>
-                        <i>{{cell.areaName}}</i>
+                        <i>{{cell}}</i>
                       </h5>
                     </th>
                     <th>
@@ -47,25 +47,25 @@
                 </td>
                 <td style="vertical-align:middle; border-left:none;" class="tbletd project-item" [routerLink]="['/projects/project-details', i+1]"
                 [routerLinkActive]="['router-link-active']">
-                  {{row.name}}
+                  {{row.projectName}}
                 </td>
                 <td class="tbletd">
-                  {{woodworkfinalpercentage[i]}}<sup>%</sup>               
+                    {{getAreaPercentage(woodworkfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>               
                 </td>
                 <td class="tbletd">
-                  {{brickworkfinalpercentage[i]}}<sup>%</sup>
+                    {{getAreaPercentage(brickworkfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>
                 </td>
                 <td class="tbletd">
-                  {{constructionfinalpercentage[i]}}<sup>%</sup>
+                    {{getAreaPercentage(constructionfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>
                 </td>
                 <td class="tbletd">
-                  {{wallingfinalpercentage[i]}}<sup>%</sup>
+                    {{getAreaPercentage(wallingfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>
                 </td>
                 <td class="tbletd">
-                  {{ plumbingfinalpercentage[i]}}<sup>%</sup>
+                    {{getAreaPercentage(plumbingfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>
                 </td>
                 <td class="tbletd">
-                  {{electricalsfinalpercentage[i]}}<sup>%</sup>
+                    {{getAreaPercentage(electricalsfinalpercentage[i],totalinitialareaestimate[i])}}<sup>%</sup>
                 </td>
                 <td  class="tbletd">
                     {{perprojecthours[i]}}<sup>%</sup>

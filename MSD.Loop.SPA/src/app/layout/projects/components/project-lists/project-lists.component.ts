@@ -22,7 +22,7 @@ export class ProjectListsComponent implements OnInit {
   ngOnInit() {
     this.Uppgifter = ['Projekt', 'Progress'];
     this.projects = this.projectService.getProjects();
-    this.loghourlist.currentList.subscribe(loghourlist => this.loghour = loghourlist);
+    // this.loghourlist.currentList.subscribe(loghourlist => this.loghour = loghourlist);
 
     this.projects.forEach(projects => {
       this.projecttotalhours = 0;

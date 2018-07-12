@@ -1,0 +1,32 @@
+[
+    {
+    "areaID": 1,
+    "areaName": "Woodwork",
+    "areaHourEstimate": 100
+  },
+  {
+    "areaID": 2,
+    "areaName": "Brickwork",
+    "areaHourEstimate": 100
+  },
+  {
+    "areaID": 3,
+    "areaName": "Construction",
+    "areaHourEstimate": 100
+  },
+  {
+    "areaID": 4,
+    "areaName": "Walling",
+    "areaHourEstimate": 100
+  },
+  {
+    "areaID": 5,
+    "areaName": "Plumbing",
+    "areaHourEstimate": 100
+  },
+  {
+    "areaID": 6,
+    "areaName": "Electricals",
+    "areaHourEstimate": 100
+  }
+]

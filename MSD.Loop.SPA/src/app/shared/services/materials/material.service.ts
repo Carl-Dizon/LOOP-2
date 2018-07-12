@@ -1,46 +1,34 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../../../environments/environment';
+import { ApiService } from '../api.service';
+import { Materials } from '../../models/Materials';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MaterialService {
+  private _materialsUrl = './assets/materials.json';
+  constructor(private apiService: ApiService) {}
 
-  private listSource = new BehaviorSubject<any[]>([
-    {
-      projectID: '1',
-      taskID: '1',
-      areaName: 'Woodwork',
-      materialName: 'Nail',
-      materialsUsed: 100,
-    },
-    {
-      projectID: '2',
-      taskID: '1',
-      areaName: 'Woodwork',
-      materialName: 'Umbrella Nail',
-      materialsUsed: 100,
-    },
-    {
-      projectID: '3',
-      taskID: '1',
-      areaName: 'Woodwork',
-      materialName: 'Concrete Nail',
-      materialsUsed: 100,
-    },
-    {
-      projectID: '5',
-      taskID: '1',
-      areaName: 'Woodwork',
-      materialName: 'Wood',
-      materialsUsed: 100,
-    },
-  ]);
+  getMaterials(): Promise<Materials[]> {
+      return this.apiService.get(this._materialsUrl);
+      // return this._http.get<User[]>(this._usersUrl);
 
-  currentList = this.listSource.asObservable();
+  }
 
-  constructor() { }
-  changeList(list: any[]) {
-    this.listSource.next(list);
+  getById(projectID: number): Promise<Materials> {
+      return this.apiService.get<Materials[]>(this._materialsUrl, projectID)
+      .then((data: Materials[]) => {
+          // console.log(data.find(x => x.projectID === projectID.toString()));
+          return data.find(x => x.projectID === projectID.toString());
+      });
+
+  }
+
+  private handleError(err: HttpErrorResponse) {
+      console.log(err.message);
+      return Observable.throw(err.message);
   }
 }

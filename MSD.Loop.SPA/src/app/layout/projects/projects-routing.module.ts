@@ -4,6 +4,7 @@ import { ProjectsComponent } from './projects.component';
 import { ProjectDetailsComponent } from './components/project-details/project-details.component';
 import { ProjectListsComponent } from './components/project-lists/project-lists.component';
 import { ProjectGridComponent } from './components/project-grid/project-grid.component';
+import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,12 @@ const routes: Routes = [
     { path: 'project-grid',
     component: ProjectGridComponent
     },
+    { path: 'chart',
+    component: ChartComponent
+    },
+    { path: 'chart/:id',
+    component: ChartComponent
+    }
 ];
 
 @NgModule({

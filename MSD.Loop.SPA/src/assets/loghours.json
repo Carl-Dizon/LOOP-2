@@ -1,0 +1,126 @@
+[
+    {
+        "id":1,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Woodwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-10-2018"
+    },{
+        "id":2,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Brickwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-13-2018"
+    },{
+        "id":3,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Construction",
+        "taskId":3,
+        "hoursLogged":6,
+        "timeStamp":"08-14-2018"
+    },{
+        "id":4,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Electricals",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-15-2018"
+    },{
+        "id":5,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Plumbing",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-16-2018"
+    },{
+        "id":6,
+        "userId":2,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Walling",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-17-2018"
+    },{
+        "id":7,
+        "userId":1,
+        "projectId":1,
+        "areaId":2,
+        "areaName": "Plumbing",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-18-2018"
+    },
+    {
+        "id":1,
+        "userId":1,
+        "projectId":2,
+        "areaId":2,
+        "areaName": "Woodwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-10-2018"
+    },{
+        "id":2,
+        "userId":1,
+        "projectId":2,
+        "areaId":2,
+        "areaName": "Brickwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-11-2018"
+    },
+    {
+        "id":3,
+        "userId":1,
+        "projectId":3,
+        "areaId":2,
+        "areaName": "Woodwork",
+        "taskId":3,
+        "hoursLogged":5,
+        "timeStamp":"08-10-2018"
+    },{
+        "id":4,
+        "userId":1,
+        "projectId":3,
+        "areaId":2,
+        "areaName": "Brickwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-11-2018"
+    },
+    {
+        "id":5,
+        "userId":1,
+        "projectId":4,
+        "areaId":2,
+        "areaName": "Woodwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-10-2018"
+    },{
+        "id":6,
+        "userId":1,
+        "projectId":4,
+        "areaId":2,
+        "areaName": "Brickwork",
+        "taskId":3,
+        "hoursLogged":8,
+        "timeStamp":"08-11-2018"
+    }
+    
+
+
+]

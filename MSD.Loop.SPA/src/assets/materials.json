@@ -1,0 +1,38 @@
+    [
+        {
+        "projectID": "1",
+        "taskID": "1",
+        "areaName": "Woodwork",
+        "materialName": "Nail",
+        "materialsUsed": 100
+        },
+        {
+        "projectID": "1",
+        "taskID": "2",
+        "areaName": "Woodwork",
+        "materialName": "Wires",
+        "materialsUsed": 100
+        },
+        {
+        "projectID": "2",
+        "taskID": "1",
+        "areaName": "Woodwork",
+        "materialName": "Umbrella Nail",
+        "materialsUsed": 100
+        },
+        {
+        "projectID": "3",
+        "taskID": "1",
+        "areaName": "Woodwork",
+        "materialName": "Concrete Nail",
+        "materialsUsed": 100
+        },
+        {
+        "projectID": "4",
+        "taskID": "1",
+        "areaName": "Woodwork",
+        "materialName": "Wood",
+        "materialsUsed": 100
+        }
+        
+    ]

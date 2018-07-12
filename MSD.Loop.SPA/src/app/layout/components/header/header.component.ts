@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+    // tslint:disable-next-line:no-inferrable-types
     pushRightClass: string = 'push-right';
 
     constructor(private translate: TranslateService, public router: Router) {
