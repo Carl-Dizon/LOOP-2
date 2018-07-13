@@ -1,9 +1,8 @@
-﻿using MSD.Loop.Engine.Interfaces;
+﻿using MSD.Loop.Infrastructure.Interfaces;
 using System;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlClient;
 
 namespace MSD.Loop.Infrastructure.Configurations
 {

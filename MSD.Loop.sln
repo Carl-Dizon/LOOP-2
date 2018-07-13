@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Business", "MSD.Lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.TestAuthJwt", "MSD.Loop.TestAuthJwt\MSD.Loop.TestAuthJwt.csproj", "{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Repository", "MSD.Loop.Repository\MSD.Loop.Repository.csproj", "{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSD.Loop.Configuration", "MSD.Loop.Configuration\MSD.Loop.Configuration.csproj", "{57A1E5D4-4D2F-4294-A617-F64986975C48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C29824F-F3FF-4847-B6DD-E17C9F9BDA9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A1E5D4-4D2F-4294-A617-F64986975C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A1E5D4-4D2F-4294-A617-F64986975C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A1E5D4-4D2F-4294-A617-F64986975C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A1E5D4-4D2F-4294-A617-F64986975C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

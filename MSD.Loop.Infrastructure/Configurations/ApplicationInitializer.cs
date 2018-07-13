@@ -1,32 +1,36 @@
-﻿using Dapper;
-using MSD.Loop.Common.Interfaces;
-using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Engine.Models;
+﻿using MSD.Loop.Engine.Interfaces;
 using MSD.Loop.Infrastructure.Interfaces;
-using System;
-using System.Data;
 
 namespace MSD.Loop.Infrastructure.Configurations
 {
-    /// <summary>
-    /// An instance used in setting up the 
-    /// </summary>
     public class ApplicationInitializer : IApplicationInitializer
     {
-       
-        private readonly IDatabaseInitializer _dbInitializer;
+        //Currently, this is not used because using the 'strict' provider approach
+        //in loading types is not working well with Unity and Activator.CreateInstance
+        private readonly IConfigurationFactory _configurationFactory;
 
-        public ApplicationInitializer(IDatabaseInitializer dbInitializer)
+        //Currently, this is all injected via Unity
+        private readonly IAppSettingsProvider _appSettingProvider;
+        private readonly IRoleProvider _roleProvider;
+
+        public ApplicationInitializer(IAppSettingsProvider appSettingProvider, IRoleProvider roleProvider)
         {
-            _dbInitializer = dbInitializer;
+            _appSettingProvider = appSettingProvider;
+            _roleProvider = roleProvider;
         }
 
         public void Initialize()
         {
+            try
+            {
+                _appSettingProvider.Initialize();
+                _roleProvider.Initialize();
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
            
-            _dbInitializer.BootstrapAppDatabases();
         }
-
-
     }
 }

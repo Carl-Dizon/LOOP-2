@@ -10,8 +10,12 @@ namespace MSD.Loop.Engine.Models
     {
         public int Id { get; set; }
         public TimeSpan Duration { get; set; }
-        public ProjectTask ProjectTask { get; set; }
-        public CompanyProjectTaskUser EstimatedBy { get; set; }
+
+        //projecttask
+        public int ProjectTaskId { get; set; }
+
+        //companyprojecttaskuser
+        public int EstimatedById { get; set; }
 
         public DateTime CreatedOn { get; set; }
         public DateTime LastModifiedOn { get; set; }

@@ -5,8 +5,12 @@ namespace MSD.Loop.API.Controllers.Users
 {
     public class UserController : BaseController
     {
-        public UserController(IConfigurationFactory configurationFactory, IUserService userService) : base(configurationFactory)
+        private readonly IUserService _userService;
+        public UserController(IConfigurationFactory configurationFactory,
+            IUserService userService) 
+            : base(configurationFactory)
         {
+            _userService = userService;
         }
     }
 }

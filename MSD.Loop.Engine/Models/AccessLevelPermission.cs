@@ -9,7 +9,8 @@ namespace MSD.Loop.Engine.Models
     public class AccessLevelPermission
     {
         public int Id { get; set; }
-        public Permission Permission { get; set; }
-        public AccessLevel AccessLevel { get; set; }
+        public int PermissionId { get; set; }
+        public int AccessLevelId { get; set; }
+        public string AccessLevelKey { get; set; }
     }
 }

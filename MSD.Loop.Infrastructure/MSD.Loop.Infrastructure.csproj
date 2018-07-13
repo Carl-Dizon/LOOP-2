@@ -39,6 +39,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,41 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\ApplicationInitializer.cs" />
-    <Compile Include="Configurations\ApplicationSettingRepository.cs" />
     <Compile Include="Configurations\ConnectionFactory.cs" />
-    <Compile Include="Configurations\DatabaseInitializer.cs" />
-    <Compile Include="Configurations\UnityContainerBuilder.cs" />
-    <Compile Include="Data\AccessLevelPermissionRepository.cs" />
-    <Compile Include="Data\AccessLevelRepository.cs" />
-    <Compile Include="Data\BaseRepository.cs" />
-    <Compile Include="Data\CompanyMaterialStockRepository.cs" />
-    <Compile Include="Data\CompanyProjectAreaRepository.cs" />
-    <Compile Include="Data\CompanyProjectRepository.cs" />
-    <Compile Include="Data\CompanyProjectUserRoleRepository.cs" />
-    <Compile Include="Data\CompanyRepository.cs" />
-    <Compile Include="Data\CompanyAccessRoleRepository.cs" />
-    <Compile Include="Data\CompanyUserRepository.cs" />
-    <Compile Include="Data\CompanyUserRoleRepository.cs" />
-    <Compile Include="Data\PermissionRepository.cs" />
-    <Compile Include="Data\ProjectTaskMaterialRepository.cs" />
-    <Compile Include="Data\ProjectTaskRepository.cs" />
-    <Compile Include="Data\ProjectTaskWorkRepository.cs" />
-    <Compile Include="Data\ProjectUserRepository.cs" />
-    <Compile Include="Data\ProjectTaskUserRepository.cs" />
-    <Compile Include="Data\UnitOfWork.cs" />
-    <Compile Include="Data\UserRepository.cs" />
     <Compile Include="Interfaces\IApplicationInitializer.cs" />
-    <Compile Include="Interfaces\IDatabaseInitializer.cs" />
-    <Compile Include="Interfaces\IUnityContainerBuilder.cs" />
-    <Compile Include="IoC\UnityResolver.cs" />
+    <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Authentication\" />
-    <Folder Include="Data\Scripts\" />
-    <Folder Include="Data\StoredProcs\" />
-    <Folder Include="Data\Tables\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
@@ -116,17 +88,9 @@
       <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
       <Name>MSD.Loop.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
-      <Project>{3308D94D-2B88-4091-B24A-6C7ACA4E0565}</Project>
-      <Name>MSD.Loop.DTO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278E4-4BBE-42F9-8E61-73C3F87C57CF}</Project>
       <Name>MSD.Loop.Engine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MSD.Loop.Providers\MSD.Loop.Providers.csproj">
-      <Project>{62270ED3-92C3-460A-88C1-E81FE797DC1C}</Project>
-      <Name>MSD.Loop.Providers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

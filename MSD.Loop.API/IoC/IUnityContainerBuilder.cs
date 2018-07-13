@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity;
 
-namespace MSD.Loop.Infrastructure.Interfaces
+namespace MSD.Loop.API.IoC
 {
     public interface IUnityContainerBuilder
     {

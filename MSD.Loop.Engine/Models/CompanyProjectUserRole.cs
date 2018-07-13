@@ -8,8 +8,11 @@ namespace MSD.Loop.Engine.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public CompanyAccessRole AccessRole { get; set; }
-        public CompanyProjectUser ProjectMember { get; set; }
+        //companyAcccessRole
+        public int AccessRoleId { get; set; }
+
+        //companyprojectuser
+        public int ProjectMemberId { get; set; }
 
         //timestamps
         public DateTime CreatedOn { get; set; }

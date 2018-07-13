@@ -6,6 +6,7 @@ namespace MSD.Loop.Engine.Interfaces
     public interface ICompanyUserRepository
     {
         IEnumerable<CompanyUser> All();
+        IEnumerable<CompanyUser> AllByUserId(int id);
         CompanyUser Find(int id);
         CompanyUser FindByName(string name);
         CompanyUser Create(CompanyUser entity);

@@ -66,7 +66,6 @@
     <Compile Include="Interfaces\ICompanyUserRepository.cs" />
     <Compile Include="Interfaces\ICompanyUserRoleRepository.cs" />
     <Compile Include="Interfaces\IConfigurationFactory.cs" />
-    <Compile Include="Interfaces\IConnectionFactory.cs" />
     <Compile Include="Interfaces\ICompanyProjectRepository.cs" />
     <Compile Include="Interfaces\ILoggerProvider.cs" />
     <Compile Include="Interfaces\IMailerProvider.cs" />
@@ -87,11 +86,12 @@
     <Compile Include="Models\CompanyProjectArea.cs" />
     <Compile Include="Models\CompanyProjectUser.cs" />
     <Compile Include="Models\CompanyProjectUserRole.cs" />
-    <Compile Include="Models\CompanyRole.cs" />
     <Compile Include="Models\CompanyUser.cs" />
     <Compile Include="Models\CompanyProjectTaskUser.cs" />
     <Compile Include="Models\CompanyUserRole.cs" />
     <Compile Include="Models\CompanyProject.cs" />
+    <Compile Include="Models\DefaultCompany.cs" />
+    <Compile Include="Models\DefaultUser.cs" />
     <Compile Include="Models\ProjectTaskWorkHourEstimate.cs" />
     <Compile Include="Models\ProjectTask.cs" />
     <Compile Include="Models\ProjectTaskMaterialEstimate.cs" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MSD.Loop.Engine.Models
 {
@@ -14,9 +15,9 @@ namespace MSD.Loop.Engine.Models
 
         public bool IsVerified { get; set; }
         public string Password { get; set; }
-        public User CreatedBy { get; set; }
+        public int CreatedById { get; set; }
 
-        //public virtual List<Company> Companies { get; set; }
+        public virtual List<Company> Companies { get; set; }
 
         //timestamps
         public DateTime CreatedOn { get; set; }

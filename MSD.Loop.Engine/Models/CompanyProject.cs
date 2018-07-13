@@ -9,8 +9,8 @@ namespace MSD.Loop.Engine.Models
         public string Name { get; set; }
         public string Description { get; set; }
 
-        public Company Company { get; set; }
-        public CompanyUser CreatedBy { get; set; }
+        public int CompanyId { get; set; }
+        public int CreatedById { get; set; }
         public DateTime OriginalStartDate { get; set; }
         public DateTime OriginalEndDate { get; set; }
 

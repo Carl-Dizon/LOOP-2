@@ -5,12 +5,7 @@ using MSD.Loop.DTO.Factories;
 using MSD.Loop.DTO.Interfaces;
 using MSD.Loop.Engine.Configurations;
 using MSD.Loop.Engine.Interfaces;
-using MSD.Loop.Infrastructure.Data;
 using MSD.Loop.Infrastructure.Interfaces;
-using MSD.Loop.Providers.Authentication;
-using MSD.Loop.Providers.Loggers;
-using MSD.Loop.Providers.Mailers;
-using MSD.Loop.Providers.Roles;
 using System.Data;
 using Unity;
 
@@ -25,8 +20,7 @@ namespace MSD.Loop.Infrastructure.Configurations
         {
             //will be moved to another class
             var unityContainer = new UnityContainer();
-
-            unityContainer.RegisterType<IConfigurationFactory, ConfigurationFactory>();
+            
             unityContainer.RegisterType<IConnectionFactory, ConnectionFactory>();
 
             unityContainer.RegisterType<IAccessLevelRepository, AccessLevelRepository>();
@@ -59,16 +53,25 @@ namespace MSD.Loop.Infrastructure.Configurations
             unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
 
             //register providers
+            //container.RegisterType<MembershipProvider, CustomMembershipProvider>(new ContainerControlledLifetimeManager(), new InjectionConstructor(new ResolvedParameter<string>(IUserRepository)));
+            unityContainer.RegisterType<IMailerProvider, Mailer>();
+
+            //nityContainer.RegisterType<IRoleProvider, RoleProvider>();
+            //unityContainer.RegisterType<IRoleProvider, RoleProvider>(
+            //    new ContainerControlledLifetimeManager(),
+            //    new InjectionConstructor(new ResolvedParameter<IUnitOfWork>("UnitOfWork")));
+
             unityContainer.RegisterType<IMailerProvider, Mailer>();
             unityContainer.RegisterType<IRoleProvider, RoleProvider>();
+
             unityContainer.RegisterType<ILoggerProvider, Logger>();
             unityContainer.RegisterType<IAuthenticationProvider, AuthenticationProvider>();
             unityContainer.RegisterType<ITokenProvider, TokenProvider>();
+            unityContainer.RegisterType<IConfigurationFactory, ConfigurationFactory>();
 
-            unityContainer.RegisterType<IApplicationInitializer, ApplicationInitializer>();
-            unityContainer.RegisterType<IUnitOfWork, UnitOfWork>();
+           // unityContainer.Resolve<IConfigurationFactory>();
+           // unityContainer.Resolve<IRoleProvider>();
 
-            var configFactory = unityContainer.Resolve<ConfigurationFactory>();
             var connFactory = unityContainer.Resolve<ConnectionFactory>();
             unityContainer.RegisterInstance<IDbConnection>(connFactory.GetConnection());
             unityContainer.RegisterInstance<IDbTransaction>(connFactory.GetConnection().BeginTransaction());

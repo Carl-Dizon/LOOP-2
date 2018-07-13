@@ -12,8 +12,12 @@ namespace MSD.Loop.Engine.Models
     public class CompanyUserRole
     {
         public int Id { get; set; }
-        public CompanyUser User { get; set; }
-        public CompanyAccessRole Role { get; set; }
+
+        //companyuser
+        public int CompanyUserId { get; set; }
+
+        //companyaccessrole
+        public int RoleId { get; set; }
 
         //timestamps
         public DateTime CreatedOn { get; set; }

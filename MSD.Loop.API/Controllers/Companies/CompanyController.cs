@@ -1,33 +1,44 @@
 ﻿using MSD.Loop.Business.Interfaces;
-using MSD.Loop.DTO.Interfaces;
-using System.Web.Http;
 using MSD.Loop.Engine.Interfaces;
+using System.Web.Http;
 
 namespace MSD.Loop.API.Controllers.Companies
 {
+    [RoutePrefix("api")]
     public class CompanyController : BaseController
     {
         private readonly ICompanyService _companyService;
-        private readonly ICompanyFactory _companyFactory;
+        private readonly IConfigurationFactory _configurationFactory;
 
         public CompanyController(IConfigurationFactory configurationFactory, 
-            ICompanyService companyService, 
-            ICompanyFactory companyFactory) : base(configurationFactory)
+            ICompanyService companyService) : base(configurationFactory)
         {
+            _configurationFactory = configurationFactory;
             _companyService = companyService;
-            _companyFactory = companyFactory;
         }
 
-        public IHttpActionResult Get(int id)
+        [Route("user/{userId}/company/{companyId}")]
+        public IHttpActionResult Get(int userId, int companyId)
         {
-            var company = _companyService.Get(id);
-            if (company == null)
+            var companyDTOs = _companyService.GetCompanyAsMember(companyId, userId);
+            if (companyDTOs == null)
             {
-                return BadRequest("No company found..");
+                return BadRequest($"No companies found..");
             }
 
-            var companyDTO = _companyFactory.Create(company);
-            return Ok(company.Name);
+            return Ok(companyDTOs);
+        }
+
+        [Route("user/{userId}/company")]
+        public IHttpActionResult Get(int userId)
+        {
+            var companyDTOs = _companyService.GetCompaniesAsMember(userId);
+            if (companyDTOs == null)
+            {
+                return BadRequest($"No companies found..");
+            }
+
+            return Ok(companyDTOs);
         }
     }
 }

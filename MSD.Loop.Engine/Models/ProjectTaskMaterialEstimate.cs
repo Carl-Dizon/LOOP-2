@@ -9,8 +9,12 @@ namespace MSD.Loop.Engine.Models
     public class ProjectTaskMaterialEstimate
     {
         public int Id { get; set; }
-        public ProjectTask Task { get; set; }
-        public CompanyProjectTaskUser EstimatedBy { get; set; }
+
+        //projecttask
+        public int TaskId { get; set; }
+
+        //companyprojecttaskuser
+        public int EstimatedById { get; set; }
 
         public float Estimate { get; set; }
         public float RemainingEstimate { get; set; }

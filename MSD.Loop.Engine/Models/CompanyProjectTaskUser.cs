@@ -8,9 +8,15 @@ namespace MSD.Loop.Engine.Models
     public class CompanyProjectTaskUser
     {
         public int Id { get; set; }
-        public CompanyProjectUser Assignee { get; set; }
-        public ProjectTask ProjectTask{ get; set; }
-        public User AssignedBy { get; set; }
+
+        //companyprojectuser
+        public int AssigneeId { get; set; }
+        
+        //projecttask
+        public int ProjectTaskId { get; set; }
+
+        //companyuser
+        public int AssignedById { get; set; }
         
         public DateTime AssignedOn { get; set; }
 

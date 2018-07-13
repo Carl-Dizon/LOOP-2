@@ -9,8 +9,8 @@ namespace MSD.Loop.Engine.Models
     public class CompanyProjectArea
     {
         public int Id { get; set; }
-        public Company Company{ get; set; }
-        public User CreatedBy { get; set; }
+        public int CompanyId { get; set; }
+        public int CreatedById { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
 

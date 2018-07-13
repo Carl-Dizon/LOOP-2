@@ -8,9 +8,12 @@ namespace MSD.Loop.Engine.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public CompanyProject Project { get; set; }
 
-        public CompanyProjectUser CreatedBy { get; set; }
+        //companyproject
+        public int ProjectId { get; set; }
+
+        //companyprojectuser
+        public int CreatedById { get; set; }
         public TimeSpan Duration { get; set; }
 
         public virtual List<CompanyProjectTaskUser> Assignees { get; set; }

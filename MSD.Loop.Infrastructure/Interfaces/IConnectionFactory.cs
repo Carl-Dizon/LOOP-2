@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace MSD.Loop.Engine.Interfaces
+namespace MSD.Loop.Infrastructure.Interfaces
 {
     public interface IConnectionFactory
     {

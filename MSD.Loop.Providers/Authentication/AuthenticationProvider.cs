@@ -7,10 +7,6 @@ namespace MSD.Loop.Providers.Authentication
 {
     public class AuthenticationProvider : IAuthenticationProvider
     {
-        private readonly IUnitOfWork _uow;
-        public AuthenticationProvider(IUnitOfWork uow)
-        {
-            _uow = uow;
-        }
+       
     }
 }

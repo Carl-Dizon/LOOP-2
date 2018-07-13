@@ -47,13 +47,19 @@
     <Compile Include="Interfaces\ITaskService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\ProjectService.cs" />
+    <Compile Include="Services\RoleService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MSD.Loop.Common\MSD.Loop.Common.csproj">
       <Project>{312E1C8F-AE31-4310-A1E4-EB93291C4A01}</Project>
       <Name>MSD.Loop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.DTO\MSD.Loop.DTO.csproj">
+      <Project>{3308d94d-2b88-4091-b24a-6c7aca4e0565}</Project>
+      <Name>MSD.Loop.DTO</Name>
     </ProjectReference>
     <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
       <Project>{809278e4-4bbe-42f9-8e61-73c3f87c57cf}</Project>

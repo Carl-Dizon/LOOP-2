@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BFF7FDAF-6A64-4872-BACE-07FD48D84ED8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSD.Loop.Repository</RootNamespace>
+    <AssemblyName>MSD.Loop.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\AccessLevelPermissionRepository.cs" />
+    <Compile Include="Data\AccessLevelRepository.cs" />
+    <Compile Include="Data\BaseRepository.cs" />
+    <Compile Include="Data\CompanyAccessRoleRepository.cs" />
+    <Compile Include="Data\CompanyMaterialStockRepository.cs" />
+    <Compile Include="Data\CompanyProjectAreaRepository.cs" />
+    <Compile Include="Data\CompanyProjectRepository.cs" />
+    <Compile Include="Data\CompanyProjectUserRoleRepository.cs" />
+    <Compile Include="Data\CompanyRepository.cs" />
+    <Compile Include="Data\CompanyUserRepository.cs" />
+    <Compile Include="Data\CompanyUserRoleRepository.cs" />
+    <Compile Include="Data\PermissionRepository.cs" />
+    <Compile Include="Data\ProjectTaskMaterialRepository.cs" />
+    <Compile Include="Data\ProjectTaskRepository.cs" />
+    <Compile Include="Data\ProjectTaskUserRepository.cs" />
+    <Compile Include="Data\ProjectTaskWorkRepository.cs" />
+    <Compile Include="Data\ProjectUserRepository.cs" />
+    <Compile Include="Data\UnitOfWork.cs" />
+    <Compile Include="Data\UserRepository.cs" />
+    <Compile Include="Data\ApplicationSettingRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MSD.Loop.Engine\MSD.Loop.Engine.csproj">
+      <Project>{809278e4-4bbe-42f9-8e61-73c3f87c57cf}</Project>
+      <Name>MSD.Loop.Engine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MSD.Loop.Infrastructure\MSD.Loop.Infrastructure.csproj">
+      <Project>{343601de-f09c-42c6-b936-a3b1de7c7909}</Project>
+      <Name>MSD.Loop.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Scripts\" />
+    <Folder Include="Data\StoredProcs\" />
+    <Folder Include="Data\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

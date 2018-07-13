@@ -1,13 +1,14 @@
-﻿using System;
+﻿using MSD.Loop.Engine.Configurations;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSD.Loop.Engine.Interfaces
 {
     public interface IAppSettingsProvider
     {
-
+        void Initialize();
+        ApplicationSetting CreateSetting(string name);
+        void DeleteSetting(string name);
+        void DeleteSetting(ApplicationSetting role);
+        IEnumerable<ApplicationSetting> GetAllSettings();
     }
 }
