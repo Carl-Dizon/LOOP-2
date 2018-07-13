@@ -56,7 +56,6 @@ namespace MSD.Loop.API.IoC
 
             unityContainer.RegisterType<ICompanyProjectAreaRepository, CompanyProjectAreaRepository>();
             unityContainer.RegisterType<ICompanyService, CompanyService>();
-            unityContainer.RegisterType<IRoleService, RoleService>();
             unityContainer.RegisterType<ICompanyFactory, CompanyFactory>();
             unityContainer.RegisterType<IUserFactory, UserFactory>();
             

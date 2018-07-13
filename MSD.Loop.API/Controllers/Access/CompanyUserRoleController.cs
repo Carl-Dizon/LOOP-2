@@ -1,8 +1,4 @@
-﻿using MSD.Loop.Business.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using MSD.Loop.Engine.Interfaces;
 using System.Web.Http;
 
 namespace MSD.Loop.API.Controllers.Access
@@ -10,10 +6,10 @@ namespace MSD.Loop.API.Controllers.Access
     [RoutePrefix("api")]
     public class CompanyUserRoleController : ApiController
     {
-        private readonly IRoleService _roleService;
-        public CompanyUserRoleController(IRoleService roleService)
+        private readonly IRoleProvider _roleManager;
+        public CompanyUserRoleController(IRoleProvider roleManager)
         {
-            _roleService = roleService;
+            _roleManager = roleManager;
         }
 
         /// <summary>
@@ -23,7 +19,6 @@ namespace MSD.Loop.API.Controllers.Access
         [Route("user/{userId}/company/{companyId}/role")]
         public IHttpActionResult Get(int userId, int companyId)
         {
-            var test = _roleService.InitializeDatabase();
             return Ok();
         }
 
