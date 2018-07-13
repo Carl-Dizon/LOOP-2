@@ -118,7 +118,17 @@
         "areaName": "Brickwork",
         "taskId":3,
         "hoursLogged":8,
-        "timeStamp":"08-11-2018"
+        "timeStamp":"08-13-2018"
+    },
+    {
+        "id":7,
+        "userId":1,
+        "projectId":4,
+        "areaId":2,
+        "areaName": "Construction",
+        "taskId":3,
+        "hoursLogged":16,
+        "timeStamp":"08-14-2018"
     }
     
 

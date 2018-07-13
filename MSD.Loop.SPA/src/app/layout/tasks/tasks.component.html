@@ -1,9 +1,30 @@
-<div class="row">
-    <div class="col-xl-12 text-xs-center">
-        <div class="card mb-3">
-            <div class="card-body">
-                ADD TASK
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal-header">
+    <h4 class="modal-title">Add Task</h4>
+    <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form role="form" [formGroup]="taskForm" [hidden]="success" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="taskID">
+        <input type="hidden" formControlName="image" value="environment.defaultProjectImagePlaceholder">
+      <fieldset class="form-group">
+          <label>Task Name</label>
+          <input class="form-control" placeholder="Enter Task Name" formControlName="taskName">
+      </fieldset>
+  
+      <fieldset class="form-group">
+          <label>Assignee</label>
+          <input class="form-control" placeholder="Enter Assignee" formControlName="Assignee">
+      </fieldset>
+  
+      <fieldset class="form-group">
+          <label>Hour Estimate</label>
+          <input class="form-control" placeholder="Enter Hour Estimate" formControlName="hourEstimate">
+          <input type="hidden" name="image" id="image" value="environment.defaultProjectImagePlaceholder">
+      </fieldset>
+
+      <!-- <button type="submit" class="btn btn-success" [disabled]="userForm.invalid">Submit</button> -->
+      <button type="submit" class="btn btn-success" >Submit</button>
+  </form>
+  </div>

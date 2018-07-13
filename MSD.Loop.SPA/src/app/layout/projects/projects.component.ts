@@ -44,39 +44,9 @@ export class ProjectsComponent implements OnInit {
         this.sub = this.route.params.subscribe(params => {
             this.id = params['id'];
         });
-        // console.log(this.projects);
-        // this.projects = this.projectService.getProjects();
         this.projectService.getProjects().then(data => this.projects = data);
-        // this.tasktService.getTasks().then(data => this.tasks = data);
-        // this._userService.getUsers().then(data => this.users = data);
         this.loghourlist.getLogHours().then(hours => this.loghours = hours);
-        this.projectService.getProjects().then(project => {
-            for (let i = 0; i < project.length; i++) {
-
-                this.loghourlist.getLogHours().then(loghour => {
-                    this.totalhourlogged = 0;
-                    _.forEach(loghour, dat => {
-                        if (+dat.projectId === i + 1) {
-                            this.totalhourlogged += dat.hoursLogged;
-                            // console.log(this.totalhourlogged);
-                        }
-                    });
-                    this.perprojectpercentage.push(this.totalhourlogged);
-                });
-
-            }
-
-            this.tasktService.getTasks().then(task => {
-                for (let i = 0; i < project.length; i++) {
-                    if (project[i].hourEstimate > 0) {
-                    this.pertaskhours.push(project[i].hourEstimate);
-                    }
-
-                }
-                console.log( this.pertaskhours);
-            });
-        });
-
+        this.loadServices();
     }
     navigateTo(value) {
         if (value) {
@@ -112,12 +82,42 @@ export class ProjectsComponent implements OnInit {
     }
     openCreateUserModal() {
         this._modalService.open(ProjectsFormComponent).result.then((result) => {
-            //     const id = +this.users[this.users.length - 1].id + 1;
-            //     result.id = `${id}`;
             console.log(result);
             this.projects.push(result);
+            this.loadServices();
         }, (reason) => {
             console.log(reason);
+        });
+    }
+
+    loadServices() {
+        this.projectService.getProjects().then(project => {
+            for (let i = 0; i < project.length; i++) {
+
+                this.loghourlist.getLogHours().then(loghour => {
+                    this.totalhourlogged = 0;
+                    _.forEach(loghour, dat => {
+                        if (+dat.projectId === i + 1) {
+                            this.totalhourlogged += dat.hoursLogged;
+                            // console.log(this.totalhourlogged);
+                        }
+                    });
+                    this.perprojectpercentage.push(this.totalhourlogged);
+                });
+
+            }
+            console.log(this.perprojectpercentage);
+            this.tasktService.getTasks().then(task => {
+                for (let i = 0; i < project.length; i++) {
+                    if (project[i].hourEstimate > 0) {
+                    this.pertaskhours.push(project[i].hourEstimate);
+                    }
+
+                }
+
+            });
+            console.log(this.pertaskhours);
+            console.log(this.getAreaPercentage(this.perprojectpercentage[0], this.pertaskhours[0]));
         });
     }
 }
